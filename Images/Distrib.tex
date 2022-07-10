@@ -1,0 +1,60 @@
+\documentclass[]{standalone}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows, calc, patterns, positioning,shapes}
+\usetikzlibrary{decorations.pathmorphing}
+
+\tikzset{modal/.style={>=stealth',shorten >=1pt,auto, node distance=1.5cm, thick},
+         world/.style={circle,draw,minimum size=1.5cm,fill=HSEblue!1},
+         worldr/.style={circle,draw,minimum size=1.5cm,fill=red!15},
+         worldo/.style={circle,draw,minimum size=1.5cm,fill=orange!15},
+         worldg/.style={circle,draw,minimum size=1.5cm ,fill=green!15},
+         point/.style={circle,draw,inner sep=0.5mm,fill=black},
+         n/.style={circle,draw=none,minimum size=1.6cm},
+         n1/.style={draw=none},
+         reflexive above/.style={->,loop,looseness=6,in=110,out=70},
+         reflexive below/.style={->,loop,looseness=7,in=240,out=300},
+         reflexive left/.style={->,loop,looseness=6,in=160 ,out=200},
+         reflexive right/.style={->,loop,looseness=6,in=20,out=340},
+         reflexive/.style={->, loop, looseness=20, in=160, out=220}
+         } 
+         
+\tikzstyle{worldm}=[circle,draw,minimum size=0.5cm,fill=HSEblue!1]
+
+\begin{document}
+
+\begin{tikzpicture}[node distance=2.5cm]
+\node[point] (x) 
+[label=below :{$x$}]
+[label=above :{$p$}] {};
+\node[point] (y)[above right  of=x] 
+[label=below:{$y$}]
+[label=above:{$q$}] {};
+\node[point] (w) [below right  of=y]
+[label=below :{$w$}]
+[label=above :{$p$}] {};
+\node[point] (z) [below left  of=w] 
+[label=above:{$z$}]
+[label=below:{$q$}] {};
+		
+\path[-] (x) edge  node[left]  {$a$} (y);
+\path[-] (y) edge  node[right] {$b$} (w);
+\path[-] (x) edge  node[left]  {$b$} (z);
+\path[-] (z) edge  node[right] {$a$} (w);
+%\path[-] (x) edge[dashed] (w);
+%\path[-] (y) edge[dashed] (z);
+		
+		
+		\node[point] (x') [right of=w] [label=below:{$x'$}]
+		 [label=above:{$p$}]
+ {};
+		\node[point] (y') [right of=x'] [label=below:{$y'$}]
+		 [label=above:{$q$}]
+ {};
+ 
+ 	\path[-] (x') edge  node[above] {$ab$} (y');
+		
+\end{tikzpicture}
+		
+\end{document}
+

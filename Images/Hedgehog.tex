@@ -1,0 +1,105 @@
+\documentclass[]{standalone}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows, calc, patterns, positioning,shapes}
+\usetikzlibrary{decorations.pathmorphing}
+
+\tikzset{modal/.style={>=stealth',shorten >=1pt,auto, node distance=1.5cm, thick},
+         world/.style={circle,draw,minimum size=1.5cm,fill=HSEblue!1},
+         worldr/.style={circle,draw,minimum size=1.5cm,fill=red!15},
+         worldo/.style={circle,draw,minimum size=1.5cm,fill=orange!15},
+         worldg/.style={circle,draw,minimum size=1.5cm ,fill=green!15},
+         point/.style={circle,draw,inner sep=0.5mm,fill=black},
+         n/.style={circle,draw=none,minimum size=1.6cm},
+         n1/.style={draw=none},
+         reflexive above/.style={->,loop,looseness=6,in=110,out=70},
+         reflexive below/.style={->,loop,looseness=7,in=240,out=300},
+         reflexive left/.style={->,loop,looseness=6,in=160 ,out=200},
+         reflexive right/.style={->,loop,looseness=6,in=20,out=340},
+         reflexive/.style={->, loop, looseness=20, in=160, out=220}
+         } 
+         
+\tikzstyle{worldm}=[circle,draw,minimum size=0.5cm,fill=HSEblue!1]
+
+
+\begin{document}
+
+\begin{tikzpicture}[node distance=1.5cm]
+		\node[point] (x)  [label=below left:{$x$}] {};
+		\node[point] (z) [above of = x]  {};
+		\node[point] (z1) [above of = z]  {};
+		\node[point] (z2) [above of = z1]  {};
+		
+		\node[point] (y) [above left  of = x ]  {};
+		\node[point] (y1) [above left of = y ]  {};
+		
+		\node[point] (w) [left  of = x ]  {};
+	
+		\node[point] (u) [above right of = x ]  {};	
+		\node[point] (u1) [above right of = u ]  {};
+		\node[point] (u2) [above right of = u1 ]  {};
+		\node[point] (u3) [above right of = u2 ]  {};
+		
+		\node[] (dots) [right of = u ]  {$\dots$};	
+		
+	    \path[->] (x) edge node[left]{} (z);
+		\path[->] (z) edge node[left]{} (z1);
+		\path[->] (z1) edge node[left]{} (z2);
+		
+		\path[->] (x) edge node[left]{} (y);
+		\path[->] (y) edge node[left]{} (y1);
+
+		\path[->] (x) edge node[left]{} (w);		
+		
+		\path[->] (x) edge node[left]{} (u);
+		\path[->] (u) edge node[left]{} (u1);
+		\path[->] (u1) edge node[left]{} (u2);
+		\path[->] (u2) edge node[left]{} (u3);
+\end{tikzpicture}
+
+\begin{tikzpicture}[node distance=1.5cm]
+		\node[point] (x)  [label=below left:{$x'$}] {};
+		\node[point] (z) [above of = x]  {};
+		\node[point] (z1) [above of = z]  {};
+		\node[point] (z2) [above of = z1]  {};
+		
+		\node[point] (y) [above left  of = x ]  {};
+		\node[point] (y1) [above left of = y ]  {};
+		
+		\node[point] (w) [left  of = x ]  {};
+	
+		\node[point] (u) [above right of = x ]  {};	
+		\node[point] (u1) [above right of = u ]  {};
+		\node[point] (u2) [above right of = u1 ]  {};
+		\node[point] (u3) [above right of = u2 ]  {};
+		
+		\node[point] (v) [right of = x ]  {};
+		\node[point] (v1) [right of = v ]  {};
+		\node[point] (v2) [right of = v1 ]  {};
+		\node[] (v3) [right of = v2 ]  {$\dots$};
+		
+		\node[] (dots) [right of = u ]  {$\dots$};	
+		
+	    \path[->] (x) edge node[left]{} (z);
+		\path[->] (z) edge node[left]{} (z1);
+		\path[->] (z1) edge node[left]{} (z2);
+		
+		\path[->] (x) edge node[left]{} (y);
+		\path[->] (y) edge node[left]{} (y1);
+
+		\path[->] (x) edge node[left]{} (w);		
+		
+		\path[->] (x) edge node[left]{} (u);
+		\path[->] (u) edge node[left]{} (u1);
+		\path[->] (u1) edge node[left]{} (u2);
+		\path[->] (u2) edge node[left]{} (u3);
+
+     	\path[->] (x) edge node[left]{} (v);
+     	\path[->] (v) edge node[left]{} (v1);
+     	\path[->] (v1) edge node[left]{} (v2);
+     	\path[->] (v2) edge node[left]{} (v3);
+     
+\end{tikzpicture}
+		
+\end{document}
+
