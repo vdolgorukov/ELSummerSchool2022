@@ -88,32 +88,34 @@ $cl_1(\varphi) \subset cl_2(\varphi) \subset cl_3 (\varphi) \subset cl(\varphi)$
 \end{block}
 }
 
-
+%TODO добавить q и ~q!
 \frame{
 \begin{exampleblock}{Пример $cl_1(\varphi) \subset cl_2(\varphi) \subset cl_3 (\varphi) \subset cl(\varphi)$}
 \centering 
-\scalebox{0.8}{
+\scalebox{0.75}{
 \begin{tabular}{|c|c|c|c|c|}
 \hline
-$\varphi$               & $cl_1(\varphi)$         & $cl_2(\varphi)$                  & $cl_3(\varphi)$                 & $cl(\varphi)$                   \\ \hline
+$\varphi$               & $cl_1(\varphi)$         & $cl_2(\varphi)$                 & $cl_3(\varphi)$                 & $cl(\varphi)$                   \\ \hline
 $\neg p \wedge C_{ab}q$ & $\neg p \wedge C_{ab}q$ & $\neg p \wedge C_{ab}q$         & $\neg p \wedge C_{ab}q$         & $ \neg p \wedge C_{ab}q$        \\ \hline
+                        &                         & $\neg (\neg p \wedge C_{ab} q)$ & $\neg (\neg p \wedge C_{ab} q)$ & $\neg (\neg p \wedge C_{ab} q)$ \\ \hline
                         & $\neg p$                & $\neg p$                        & $\neg p$                        & $\neg p$                        \\ \hline
                         & $p$                     & $p$                             & $p$                             & $p$                             \\ \hline
                         & $C_{ab}q$               & $C_{ab}q$                       & $C_{ab}q$                       & $C_{ab}q$                       \\ \hline
-                        & $K_a C_{ab}q$           & $K_a C_{ab}q$                   & $K_a C_{ab}q$                   & $K_a C_{ab}q$                   \\ \hline
-                        & $K_bC_{ab}q$            & $K_bC_{ab}q$                    & $K_bC_{ab}q$                    & $K_bC_{ab}q$                    \\ \hline
-                        &                         & $\neg (\neg p \wedge C_{ab} q)$ & $\neg (\neg p \wedge C_{ab} q)$ & $\neg (\neg p \wedge C_{ab} q)$ \\ \hline
                         &                         & $\neg C_{ab}q$                  & $\neg C_{ab}q$                  & $\neg C_{ab}q$                  \\ \hline
+                        & $q$                     & $q$                             & $q$                             & $q$                             \\ \hline
+                        &                         & $\neg q$                        & $\neg q$                        & $\neg q$                        \\ \hline
+                        & $K_a C_{ab}q$           & $K_a C_{ab}q$                   & $K_a C_{ab}q$                   & $K_a C_{ab}q$                   \\ \hline
                         &                         & $\neg K_a C_{ab}q$              & $\neg K_a C_{ab}q$              & $\neg K_a C_{ab}q$              \\ \hline
+                        & $K_bC_{ab}q$            & $K_bC_{ab}q$                    & $K_bC_{ab}q$                    & $K_bC_{ab}q$                    \\ \hline
                         &                         & $\neg K_bC_{ab}q$               & $\neg K_bC_{ab}q$               & $\neg K_bC_{ab}q$               \\ \hline
                         &                         &                                 & $K_a K_a C_{ab}q$               & $K_a K_a C_{ab}q$               \\ \hline
-                        &                         &                                 & $K_a \neg K_a C_{ab}q$          & $K_a \neg K_a C_{ab}q$          \\ \hline
-                        &                         &                                 & $K_b K_b C_{ab}q$               & $K_b K_b C_{ab}q$               \\ \hline
-                        &                         &                                 & $K_b \neg K_b C_{ab}q$          & $K_b \neg K_b C_{ab}q$          \\ \hline
                         &                         &                                 &                                 & $\neg K_a K_a C_{ab}q$          \\ \hline
+                        &                         &                                 & $K_a \neg K_a C_{ab}q$          & $K_a \neg K_a C_{ab}q$          \\ \hline
                         &                         &                                 &                                 & $\neg K_a \neg K_a C_{ab}q$     \\ \hline
-                        &                         &                                 &                                 & $\neg K_b K_b C_{ab}q$          \\ \hline
-                        &                         &                                 &                                 & $\neg K_b \neg K_b C_{ab}q$     \\ \hline
+                        &                         &                                 & $K_b K_b C_{ab}q$               & $K_b K_b C_{ab}q$               \\ \hline
+                        &                         &                                 &                                 & $\neg K_b  K_b C_{ab}q$         \\ \hline
+                        &                         &                                 & $K_b \neg K_b C_{ab}q$          & $K_b \neg K_b C_{ab}q$          \\ \hline
+                        &                         &                                 &                                 & $K_b \neg K_b C_{ab}q$          \\ \hline
 \end{tabular}
 }	
 \end{exampleblock}
