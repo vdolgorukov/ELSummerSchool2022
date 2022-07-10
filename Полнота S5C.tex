@@ -63,29 +63,87 @@ $\models_{S5C} \varphi \iff \vdash_{S5C} \varphi $
 \end{block}
 }
 
-%TODO исправить замыкание
-\frame{\frametitle{Замыкание $cl(\varphi)$}
-Исправить: добавить $K_i$ и $K_i \neg K_i$
-\begin{block}{Определение. Замыкание}
-Пусть $cl: ELC \mapsto \mathcal{P}(ELC )$ функция т.ч. $cl(\varphi)$ – наименьшее множество, удовлетворяющее следующим условиям:
-\begin{enumerate}
-\item $Sub(\varphi) \subseteq cl(\varphi)$
-\item если $\psi \in cl(\varphi)$ и $\psi$ не начитается с $\neg$, то 
-$\neg \psi \in cl(\varphi)$
-\item если $C_G \psi \in cl(\varphi)$, то $\{K_i C_G \psi \mid i \in G \} \subseteq cl(\varphi)$
-\end{enumerate}
-
+%TODO разобраться c \neg \Gamma и умным отрицанием
+\frame{\frametitle{Замыкание}
+\begin{block}{Обозначение}
+$\Gamma \subseteq L_{CK}$, определим
+	$\neg \Gamma := \{\neg \varphi \mid \varphi \in \Gamma \text{ и } \varphi \text{ не начинается с } "\neg" \}$.
+Пример: пусть $\Gamma = \{p, \neg K_i q, r, \neg s\}$, тогда $\neg \Gamma = \{\neg p, \neg r\}$	
 \end{block}
 
-\begin{exampleblock}{Пример}
-\begin{itemize}
-\item $cl(C_{ab}p) = \{p, \neg p, C_{ab}p, \neg C_{ab}p, K_a C_{ab}p, \neg K_a C_{ab}p,  K_b C_{ab}p, \neg K_b C_{ab}p \}$
-\end{itemize}
+\begin{block}{Определение. Замыкание $cl(\varphi)$}
+Для $\varphi \in L_{KC}$ определим четыре множества:
+$cl_0(\varphi) \subset cl_1(\varphi) \subset cl_2 (\varphi) \subset cl(\varphi)$.
+\begin{description}
+\item[$cl_0(\varphi)$] – наименьшее множество, замкнутое по следующим правилам:
+\begin{enumerate}
+\item $\varphi \in cl_0(\varphi)$
+\item если $\psi \in cl_0(\varphi)$, то $Sub(\psi) \subseteq cl_0(\varphi)$
+\item если $C_G \psi \in cl_0(\varphi)$, то $\{K_i C_G \psi \mid i \in G \} \subseteq cl_0(\varphi)$	
+\end{enumerate}
+\item[$cl_1(\varphi)$]$:= cl_0(\varphi) \cup \neg cl_0(\varphi)$	 
+\item[$cl_2(\varphi)$]$:= cl_1(\varphi) \cup \{K_i K_i \psi \mid K_i \psi \in cl_1(\varphi) \} \cup \{K_i \neg K_i \psi \mid \neg K_i \psi \in cl_1(\varphi) \}$	
+\item[$cl(\varphi)$]$:=cl_2(\varphi) \cup \neg cl_2(\varphi)$
+\end{description}
+\end{block}
+}
+
+\frame{
+%\begin{exampleblock}{Пример}
+%\begin{itemize}
+%\item[$\varphi$] $= \neg p \wedge C_{ab}q$ 
+%\item[$cl_0(\varphi)$] $= \{\neg p \wedge C_{ab}q,\neg p, p,   C_{ab}q, K_a C_{ab}q, K_bC_{ab}q\} $ 	
+%\item[$cl_1(\varphi)$]$ = \{\neg p \wedge C_{ab} q, \alert{\neg (\neg p \wedge C_{ab} q)}, \neg p, p, C_{ab}q, \alert{\neg C_{ab}q}, K_a C_{ab}q, \alert{\neg K_a C_{ab}q}, K_bC_{ab}q, \alert{\neg K_bC_{ab}q} \} $
+%\item[$cl_2(\varphi)$] $= \{ \neg p \wedge C_{ab} q, \neg (\neg p \wedge C_{ab} q), \neg p, p, C_{ab}q, \neg C_{ab}q, K_a C_{ab}q, \alert{K_a} K_a C_{ab}q, \neg K_a C_{ab}q, \alert{K_a} \neg K_a C_{ab}q, $ \\
+%$K_b C_{ab}q, \alert{K_b} K_b C_{ab}q, \neg K_b C_{ab}q, \alert{K_b} \neg K_b C_{ab}q \}$ 
+%\item[$cl(\varphi)$] $= \{ 
+%\neg p \wedge C_{ab} q,
+%\neg (\neg p \wedge C_{ab} q),
+%\neg p,
+%p,
+%C_{ab}q,
+%\neg C_{ab}q,
+% K_a C_{ab}q, K_a K_a C_{ab}q, \alert{\neg K_a K_a C_{ab}q},  \neg K_a C_{ab}q,$ \\ $K_a \neg K_a C_{ab}q, \alert{\neg K_a \neg K_a C_{ab}q}, K_b C_{ab}q, K_b K_b C_{ab}q, \alert{\neg K_b K_b C_{ab}q},   \neg K_b C_{ab}q, K_b \neg K_b C_{ab}q,$\\ $\alert{\neg K_b \neg K_b C_{ab}q} \}$ 
+%\end{itemize}
+%
+%\end{exampleblock}
+
+
+	
+\begin{block}{Утверждение}
+Для любого $\varphi \in L_{KC}$: $cl(\varphi)$ – конечно
+\end{block}
+}
+
+\frame{
+\begin{exampleblock}{Пример $cl_0(\varphi) \subset cl_1(\varphi) \subset cl_2 (\varphi) \subset cl(\varphi)$}
+\centering 
+\scalebox{0.8}{
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+$\varphi$               & $cl_0(\varphi)$         & $cl_1(\varphi)$                  & $cl_2(\varphi)$                 & $cl(\varphi)$                   \\ \hline
+$\neg p \wedge C_{ab}q$ & $\neg p \wedge C_{ab}q$ & $\neg p \wedge C_{ab}q$         & $\neg p \wedge C_{ab}q$         & $ \neg p \wedge C_{ab}q$        \\ \hline
+                        & $\neg p$                & $\neg p$                        & $\neg p$                        & $\neg p$                        \\ \hline
+                        & $p$                     & $p$                             & $p$                             & $p$                             \\ \hline
+                        & $C_{ab}q$               & $C_{ab}q$                       & $C_{ab}q$                       & $C_{ab}q$                       \\ \hline
+                        & $K_a C_{ab}q$           & $K_a C_{ab}q$                   & $K_a C_{ab}q$                   & $K_a C_{ab}q$                   \\ \hline
+                        & $K_bC_{ab}q$            & $K_bC_{ab}q$                    & $K_bC_{ab}q$                    & $K_bC_{ab}q$                    \\ \hline
+                        &                         & $\neg (\neg p \wedge C_{ab} q)$ & $\neg (\neg p \wedge C_{ab} q)$ & $\neg (\neg p \wedge C_{ab} q)$ \\ \hline
+                        &                         & $\neg C_{ab}q$                  & $\neg C_{ab}q$                  & $\neg C_{ab}q$                  \\ \hline
+                        &                         & $\neg K_a C_{ab}q$              & $\neg K_a C_{ab}q$              & $\neg K_a C_{ab}q$              \\ \hline
+                        &                         & $\neg K_bC_{ab}q$               & $\neg K_bC_{ab}q$               & $\neg K_bC_{ab}q$               \\ \hline
+                        &                         &                                 & $K_a K_a C_{ab}q$               & $K_a K_a C_{ab}q$               \\ \hline
+                        &                         &                                 & $K_a \neg K_a C_{ab}q$          & $K_a \neg K_a C_{ab}q$          \\ \hline
+                        &                         &                                 & $K_b K_b C_{ab}q$               & $K_b K_b C_{ab}q$               \\ \hline
+                        &                         &                                 & $K_b \neg K_b C_{ab}q$          & $K_b \neg K_b C_{ab}q$          \\ \hline
+                        &                         &                                 &                                 & $\neg K_a K_a C_{ab}q$          \\ \hline
+                        &                         &                                 &                                 & $\neg K_a \neg K_a C_{ab}q$     \\ \hline
+                        &                         &                                 &                                 & $\neg K_b K_b C_{ab}q$          \\ \hline
+                        &                         &                                 &                                 & $\neg K_b \neg K_b C_{ab}q$     \\ \hline
+\end{tabular}
+}	
 \end{exampleblock}
 
-\begin{block}{Утверждение}
-Для любого $\varphi \in ELC$: $cl(\varphi)$ – конечно
-\end{block}
 }
 
 \frame{\frametitle{Максимальность и непротиворечивость}
@@ -124,6 +182,27 @@ $\neg \psi \in cl(\varphi)$
 
 }
 
+\frame{\frametitle{к.м. vs. к.к.м.}
+\begin{mydef} Пусть $X \subseteq L_{CK}, L \in \{K^C_m, S4^C_m, S5^C_m, \dots \}$, определим \alert{множество следствий}
+\begin{center}
+$\alert{[X]_L}:= \{ \varphi \in L_{CK} \mid X \vdash_L \varphi \} $	
+\end{center}
+ 
+\begin{block}{Утверждение.$[X]_L$ в к.м. ($M^c$)} Если $X \in W^c$, то
+$[X]_L \subseteq X$. Более того: $[X]_L = X$
+\end{block}
+
+\begin{block}{Утверждение. $[X]_L$ в к.к.м. ($M^\Phi$)} Если $X \in W^\Phi$, то не гарантируется, что
+$[X]_L \subseteq X$, но верно, что $[X]_L \cap \Phi \subseteq X$. Более того: $[X]_L \cap \Phi = X$.
+\end{block} 
+	
+\end{mydef}
+
+	
+
+
+}
+
 \frame{\frametitle{Схема доказательства}
 \begin{block}{Теорема о корректности и полноте исчисления $S5C$}
 \begin{center}
@@ -137,13 +216,53 @@ $\not \vdash_{S5C} \varphi \Rightarrow  \neg \varphi \not   \vdash_{S5C} \bot \R
 \end{center}
 Нужно доказать: 
 \begin{itemize}
-\item Лемма об истинности
 \item Каноничность $M^\Phi \in S5$
+\item Лемма об истинности
 \end{itemize}
 \end{proof}
 \end{block}
 }
 
+
+\frame{\frametitle{Каноничность к.к.м.}
+
+\begin{block}{Определение} Класс моделей $S5$.	
+\end{block}
+
+
+\begin{block}{Лемма}
+$M^\Phi \in S5$, то есть, $\sim^\Phi_i$ – рефлексивно, симметрично и транзитивно.
+\end{block}
+}
+
+\frame{\frametitle{Рефлексивность $\sim^\Phi_i$ }
+\alert{$\blacktriangleright$} 
+\begin{center}
+\begin{fitch}
+%1%
+\fh \fw{X} \; X \in W^\Phi & $\rhd \; X \sim^\Phi_i X
+	\Leftrightarrow \rhd \; \forall \varphi (K_i \varphi \in X \Rightarrow \varphi \in X)$ \\
+%2%
+	\fa \fh \fw{\varphi} \; K_i \varphi \in X & $\rhd \; \varphi \in X$ \\ 
+%3%
+	\fa \fa \varphi \in X & из 2, поскольку $\varphi \in \Phi$, $\vdash_{S5C} K_i \varphi \to \phi$ \\
+%4%
+	\fa \forall \varphi (K_i \varphi \in X \Rightarrow \varphi \in X) &  В$\forall\Rightarrow$(2-3)\\
+%5%
+	\fa X \sim^\Phi_i X & 4 по опр. $\sim^\Phi_i$ \\
+%6%
+	\forall X \in W^\Phi: X \sim^\Phi_i X & В$\forall$(1-5)
+\end{fitch} 
+\end{center}
+\alert{$\blacktriangleleft$} 
+}
+
+
+%\frame{\frametitle{Каноничность к.к.м.}
+%\begin{block}{Упражнение}
+%Докажите, что $\sim^\Phi_i$ – евклидово.
+%\end{block}
+%}
 
 \frame{\frametitle{Лемма об истинности}
 \begin{block}{Лемма}
@@ -367,46 +486,5 @@ $\boxed{\chi:= \bigvee \{ \underline{X'} \mid X' \in S \}}$
  }
 }
 
-
-
-\frame{\frametitle{Каноничность к.к.м.}
-
-\begin{block}{Определение} Класс моделей $S5$.	
-\end{block}
-
-
-\begin{block}{Лемма}
-$M^\Phi \in S5$, то есть, $\sim^\Phi_i$ – рефлексивно, симметрично и транзитивно.
-\end{block}
-}
-
-\frame{\frametitle{Рефлексивность $\sim^\Phi_i$ }
-\alert{$\blacktriangleright$} 
-\begin{center}
-\begin{fitch}
-%1%
-\fh \fw{X} \; X \in W^\Phi & $\rhd \; X \sim^\Phi_i X
-	\Leftrightarrow \rhd \; \forall \varphi (K_i \varphi \in X \Rightarrow \varphi \in X)$ \\
-%2%
-	\fa \fh \fw{\varphi} \; K_i \varphi \in X & $\rhd \; \varphi \in X$ \\ 
-%3%
-	\fa \fa \varphi \in X & из 2, поскольку $\varphi \in \Phi$, $\vdash_{S5C} K_i \varphi \to \phi$ \\
-%4%
-	\fa \forall \varphi (K_i \varphi \in X \Rightarrow \varphi \in X) &  В$\forall\Rightarrow$(2-3)\\
-%5%
-	\fa X \sim^\Phi_i X & 4 по опр. $\sim^\Phi_i$ \\
-%6%
-	\forall X \in W^\Phi: X \sim^\Phi_i X & В$\forall$(1-5)
-\end{fitch} 
-\end{center}
-\alert{$\blacktriangleleft$} 
-}
-
-
-%\frame{\frametitle{Каноничность к.к.м.}
-%\begin{block}{Упражнение}
-%Докажите, что $\sim^\Phi_i$ – евклидово.
-%\end{block}
-%}
 
 \end{document}
