@@ -1,218 +1,67 @@
 \input{header.tex}
 \usepackage{expl3,xparse}
 \usepackage{ebproof}
+\usepackage{mathtools} 
+\usepackage{extarrows} 
+
+\title{Полнота $PAL$}
 
 \begin{document}  \frame{\titlepage}
+\section{$PAL$}
 
-
-\section{Сравнение языков}
-
-
-\frame{\frametitle{Эпистемические языки}
-\begin{block}{Языки ($i \in Ag, G\subseteq Ag$)}
-\begin{tabular}{ll}
-$(EL)$   &    $ p \mid \neg \varphi \mid (\varphi_1 \wedge \varphi_2) \mid K_i \varphi$ \\
-$(ELE)$  &   $ p \mid \neg \varphi \mid (\varphi_1 \wedge \varphi_2) \mid K_i \varphi \mid E_G \varphi$\\
-$(ELD)$ &   $ p \mid \neg \varphi \mid (\varphi_1 \wedge \varphi_2) \mid K_i \varphi \mid D_G \varphi$\\
-$(ELC)$	&    $ p \mid \neg \varphi \mid (\varphi_1 \wedge \varphi_2) \mid K_i \varphi \mid C_G \varphi$
-\end{tabular} 
-\end{block}}
-
-\frame{\frametitle{Эквивалентность формул}
-\begin{block}{Определение}
-Будем говорить, что формулы $\varphi$  и $\psi$ эквивалентны в классе моделей $C$ (обозначение: <<$\varphi \equiv_C \psi$>>) е.т.е. 
-\begin{center}
-$\forall M \in C \forall x \in  D(M): M, x \models \varphi \iff M, x  \models \psi$		
-\end{center}
-Обозначение: $\varphi \equiv \psi := \varphi \equiv_K \psi$, где $K$ – класс всех моделей Крипке.
-\end{block}
-
-\begin{block}{Примеры}
-\begin{itemize}
-\item $(\Box p \wedge \Box (p \to q)) \equiv \Box (p \wedge q)$	
-\item $\Diamond \Box p \equiv_{S5} \Box p$, но $\Diamond \Box p \not \equiv_{S4} \Box p$
-\item $\Box \Box p \equiv_{S4} \Box p$, но $\Box \Box p \not \equiv \Box p$
-\end{itemize}
-\end{block}
+\frame{\frametitle{Язык $L_{K[]}$}
 }
 
-\frame{
-\begin{block}{Определение}
-Будем говорить, что формулы $\varphi$  и $\psi$ эквивалентны в классе моделей $C$ (обозначение: <<$\varphi \equiv_C \psi$>>) е.т.е. 
-\begin{center}
-$\forall M \in C \forall x \in  D(M): M, x \models \varphi \iff M, x  \models \psi$		
-\end{center}
-Обозначение: $\varphi \equiv \psi := \varphi \equiv_K \psi$, где $K$ – класс всех моделей Крипке.
-\end{block}
-\begin{block}{Утверждение}
+\frame{\frametitle{Семантика $PAL$}
+}
+
+\frame{\frametitle{Исчисление $PAL$}
+}
+
+\frame{\frametitle{Сложность формулы $c$}
+
+$\varphi \to K_i [!\varphi] \psi $ vs. $[!\varphi] K_i  \psi $
+
+\begin{mydef}[Сложность формулы] Определим функцию $c: L_{K[]} \mapsto \mathbb{N}$:
 \begin{enumerate}
-\item Если $\varphi \equiv_C \psi$ и $C' \subseteq C$, то $\varphi \equiv_{C'} \psi$
-\item Если $\varphi \not \equiv_C \psi$ и $C \subseteq C'$, то $ \varphi \not \equiv_{C'} \psi$	
-\end{enumerate}
-
-	
-\end{block}
-
+	\item $c(p):= 1$
+	\item $c(\neg \varphi):= c(\varphi) + 1$
+	\item $c(\varphi \wedge \psi) = max\{\varphi,\psi\} + 1$
+	\item $c(K_i \varphi):= c(\varphi) + 1$
+	\item $c([!\varphi]\psi):= (c(\varphi) + 4) \cdot c(\psi)$
+\end{enumerate}	
+\end{mydef}
 }
 
-\frame{\frametitle{Сравнение языков по выразительной силе}
-\begin{block}{Определение}
-Модальный язык $L_2$ является не менее выразительным, чем модальный язык $L_1$ в классе моделей Крипке $C$ (обозначение: <<$L_1 \sqsubseteq_{C} L_2$>>) е.т.е.  
-\begin{center}
-$\forall \varphi_1 \in L_1 \exists \varphi_2 \in L_2: \varphi_1 \equiv_C \varphi_2$
-\end{center}
-\end{block}
+\frame{\frametitle{Перевод}
+}
 
-\begin{block}{Cокращения}
+\frame{
+\begin{block}{Лемма об уменьшении сложности формулы}
 \begin{itemize}
-\item $L_1 \sqsubseteq L_2:= L_1 \sqsubseteq_{All} L_2$, где $All$ – класс всех моделей Крипке 
-\begin{multicols}{2}
-\item $L_1 \equiv_{C} L_2 := L_1 \sqsubseteq_{C} L_2 \text{ и } L_2  \sqsubseteq_{C} L_1 $
-\item $L_1 \sqsubset_{C} L_2 := L_1 \sqsubseteq_{C} L_2 \text{ и } L_2  \not \sqsubseteq_{C} L_1 $
-\item $L_1 \equiv  L_2 := L_1 \sqsubseteq  L_2 \text{ и } L_2  \sqsubseteq  L_1 $
-\item $L_1 \sqsubset L_2 := L_1 \sqsubseteq L_2 \text{ и } L_2  \not \sqsubseteq L_1 $
-\end{multicols}
+\item $c(\varphi) \geq c(\psi)$ для $\psi \in Sub(\varphi)$
+\item $c([!\varphi]p) > c(\varphi \to p)$ 
+\item $c([!\varphi]\neg \psi) > c(\varphi \to \neg [!\varphi] \psi)$
+\item $c([!\varphi][!\psi]\chi) > c([!\varphi]tr([!\psi]\chi))$ 
 \end{itemize}
 \end{block}
 }
 
-\frame{\frametitle{Сравнение эпистемических языков}
-\begin{block}{Языки ($i \in Ag, G\subseteq Ag$)}
-\begin{tabular}{ll}
-$(EL)$   &    $ p \mid \neg \varphi \mid (\varphi_1 \wedge \varphi_2) \mid K_i \varphi$ \\
-$(EL+E)$  &   $ p \mid \neg \varphi \mid (\varphi_1 \wedge \varphi_2) \mid K_i \varphi \mid E_G \varphi$\\
-$(EL+D)$ &   $ p \mid \neg \varphi \mid (\varphi_1 \wedge \varphi_2) \mid K_i \varphi \mid D_G \varphi$\\
-$(EL+C)$	&    $ p \mid \neg \varphi \mid (\varphi_1 \wedge \varphi_2) \mid K_i \varphi \mid C_G \varphi$
-\end{tabular} 
-\end{block}
 
-\begin{exampleblock}{Утверждения.}
+\frame{\frametitle{$\vdash_{PAL} \varphi' \leftrightarrow tr(\varphi')$}
+
+\begin{block}{Случай $\varphi'= [!\varphi][!\psi]\chi$}
+\begin{center}
+$\vdash_{PAL}[!\varphi][!\psi]\chi \xleftrightarrow[3]{!RE} [!\varphi]tr([!\psi]\chi) \xleftrightarrow[2]{IH} tr([!\varphi]tr([!\psi]\chi)) \xleftrightarrow[]{def} tr ([!\varphi][!\psi]\chi) $ 
+\end{center}
 \begin{enumerate}
-\item $EL \equiv EL+E$	
-\item $EL \sqsubset EL+D$	
-\item $EL \sqsubset EL+C$	
+\item $c([!\psi]\chi) < c([!\varphi][!\psi]\chi) $
+\item $c([!\varphi]tr([!\psi]\chi)) < c([!\varphi][!\psi]\chi) $ 
+\item $\vdash_{PAL} [!\psi]\chi \leftrightarrow tr([!\psi]\chi)$ IH 	из 1  
 \end{enumerate}
-\end{exampleblock}
-
-}
-
-\frame{\frametitle{Бисимуляция}
-}
-
-\frame{\frametitle{$EL \sqsubset ELD$}
-Пример
-}
-
-\frame{\frametitle{Модальная глубина}
-\begin{block}{Определение. <<Модальная глубина формулы>> ($md$)}
-$md: L_K \mapsto \mathbb{N}$ т.ч. 
-\begin{itemize}
-\item $md(p)=0$	
-\item $md(\neg \varphi) = md(\varphi)$	
-\item $md(\varphi \circ \psi ) = max \{md(\varphi), md(\psi)\}$, где $\circ \in \{ \wedge, \vee, \to \}$
-\item $md(K_i \varphi) = md(\varphi) + 1$
-\end{itemize}
-\end{block} 
-
-\begin{block}{Примеры}
-\begin{itemize}
-	\item $md (K_a K_b p) =  2$ 
-	\item $md (K_a K_b (p \to K_c( K_a p \to K_b q)) = 4$
-\end{itemize}	
-\end{block}
-}
-
-\frame{\frametitle{Модальная $n$-эквивалентность}
-\begin{block}{Определение. Ограничение языка до глубины $n$}
-\centering
-$EL_n = \{ \varphi \in EL \mid md(\varphi) \leq n\}$
 \end{block}
 
-\begin{block}{Модальная $n$-эквивалентность}
-$(M, x) \equiv_n (M', x') \iff \forall \varphi \in EL_n: M, x \models \varphi \Leftrightarrow M', x' \models \varphi$
-\end{block}
+
 }
-
-\frame{\frametitle{Пример}
-$(M_1, x) \equiv_2 (M_2, x)$, но $(M_1, x) \not \equiv_3 (M_2, x)$ \\
-Как доказать? 
-}
-
-\frame{\frametitle{n-бисимуляционные игры}
-\begin{block}{Определение.}
-$BG_{n}[(M, x), (M', x')]$. Игра останавливает после n раундов. В остальном правила такие же как и для $BG_{\infty}[(M, x),(M', x')]$.
-\end{block}
-\begin{block}{Определение.}
-Две модели Крипке эквивалентны в игровом смысле ($(M, x) \leftrightarrows_n (M, x)$)  е.т.е. у $\exists$лоизы есть выигрышная стратегия в игре $BG_{n}[(M, x), (M', x')]$.
-\end{block}
-}
-
-\frame{
-\begin{exampleblock}{Теорема} \centering
-$(M, x) \leftrightarrows_n (M', x') \iff (M, x) \equiv_n (M', x')  $
-\end{exampleblock}
-
-\begin{proof}($\Rightarrow$)	
-\end{proof}
-}
-
-
-\frame{\frametitle{Две последовательности моделей}
-\begin{exampleblock}{Утверждение}
-$(M_{n+1}, x) \equiv_n (M'_{n+1},x)$
-\begin{proof} В силу $(M_{n+1}, x) \leftrightarrows_n (M'_{n+1},x)$. 
-\end{proof}
-\end{exampleblock}
-}
-
-\frame{\frametitle{$EL \sqsubset_{S5} ELC$}
-$EL \sqsubseteq ELC$ – очевидно. Следовательно $EL \sqsubseteq_{S5} ELC$. Докажем, что $ELC \not \sqsubseteq_{S5} EL$. 
-}
-
-\frame{
-$EL \sqsubseteq ELC$ – очевидно. Следовательно $EL \sqsubseteq_{S5} ELC$. Докажем, что $ELC \not \sqsubseteq_{S5} EL$. 
-Допустим, что найдется $\varphi^* \in EL$ т.ч.$\varphi^* \equiv C_{ab} p$. Докажем, что такое допущение приводит к противоречию. Обозначим,  $md (\varphi^*)=n$. 
-\begin{prooftree}
-\hypo{M_{n+1}, x  \models C_{ab} p}
-\hypo{\varphi^* \equiv C_{ab} p}
-\infer2{M_{n+1}, x  \models \varphi^*}
-
-\hypo{(M_{n+1}, x) \equiv_n (M'_{n+1},x)}
-
-\infer2{M'_{n+1}, x \models \varphi^*}
-
-\hypo{M'_{n+1}, x  \not \models C_{ab} p}
-\hypo{\varphi^* \equiv C_{ab} p}
-\infer2{M'_{n+1}, x \not \models \varphi^*}
-
-\infer2 \bot
-\end{prooftree}
-}
-
-
-
-\section{Лаконичность языка}
-\frame{\frametitle{Лаконичность языка}
-$EL=ELE$, но $ELE$ более лаконичный, более компактный.
-
-Две последовательности формул:
-\begin{itemize}
-\item $\alpha_n: = \neg E^n_{ab} p$ 
-\item $\beta_1:=  \neg (K_a p \wedge K_b p)$
-\item $\beta_n:= \neg (K_a \neg \beta_{n-1} \wedge K_b \neg \beta_{n-1} )$
-
-\end{itemize}
-
-\begin{center}
-\begin{tabular}{lll}
-$n$& $\alpha_n$  & $\beta_n$ \\ 
-\hline
-1 & $\neg E_{ab}p$ & $\neg (K_a p \wedge K_b p)$ \\
-2 & $\neg E^{2}_{ab}p$ & $\neg (K_a p \wedge K_b p \wedge K_a K_b p \wedge K_b K_a p)$ \\
-3 & $\neg E^{3}_{ab}p$ & $\neg (K_a p \wedge K_b p \wedge K_a K_b p \wedge K_b K_a p 
-\wedge K_b K_a K_b p \wedge K_a K_b K_a p)$ 
-\end{tabular}
-\end{center}
-} 
 
 \end{document}
