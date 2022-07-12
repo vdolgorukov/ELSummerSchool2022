@@ -9,13 +9,84 @@
 \begin{document}  \frame{\titlepage}
 \section{$PAL$}
 
-\frame{\frametitle{Язык $L_{K[]}$}
+\frame{\frametitle{Язык}
+\begin{exampleblock}{Язык $L_{K[]}$}
+\centering
+$\varphi, \psi::= p \mid \neg \varphi  \mid (\varphi \wedge \psi) \mid K_i \varphi \mid [!\varphi]\psi$	
+\end{exampleblock}
 }
 
 \frame{\frametitle{Семантика $PAL$}
 }
 
+\frame{\frametitle{Некоторые законы $PAL$}
+}
+
 \frame{\frametitle{Исчисление $PAL$}
+Аксиомные схемы:
+\begin{itemize}
+\item $S5$
+\item $[!\varphi]p \leftrightarrow (\varphi \to p)$	
+\item $[!\varphi]\neg \psi  \leftrightarrow (\varphi \to \neg [!\varphi]\psi)$
+\item $[!\varphi](\psi \wedge \chi) \leftrightarrow ([!\varphi]\psi \wedge [!\varphi]\chi) $
+\item $[!\varphi]K_i \psi \leftrightarrow (\varphi \to K_i [!\varphi] \psi)$
+\end{itemize}
+Правила вывода:
+$MP$, $NEC$, $RE!$
+}
+
+\frame{\frametitle{Выразительность}
+\begin{description}
+\item[$\mathcal{L}_{K}$] $\varphi, \psi::= p \mid \neg \varphi  \mid (\varphi \wedge \psi) \mid K_i \varphi$
+\item[$\mathcal{L}_{K[]}$] $\varphi, \psi::= p \mid \neg \varphi  \mid (\varphi \wedge \psi) \mid K_i \varphi \mid [!\varphi]\psi$
+\end{description}
+\centering
+\begin{block}{Утверждение} $\mathcal{L}_{K} \equiv \mathcal{L}_{K[]} $
+\end{block}
+
+}
+
+\frame{\frametitle{Перевод $tr$}
+\begin{description}
+\item[$\mathcal{L}_{K}$] $\varphi, \psi::= p \mid \neg \varphi  \mid (\varphi \wedge \psi) \mid K_i \varphi$
+\item[$\mathcal{L}_{K[]}$] $\varphi, \psi::= p \mid \neg \varphi  \mid (\varphi \wedge \psi) \mid K_i \varphi \mid [!\varphi]\psi$
+\end{description}
+
+\begin{mydef}[Функция перевода $tr: L_{K[]} \mapsto  L_{K}$]
+\begin{multicols}{2}
+\begin{itemize}
+\item $tr(p):= p$	
+\item $tr(\neg \varphi):= \neg tr(\varphi) $
+\item $tr(\varphi \wedge \psi):= tr (\varphi) \wedge tr(\psi) $
+\item $tr(K_i \varphi):= K_i tr(\varphi)$
+\item $tr([!\varphi]p):= tr(\varphi \to p)$
+\item $tr([!\varphi]\neg \psi):= tr(\varphi \to \neg [!\varphi]\psi)$
+\item $tr([!\varphi](\psi \wedge \chi)):= tr([!\varphi]\psi \wedge [!\varphi]\chi) $
+\item $tr([!\varphi]K_i \psi):= tr(\varphi \to K_i [!\varphi] \psi)$
+\item $tr([!\varphi][!\psi]\chi):= tr([!\varphi]tr([!\psi]\chi))$
+\end{itemize}
+\end{multicols}
+\end{mydef}
+
+\begin{exampleblock}{Упражнение}
+\begin{itemize}
+\item $tr(\varphi \to \psi) = \dots$
+\item  $tr(\varphi \vee  \psi) = \dots$		
+\end{itemize}
+
+\end{exampleblock}
+}
+
+
+
+\frame{\frametitle{Перевод}
+
+\begin{exampleblock}{Пример}
+$tr([!p](q \wedge r)) \equiv 
+tr([!p]q) \wedge tr([!p]r) \equiv
+(p \to q) \wedge (p \to r)
+$
+\end{exampleblock}
 }
 
 \frame{\frametitle{Сложность формулы $c$}
@@ -33,8 +104,6 @@ $\varphi \to K_i [!\varphi] \psi $ vs. $[!\varphi] K_i  \psi $
 \end{mydef}
 }
 
-\frame{\frametitle{Перевод}
-}
 
 \frame{
 \begin{block}{Лемма об уменьшении сложности формулы}
@@ -50,18 +119,49 @@ $\varphi \to K_i [!\varphi] \psi $ vs. $[!\varphi] K_i  \psi $
 
 \frame{\frametitle{$\vdash_{PAL} \varphi' \leftrightarrow tr(\varphi')$}
 
-\begin{block}{Случай $\varphi'= [!\varphi][!\psi]\chi$}
+
+\begin{block}{Случай $\varphi'= [!\varphi]K_i \psi$}
+$c(\varphi \to K_i [!\varphi]\psi) < c([!\varphi]K_i \psi)$
 \begin{center}
-$\vdash_{PAL}[!\varphi][!\psi]\chi \xleftrightarrow[3]{!RE} [!\varphi]tr([!\psi]\chi) \xleftrightarrow[2]{IH} tr([!\varphi]tr([!\psi]\chi)) \xleftrightarrow[]{def} tr ([!\varphi][!\psi]\chi) $ 
+$\vdash_{PAL} [!\varphi]K_i \psi \xleftrightarrow{\text{акс.}} 
+(\varphi \to K_i [!\varphi]\psi) \xleftrightarrow{IH}
+tr(\varphi \to K_i [!\varphi]\psi)) \xleftrightarrow{def}
+tr([!\varphi]K_i \psi)$ 
 \end{center}
+
+\end{block}
+
+\begin{block}{Случай $\varphi'= [!\varphi][!\psi]\chi$}
 \begin{enumerate}
 \item $c([!\psi]\chi) < c([!\varphi][!\psi]\chi) $
 \item $c([!\varphi]tr([!\psi]\chi)) < c([!\varphi][!\psi]\chi) $ 
 \item $\vdash_{PAL} [!\psi]\chi \leftrightarrow tr([!\psi]\chi)$ IH 	из 1  
 \end{enumerate}
+\begin{center}
+$\vdash_{PAL}[!\varphi][!\psi]\chi \xleftrightarrow[3]{!RE} [!\varphi]tr([!\psi]\chi) \xleftrightarrow[2]{IH} tr([!\varphi]tr([!\psi]\chi)) \xleftrightarrow[]{def} tr ([!\varphi][!\psi]\chi) $ 
+\end{center}
 \end{block}
+}
 
+\frame{\frametitle{Сборка доказательства}
 
+\begin{block}{Теорема о полноте $PAL$}
+$\forall \varphi \in L_{K[]}$:
+\begin{center}
+$\models_{S5} \varphi    \Rightarrow \;
+\models_{S5} tr(\varphi) \Rightarrow \;
+\vdash_{S5} tr(\varphi)  \Rightarrow \;
+\vdash_{PAL} tr(\varphi) \Rightarrow \;
+\vdash_{PAL} \varphi   
+$	
+\end{center}
+\end{block}
+}
+
+\frame{\frametitle{Лаконичность}
+\begin{block}{}
+$K_i \top$
+\end{block}
 }
 
 \end{document}
