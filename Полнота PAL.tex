@@ -35,6 +35,17 @@ $\varphi, \psi::= p \mid \neg \varphi  \mid (\varphi \wedge \psi) \mid K_i \varp
 $MP$, $NEC$, $RE!$
 }
 
+
+\frame{\frametitle{Корректность $PAL$}
+$\models [!\varphi]p \leftrightarrow (\varphi \to p)$
+\begin{enumerate}
+\item $M, x \models [!\varphi]p $
+\item $M, x \models \varphi \Rightarrow M^{!\varphi}, x \models p$	
+\end{enumerate}
+
+
+}
+
 \frame{\frametitle{Выразительность}
 \begin{description}
 \item[$\mathcal{L}_{K}$] $\varphi, \psi::= p \mid \neg \varphi  \mid (\varphi \wedge \psi) \mid K_i \varphi$
@@ -81,11 +92,15 @@ $MP$, $NEC$, $RE!$
 
 \frame{\frametitle{Перевод}
 
-\begin{exampleblock}{Пример}
-$tr([!p](q \wedge r)) \equiv 
-tr([!p]q) \wedge tr([!p]r) \equiv
-(p \to q) \wedge (p \to r)
-$
+\begin{exampleblock}{Примеры}
+\begin{itemize}
+\item $tr([!p](q \wedge r)) = tr([!p]q \wedge [!p]r) = tr([!p]q) \wedge tr([!p]r) = (p \to q) \wedge (p \to r) $
+\item $tr([!p][!q]r)=tr([!p]tr([!q]r)) = tr([!p](q \to r)) = p \to (q \to r)$
+\item $tr([!p]K_a q) = tr (p \to K_a[!p]q) = 
+tr(p) \to  tr (K_a[!p]q) = p \to K_a tr ([!p]q) = 
+p \to K_a (p \to q)$	
+\end{itemize}
+
 \end{exampleblock}
 }
 
@@ -116,11 +131,39 @@ $\varphi \to K_i [!\varphi] \psi $ vs. $[!\varphi] K_i  \psi $
 \end{block}
 }
 
+\frame{
+\begin{block}{Теорема}
+$ \forall \varphi \in \mathcal{L}_{K[]} \; \vdash_{PAL} \varphi' \leftrightarrow tr(\varphi')$	
+\end{block}
 
-\frame{\frametitle{$\vdash_{PAL} \varphi' \leftrightarrow tr(\varphi')$}
+\alert{$\blacktriangleright$} Рассмотрим следующие случаи: $\varphi' = p, \neg \varphi, \varphi \wedge \psi,   K_i \varphi, [!\varphi]p, [!\varphi]\neg \psi, [!\varphi](\psi \wedge \chi),  [!\varphi]K_i \psi,  [!\varphi][!\psi]\chi$
+\begin{itemize}[<+->]
+\item Случай $\varphi'= \alert{p}$. По определению $p \leftrightarrow tr(p)$. 
+\item Случай $\varphi'= \alert{\neg \varphi}$. $\varphi \leftrightarrow tr(\varphi)$ по IH, поскольку $c(\varphi)<c(\neg \varphi)$
+$$\neg \varphi \xleftrightarrow{} \neg tr(\varphi) \xleftrightarrow{}tr(\neg \varphi)$$
+\item Случай $\varphi'= \alert{\varphi \wedge \psi}$. 
+$\varphi \leftrightarrow tr(\varphi)$, $\psi \leftrightarrow tr(\psi)$
+$$(\varphi \wedge \psi) \leftrightarrow
+(tr(\varphi) \wedge tr(\psi)) \leftrightarrow
+tr(\varphi \wedge \psi)$$
+
+\item Случай $\varphi'= \alert{K_i \varphi}$. $\varphi \leftrightarrow tr(\varphi)$
+$$K_i \varphi \leftrightarrow K_i tr(\varphi) \leftrightarrow tr (K_i \varphi)$$
+\end{itemize}
+}
+
+\frame{
+\begin{itemize}
+\item Случай $\varphi'= \alert{[!\varphi]p}$.
+\item Случай $\varphi'= \alert{[!\varphi]\neg \psi}$.
+\item Случай $\varphi'= \alert{[!\varphi](\psi \wedge \chi)}$.	
+\end{itemize}
+}
 
 
-\begin{block}{Случай $\varphi'= [!\varphi]K_i \psi$}
+\frame{
+\begin{itemize}
+\item Случай $\varphi'= \alert{[!\varphi]K_i \psi}$. 
 $c(\varphi \to K_i [!\varphi]\psi) < c([!\varphi]K_i \psi)$
 \begin{center}
 $\vdash_{PAL} [!\varphi]K_i \psi \xleftrightarrow{\text{акс.}} 
@@ -128,10 +171,8 @@ $\vdash_{PAL} [!\varphi]K_i \psi \xleftrightarrow{\text{акс.}}
 tr(\varphi \to K_i [!\varphi]\psi)) \xleftrightarrow{def}
 tr([!\varphi]K_i \psi)$ 
 \end{center}
+\item Случай $\varphi'= \alert{[!\varphi][!\psi]\chi}$
 
-\end{block}
-
-\begin{block}{Случай $\varphi'= [!\varphi][!\psi]\chi$}
 \begin{enumerate}
 \item $c([!\psi]\chi) < c([!\varphi][!\psi]\chi) $
 \item $c([!\varphi]tr([!\psi]\chi)) < c([!\varphi][!\psi]\chi) $ 
@@ -140,7 +181,8 @@ tr([!\varphi]K_i \psi)$
 \begin{center}
 $\vdash_{PAL}[!\varphi][!\psi]\chi \xleftrightarrow[3]{!RE} [!\varphi]tr([!\psi]\chi) \xleftrightarrow[2]{IH} tr([!\varphi]tr([!\psi]\chi)) \xleftrightarrow[]{def} tr ([!\varphi][!\psi]\chi) $ 
 \end{center}
-\end{block}
+
+\end{itemize}
 }
 
 \frame{\frametitle{Сборка доказательства}
@@ -162,6 +204,11 @@ $
 \begin{block}{}
 $K_i \top$
 \end{block}
+}
+
+\frame{\frametitle{Другие варианты аксиоматизации $PAL$}
+$PAL_1$, $PAL_2$,$PAL_3$, 
+Подробнее Wang
 }
 
 \end{document}
