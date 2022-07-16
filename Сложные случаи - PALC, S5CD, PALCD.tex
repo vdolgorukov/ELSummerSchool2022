@@ -1,0 +1,32 @@
+\input{header.tex}
+\usepackage{expl3, xparse}
+\usepackage{ebproof}
+\title[short title]{Сложные случаи: PALC, S5CD, PALCD}
+
+\begin{document}  \frame{\titlepage}
+
+\frame{\frametitle{$PALC$}
+\begin{block}{Утверждение}
+Формула $[!\varphi]C_G \psi \leftrightarrow (\varphi \to  C_G [!\varphi] \psi)$ не является общезначимой.
+\end{block}
+\begin{proof} Рассмотрим модель $M, x$
+\begin{enumerate}
+\item $M, x \models [!p]C_{ab} q$
+\item $M, x \models p$
+\item $M, x \not \models C_{ab} [!p] q $, поскольку 
+$M, x \models \hat{K}_a \hat{K}_b \langle !p \rangle \neg q$
+\end{enumerate}
+\end{proof}
+}
+
+\frame{\frametitle{Публичные объявления и общее знание}
+
+\begin{prooftree}
+\hypo{\chi \to [!\varphi]\psi} \hypo{(\chi \wedge \varphi) \to E_G \chi}
+\infer2{\chi \to [!\varphi]C_G\psi}	
+\end{prooftree}
+}
+
+
+
+\end{document}
