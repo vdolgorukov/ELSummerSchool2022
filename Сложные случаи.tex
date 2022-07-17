@@ -5,6 +5,22 @@
 
 \begin{document}  \frame{\titlepage}
 
+\frame{\frametitle{Что значит $[!\varphi]C_G\psi$?}
+\begin{mydef}[$G$--путь, $x\sim_Gy$] Пусть $x, y \in W$, $G\subseteq Ag$. Будем говорить, что существует \alert{$G$--путь} из $x$ в $y$ (обозначение: \alert{$x\sim_Gy$}), если найдутся такие $y_1, \dots y_n \in W$ и $i_1, \dots , i_n \in G$, что $x\sim_{i_1}y_1\sim_{i_2} \dots \sim_{i_n}y_n=y$.
+\end{mydef}
+
+\begin{mydef}[$G$--$\varphi$--путь]
+Пусть $x, y \in W$, $G\subseteq Ag$. Будем говорить, что существует \alert{$G$--$\varphi$--путь} из $x$ в $y$ (обозначение: \alert{$x\sim_{G, \varphi}y$}), если $x\sim_Gy$ и $M,x, y_1, \dots, y_n \models \varphi$.
+\end{mydef}
+}
+
+\frame{\frametitle{Что значит $[!\varphi]C_G\psi$?}
+\begin{block}{Утверждение}
+$M, x \models [!\varphi]C_G\psi$ е.т.е. $\forall y (x \sim_{G, \varphi}y \Rightarrow M, y \models [!\varphi]\psi)$	
+\end{block}
+}
+
+
 \frame{\frametitle{$PALC$}
 \begin{block}{Утверждение}
 Формула $[!\varphi]C_G \psi \leftrightarrow (\varphi \to  C_G [!\varphi] \psi)$ не является общезначимой.
@@ -29,26 +45,111 @@ $M, x \models \hat{K}_a \hat{K}_b \langle !p \rangle \neg q$
 \end{prooftree}
 \end{center}
 \end{block}
-
 }
 
-\frame{\frametitle{Публичные объявления и общее знание}
-\resizebox{0.95\textwidth}{!}{ 
+
+
+%\frame[label=*]{\frametitle{Публичные объявления и общее знание}
+%\begin{block}{}
+%Докажем по индукции.
+%\begin{itemize}
+%\item $M,x \models \chi$
+%\item $(\chi \wedge \varphi) \to E_G \chi$
+%\item $x(\bigcup \limits_{i \in G }\sim^{!\varphi}_i)^*y$
+%\item $x\sim^{!\varphi}_{i_1}y_1\sim^{!\varphi}_{i_2} \dots 
+%\sim^{!\varphi}_{i_{n-1}}
+%y_{n-1}\sim^{!\varphi}_{i_n} y_n=y$ т.ч. $\{i_1, \dots i_n \} \subseteq G$
+%\item БИ  $M,x \models \chi$ 
+%\item ПИ  $M, y_{n-1} \models \chi$
+%\item $M, y_{n-1} \models \varphi$
+%\item $M,  y_{n-1} \models E_G \chi$
+%\item $M,  y_{n-1} \models K_{i_n} \chi$
+%\item $M, y_n \models \chi$
+%\end{itemize}
+%\end{block}
+%}
+
+%\frame{\frametitle{Публичные объявления и общее знание}
+%\resizebox{0.98\textwidth}{!}{ 
+%\begin{fitch}
+%\models (a)\;  \chi \to [!\varphi] \psi, (b) \; \models  (\chi \wedge \varphi) \to E_G \chi 	\\
+%\fh \fw{M,x} \; M, x \models \chi & $\rhd \; M, x \models [!\varphi]C_G \psi \Leftrightarrow \rhd \; M, x \models \varphi \Rightarrow M^{!\varphi}, x \models C_G \psi$ \\
+%\fa \fh M, x \models \varphi & $\rhd \; M^{!\varphi}, x \models C_G \psi \Leftrightarrow \rhd \; \forall y (x(\bigcup \limits_{i \in G }\sim^{!\varphi}_i)^*y \Rightarrow M^{!\varphi}, y \models \psi )$ \\
+%\fa \fa \fh \fw{y}\; x(\bigcup \limits_{i \in G }\sim^{!\varphi}_i)^*y & $\rhd \; M^{!\varphi}, y \models \psi $ \\
+%\fa \fa \fa M, y \models \chi  & по утв. на слайде \getpagerefnumber{*}  из 1b 2, 4\\
+%\fa \fa \fa M, y \models [!\varphi] \psi & из 1a, 5 \\
+%\fa \fa \fa M, y \models \varphi \Rightarrow M^{!\varphi}, y \models \psi & из 7 по опр. \\
+%\fa \fa \fa M, y \models \varphi & из 5 \\
+%\fa \fa \fa  M^{!\varphi}, y \models \psi & 8,9 MP \\
+%\fa \fa M^{!\varphi}, x \models C_G \psi & 4--9 \\
+%\fa M, x \models [!\varphi]C_G \psi & 3--10 \\
+%\models \chi \to [!\varphi]C_G \psi & 2--11
+%\end{fitch}}
+%}
+
+\frame{\frametitle{Исчисление PALC}
+}
+
+\frame{\frametitle{Полнота и корректность}
+\begin{block}{Теорема о полноте: схема доказательства}
+\begin{itemize}
+\item Замыкание
+\item Случай $[!\varphi]C_G\psi$	
+\end{itemize}
+\end{block}
+}
+
+
+
+\frame{
+\begin{block}{Утверждение: $\vdash [!\varphi]C_G\psi \to (\varphi \to  K_i[!\varphi] C_G \psi)$ для $i \in G$}
+\begin{enumerate}
+\item $C_G\psi \to K_i C_G\psi $ 
+\item $[!\varphi]C_G\psi \to [!\varphi]K_i C_G\psi $
+\item $[!\varphi]K_i C_G\psi \to (\varphi \to  K_i[!\varphi] C_G \psi)$
+\item $[!\varphi]C_G\psi \to (\varphi \to  K_i[!\varphi] C_G \psi)$
+\end{enumerate}	
+\end{block}
+}
+
+\frame{
+\begin{block}{Лемма:  $[!\varphi]C_G\psi \in X \Rightarrow \forall Y (X \sim^{\Phi}_{G,\varphi}Y \Rightarrow  [!\varphi]\psi \in Y)$}
+\end{block}
+\resizebox{1.0\textwidth}{!}{ 
 \begin{fitch}
-\models \chi \to [!\varphi] \psi	\\
-\models  (\chi \wedge \varphi) \to E_G \chi \\
-\fh \fw{M,x} \; M, x \models \chi & $\rhd \; M, x \models [!\varphi]C_G \psi \Leftrightarrow \rhd \; M, x \models \varphi \Rightarrow M^{!\varphi}, x \models C_G \psi$ \\
-\fa \fh M, x \models \varphi & $\rhd \; M^{!\varphi}, x \models C_G \psi$ \\
-\fa \fa \fh \fw{y}\; y\in W^{!\varphi} \; \\
-\fa \fa \fa M, y \models \chi  & по (*) \\
-\fa \fa \fa M, y \models [!\varphi] \psi & из 1, 6 \\
-\fa \fa \fa M, y \models \varphi \Rightarrow M^{!\varphi}, y \models \psi & из 7 по опр. \\
-\fa \fa \fa M, y \models \varphi & из 5 \\
-\fa \fa \fa  M^{!\varphi}, y \models \psi & 8,9 MP
+[!\varphi]C_G\psi \in X \\
+\fh \fw{Y} \; X \sim^{\Phi}_{G,\varphi}Y & $\rhd \; [!\varphi]\psi \in Y$ \\
+\fa X\sim^{\Phi}_{i_1}Y_1\sim^{\Phi}_{i_2} \dots \sim^{\Phi}_{i_n}Y_n=Y \text{ т.ч. }\varphi \in X, \varphi \in Y_i \text{ и } i_1, \dots , i_n \in G & из 2 по опр. \\
+\fa \varphi \to  K_i[!\varphi] C_G \psi \in X & по утв. на сл. 10 и $\varphi \to  K_i[!\varphi] C_G \psi \in X \in \Phi$ \\
+\fa \varphi \in X & из 3\\
+\fa K_{i_1}[!\varphi] C_G \psi \in X & из 4,5 по MP\\ 
+\fa X\sim^{\Phi}_{i_1}Y_1 & из 3\\
+\fa [!\varphi] C_G \psi \in Y_1 & из 6,7 по опр. \\
+\fa \vdots & повторяем шаги 5--8 для  $Y_2$ и т.д. до  $Y_n=Y$ \\
+\fa [!\varphi] C_G \psi \in Y & из 9 \\
+\fa [!\varphi] \psi \in Y & из 10, $\vdash C_G \psi \to [!\varphi]  \psi $ и $[!\varphi]  \psi \in \Phi$ \\
+\forall Y (X \sim^{\Phi}_{G,\varphi}Y \Rightarrow  [!\varphi]\psi \in Y) & 2--11 В$\forall\Rightarrow$
 \end{fitch}
 }
 }
 
 
+\frame{\frametitle{$[!\varphi]C_G\psi \in X \Rightarrow M^{\Phi}, X \models [!\varphi]C_G\psi$}
+
+\begin{block}{Что мы уже доказали?}
+\begin{enumerate}
+	\item $M, x \models [!\varphi]C_G\psi$ е.т.е. $\forall y (x \sim_{G, \varphi}y \Rightarrow M, y \models [!\varphi]\psi)$
+	\item $[!\varphi]C_G\psi \in X \Rightarrow \forall Y (X \sim^{\Phi}_{G,\varphi}Y \Rightarrow  [!\varphi]\psi \in Y)$
+\end{enumerate}	
+\end{block}
+
+
+\begin{fitch}
+[!\varphi]C_G\psi \in X \\
+\forall Y (X \sim^{\Phi}_{G,\varphi}Y \Rightarrow  [!\varphi]\psi \in Y) \\
+\forall Y (X \sim^{\Phi}_{G,\varphi}Y \Rightarrow  M^{\Phi}, Y \models [!\varphi]\psi ) &  по ПИ \\
+M^{\Phi}, X \models [!\varphi]C_G\psi
+\end{fitch}
+}
 
 \end{document}
