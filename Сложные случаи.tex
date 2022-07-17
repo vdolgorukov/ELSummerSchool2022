@@ -15,11 +15,33 @@
 }
 
 \frame{\frametitle{Что значит $[!\varphi]C_G\psi$?}
-\begin{block}{Утверждение}
-$M, x \models [!\varphi]C_G\psi$ е.т.е. $\forall y (x \sim_{G, \varphi}y \Rightarrow M, y \models [!\varphi]\psi)$	
-\end{block}
+
+\begin{exampleblock}{Упражнение} Докажите, что 
+	$\big(\bigcup \limits_{i \in G} \sim^{!\varphi}_i\big)^*  = \; \sim_{G, \varphi}$
+\end{exampleblock}
+
 }
 
+
+\frame{\frametitle{Что значит $[!\varphi]C_G\psi$?}
+\begin{block}{Утверждение: $M, x \models [!\varphi]C_G\psi$ е.т.е. $\forall y (x \sim_{G, \varphi}y \Rightarrow M, y \models [!\varphi]\psi)$}
+\end{block}
+\pause
+\alert{$\blacktriangleright$}  \pause
+\begin{enumerate}[<+->] 
+\item $M, x \models [!\varphi]C_G\psi \iff$ 
+\item  $M, x \models \varphi \Rightarrow M^{!\varphi}, x \models  C_G\psi \iff$ 
+\item $M, x \models \varphi \Rightarrow \forall y (x\big(\bigcup \limits_{i \in G} \sim^{!\varphi}_i\big)^*y \Rightarrow M^{!\varphi}, y \models \psi) \iff$ 
+\item  $M, x \models \varphi \Rightarrow \forall y (x\sim_{G, \varphi}y \Rightarrow M^{!\varphi}, y \models \psi) \iff$ 
+\item  $\forall y (M, x \models  \varphi \Rightarrow (x\sim_{G, \varphi}y \Rightarrow M^{!\varphi}, y \models \psi)) \iff$ 
+\item  $\forall y ((M, x \models  \varphi \wedge x\sim_{G, \varphi}y) \Rightarrow M^{!\varphi}, y \models \psi)) \iff$ 
+\item  $\forall y ( x\sim_{G, \varphi}y  \Rightarrow M^{!\varphi}, y \models \psi) \iff$ 
+\item  $\forall y ( (x\sim_{G, \varphi}y \wedge M, y \models \varphi) \Rightarrow M^{!\varphi}, y \models \psi) \iff $ 
+\item  $\forall y (x\sim_{G, \varphi}y \Rightarrow ( M, y \models \varphi \Rightarrow M^{!\varphi}, y \models \psi)) \iff$ 
+\item  $\forall y (x\sim_{G, \varphi}y \Rightarrow M, y \models [!\varphi]\psi)$
+\end{enumerate}
+\pause \alert{$\blacktriangleleft$} 
+}
 
 \frame{\frametitle{$PALC$}
 \begin{block}{Утверждение}
@@ -71,24 +93,27 @@ $M, x \models \hat{K}_a \hat{K}_b \langle !p \rangle \neg q$
 }
 
 
+\frame{\frametitle{Исчисление $PALC$}
+\begin{itemize}
+\item $S5$
+\item $[!\varphi]p \leftrightarrow (\varphi \to p)$	
+\item $[!\varphi]\neg \psi  \leftrightarrow (\varphi \to \neg [!\varphi]\psi)$
+\item $[!\varphi](\psi \wedge \chi) \leftrightarrow ([!\varphi]\psi \wedge [!\varphi]\chi) $
+\item $[!\varphi]K_i \psi \leftrightarrow (\varphi \to K_i [!\varphi] \psi)$
+\item Аксиомы и правила вывода $S5C$
+\item Правила вывода: $MP$, $NEC$, $RE!$
+\item Правило вывода
+\begin{center}
+\begin{prooftree}
+\hypo{\chi \to [!\varphi]\psi} 
+\hypo{(\chi \wedge \varphi) \to E_G \chi}
+\infer2{\chi \to [!\varphi]C_G\psi}	
+\end{prooftree}
+\end{center}
 
-%\frame{\frametitle{Публичные объявления и общее знание}
-%\resizebox{0.98\textwidth}{!}{ 
-%\begin{fitch}
-%\fa \fh M, x \models \varphi & $\rhd \; M^{!\varphi}, x \models C_G \psi \Leftrightarrow \rhd \; \forall y (x(\bigcup \limits_{i \in G }\sim^{!\varphi}_i)^*y \Rightarrow M^{!\varphi}, y \models \psi )$ \\
-%\fa \fa \fh \fw{y}\; x(\bigcup \limits_{i \in G }\sim^{!\varphi}_i)^*y & $\rhd \; M^{!\varphi}, y \models \psi $ \\
-%\fa \fa \fa M, y \models \chi  & по утв. на слайде \getpagerefnumber{*}  из 1b 2, 4\\
-%\fa \fa \fa M, y \models [!\varphi] \psi & из 1a, 5 \\
-%\fa \fa \fa M, y \models \varphi \Rightarrow M^{!\varphi}, y \models \psi & из 7 по опр. \\
-%\fa \fa \fa M, y \models \varphi & из 5 \\
-%\fa \fa \fa  M^{!\varphi}, y \models \psi & 8,9 MP \\
-%\fa \fa M^{!\varphi}, x \models C_G \psi & 4--9 \\
-%\fa M, x \models [!\varphi]C_G \psi & 3--10 \\
-%\models \chi \to [!\varphi]C_G \psi & 2--11
-%\end{fitch}}
-%}
+\end{itemize}
 
-\frame{\frametitle{Исчисление PALC}
+
 }
 
 \frame{\frametitle{Полнота и корректность}
@@ -151,6 +176,55 @@ $M, x \models \hat{K}_a \hat{K}_b \langle !p \rangle \neg q$
 \forall Y (X \sim^{\Phi}_{G,\varphi}Y \Rightarrow  M^{\Phi}, Y \models [!\varphi]\psi ) &  по ПИ \\
 M^{\Phi}, X \models [!\varphi]C_G\psi
 \end{fitch}
+}
+
+\section{RC}
+\frame{\frametitle{Условное общее знание}
+\begin{mydef}[RC]
+$M, x \models C^{\psi}_G \varphi$ е.т.е.
+$\forall y (x\big(\bigcup \limits_{i \in G} \! \sim_i \cap \; (W \times [\psi]_M)  \big)^+y \Rightarrow M, y \models \varphi )$
+\end{mydef}
+
+\begin{block}{Утверждение}
+Общее знание выразимо через условное общее знание:
+\begin{center}
+	$C_G \varphi \equiv C^{\top}_G \varphi$
+\end{center}	
+Доказательство: упражнение
+\end{block}
+}
+
+\frame{\frametitle{Исчисление для условного общего знания}
+
+\begin{block}{Исчисление $S5_mRC$}
+Аксиомные схемы:
+\begin{description}
+\item[($S5_{K}$)] Аксиомные схемы $S5$ для $K_i$
+\item[($K_{RC}$)] $C^\chi_G(\varphi \to \psi) \to (C^\chi_G \varphi \to C^\chi_G \psi)$ 
+\item[($mix_{RC}$)] $C^\psi_G \varphi \leftrightarrow E_G(\psi \to (\varphi \wedge C^\psi_G \varphi) )$ 
+\item[($ind_{RC}$)] $C^\psi_G (\varphi \to E_G(\psi \to \varphi)) \to (E_G(\psi \to \varphi) \to C^\psi_G \varphi)$
+\end{description}
+
+Правила вывода: 
+\begin{multicols}{3}
+\begin{prooftree}
+\hypo{\varphi} 
+\hypo{\varphi \to \psi }
+\infer2[$MP$]{\psi}	
+\end{prooftree}
+
+\begin{prooftree}
+\hypo{\varphi} 
+\infer1[$G_K$]{K_i \varphi}	
+\end{prooftree}
+
+\begin{prooftree}
+\hypo{\varphi} 
+\infer1[$G_CK$]{C^\psi_G \varphi}	
+\end{prooftree}
+\end{multicols}
+\end{block}
+
 }
 
 \end{document}
