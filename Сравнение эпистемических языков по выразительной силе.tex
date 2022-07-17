@@ -1,6 +1,4 @@
 \input{header.tex}
-\usepackage{expl3,xparse}
-\usepackage{ebproof}
 
 \begin{document}  \frame{\titlepage}
 
@@ -11,10 +9,10 @@
 \frame{\frametitle{Эпистемические языки}
 \begin{block}{Языки ($i \in Ag, G\subseteq Ag$)}
 \begin{tabular}{ll}
-$(\mathcal{EL})$   &    $ p \mid \neg \varphi \mid (\varphi_1 \wedge \varphi_2) \mid K_i \varphi$ \\
-$(\mathcal{ELE})$  &   $ p \mid \neg \varphi \mid (\varphi_1 \wedge \varphi_2) \mid K_i \varphi \mid E_G \varphi$\\
-$(\mathcal{ELD})$ &   $ p \mid \neg \varphi \mid (\varphi_1 \wedge \varphi_2) \mid K_i \varphi \mid D_G \varphi$\\
-$(\mathcal{ELC})$	&    $ p \mid \neg \varphi \mid (\varphi_1 \wedge \varphi_2) \mid K_i \varphi \mid C_G \varphi$
+$(\EL)$   &    $\varphi, \psi::= p \mid \neg \varphi \mid (\varphi \wedge \psi) \mid K_i \varphi$ \\
+$(\ELE)$  &   $\varphi, \psi::=  p \mid \neg \varphi \mid (\varphi \wedge \psi) \mid K_i \varphi \mid E_G \varphi$\\
+$(\ELD)$ &   $\varphi, \psi::=  p \mid \neg \varphi \mid (\varphi \wedge \psi) \mid K_i \varphi \mid D_G \varphi$\\
+$(\ELC)$	&  $\varphi, \psi::=   p \mid \neg \varphi \mid (\varphi \wedge \psi) \mid K_i \varphi \mid C_G \varphi$
 \end{tabular} 
 \end{block}}
 
@@ -79,18 +77,18 @@ $\forall \varphi_1 \in L_1 \exists \varphi_2 \in L_2: \varphi_1 \equiv_C \varphi
 \frame{\frametitle{Сравнение эпистемических языков}
 \begin{block}{Языки ($i \in Ag, G\subseteq Ag$)}
 \begin{tabular}{ll}
-$(EL)$   &    $ p \mid \neg \varphi \mid (\varphi_1 \wedge \varphi_2) \mid K_i \varphi$ \\
-$(EL+E)$  &   $ p \mid \neg \varphi \mid (\varphi_1 \wedge \varphi_2) \mid K_i \varphi \mid E_G \varphi$\\
-$(EL+D)$ &   $ p \mid \neg \varphi \mid (\varphi_1 \wedge \varphi_2) \mid K_i \varphi \mid D_G \varphi$\\
-$(EL+C)$	&    $ p \mid \neg \varphi \mid (\varphi_1 \wedge \varphi_2) \mid K_i \varphi \mid C_G \varphi$
+$(\EL)$   &    $\varphi, \psi::= p \mid \neg \varphi \mid (\varphi \wedge \psi) \mid K_i \varphi$ \\
+$(\ELE)$  &   $\varphi, \psi::=  p \mid \neg \varphi \mid (\varphi \wedge \psi) \mid K_i \varphi \mid E_G \varphi$\\
+$(\ELD)$ &   $\varphi, \psi::=  p \mid \neg \varphi \mid (\varphi \wedge \psi) \mid K_i \varphi \mid D_G \varphi$\\
+$(\ELC)$	&  $\varphi, \psi::=   p \mid \neg \varphi \mid (\varphi \wedge \psi) \mid K_i \varphi \mid C_G \varphi$
 \end{tabular} 
 \end{block}
 
 \begin{exampleblock}{Утверждения.}
 \begin{enumerate}
-\item $EL \equiv EL+E$	
-\item $EL \sqsubset EL+D$	
-\item $EL \sqsubset EL+C$	
+\item $\EL \equiv \ELE$	
+\item $\EL \sqsubset \ELD$	
+\item $\EL \sqsubset \ELC$	
 \end{enumerate}
 \end{exampleblock}
 
@@ -99,7 +97,7 @@ $(EL+C)$	&    $ p \mid \neg \varphi \mid (\varphi_1 \wedge \varphi_2) \mid K_i \
 \frame{\frametitle{Бисимуляция}
 }
 
-\frame{\frametitle{$EL \sqsubset ELD$}
+\frame{\frametitle{$\EL \sqsubset \ELD$}
 Пример
 }
 
@@ -193,7 +191,7 @@ $EL \sqsubseteq ELC$ – очевидно. Следовательно $EL \sqsub
 
 \section{Лаконичность языка}
 \frame{\frametitle{Лаконичность языка}
-$EL=ELE$, но $ELE$ более лаконичный, более компактный.
+$\EL=\ELE$, но $\ELE$ более лаконичный, более компактный.
 
 Две последовательности формул:
 \begin{itemize}

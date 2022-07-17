@@ -11,7 +11,8 @@
 
 %TODO исправить: развернуть определение G-пути
 \begin{mydef}[$G$--$\varphi$--путь]
-Пусть $x, y \in W$, $G\subseteq Ag$. Будем говорить, что существует \alert{$G$--$\varphi$--путь} из $x$ в $y$ (обозначение: \alert{$x\sim_{G, \varphi}y$}), если $x\sim_Gy$ и $M,x, y_1, \dots, y_n \models \varphi$.
+Пусть $x, y \in W$, $G\subseteq Ag$. Будем говорить, что существует \alert{$G$--$\varphi$--путь} из $x$ в $y$ (обозначение: \alert{$x\sim_{G, \varphi}y$}), если 
+найдутся такие $y_1, \dots y_n \in W$ и $i_1, \dots , i_n \in G$, что  1) $x\sim_{i_1}y_1\sim_{i_2} \dots \sim_{i_n}y_n=y$ и 2) $M,x, y_1, \dots, y_n \models \varphi$.
 \end{mydef}
 }
 
@@ -242,7 +243,7 @@ $\forall y (x\big(\bigcup \limits_{i \in G} \! \sim_i \cap \; (W \times [\psi]_M
 $[!\varphi]C_G \psi \leftrightarrow ? $
 \end{exampleblock}
 
-\begin{exampleblock}{Упражнение} Для формулы $[!p]C_Gq$ найдите эквивалентную, но из языка $\mathcal{EL}$--$\mathcal{RC}$.	
+\begin{exampleblock}{Упражнение} Для формулы $[!p]C_Gq$ найдите эквивалентную, но из языка $\ELRC$.	
 \end{exampleblock}
 
 }
