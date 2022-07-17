@@ -9,6 +9,7 @@
 \begin{mydef}[$G$--путь, $x\sim_Gy$] Пусть $x, y \in W$, $G\subseteq Ag$. Будем говорить, что существует \alert{$G$--путь} из $x$ в $y$ (обозначение: \alert{$x\sim_Gy$}), если найдутся такие $y_1, \dots y_n \in W$ и $i_1, \dots , i_n \in G$, что $x\sim_{i_1}y_1\sim_{i_2} \dots \sim_{i_n}y_n=y$.
 \end{mydef}
 
+%TODO исправить: развернуть определение G-пути
 \begin{mydef}[$G$--$\varphi$--путь]
 Пусть $x, y \in W$, $G\subseteq Ag$. Будем говорить, что существует \alert{$G$--$\varphi$--путь} из $x$ в $y$ (обозначение: \alert{$x\sim_{G, \varphi}y$}), если $x\sim_Gy$ и $M,x, y_1, \dots, y_n \models \varphi$.
 \end{mydef}
@@ -224,6 +225,25 @@ $\forall y (x\big(\bigcup \limits_{i \in G} \! \sim_i \cap \; (W \times [\psi]_M
 \end{prooftree}
 \end{multicols}
 \end{block}
+}
+
+\frame{\frametitle{Аксиома редукции для условного общего знания}
+\begin{block}{Исчисление $S5_m[]$-$RC$ ($PAL$-$RC$)}
+\begin{description}
+\item[($S5_mRC$)] Аксиомные схемы и правила вывода исчисления $S5_mRC$
+\item[($R_{RC}$)] $[!\varphi]C^\chi_G \psi \leftrightarrow 
+(\varphi \to C^{\varphi \wedge [!\varphi]\chi}_G[!\varphi]\psi)
+ $
+\end{description}
+\end{block}
+
+\begin{exampleblock}{Упражнение}
+Сформулируйте аксиому редукции для общего знания:
+$[!\varphi]C_G \psi \leftrightarrow ? $
+\end{exampleblock}
+
+\begin{exampleblock}{Упражнение} Для формулы $[!p]C_Gq$ найдите эквивалентную, но из языка $\mathcal{EL}$--$\mathcal{RC}$.	
+\end{exampleblock}
 
 }
 
