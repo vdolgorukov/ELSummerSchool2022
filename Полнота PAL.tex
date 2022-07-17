@@ -6,19 +6,19 @@
 \section{$PAL$}
 
 \frame{\frametitle{Язык}
-\begin{exampleblock}{Язык $L_{K[]}$}
+\begin{exampleblock}{Язык $\PAL$}
 \centering
 $\varphi, \psi::= p \mid \neg \varphi  \mid (\varphi \wedge \psi) \mid K_i \varphi \mid [!\varphi]\psi$	
 \end{exampleblock}
 }
 
-\frame{\frametitle{Семантика $PAL$}
+\frame{\frametitle{Семантика языка $\PAL$}
 }
 
-\frame{\frametitle{Некоторые законы $PAL$}
+\frame{\frametitle{Некоторые законы $\PAL$}
 }
 
-\frame{\frametitle{Исчисление $PAL$}
+\frame{\frametitle{Исчисление $PAL$ ($S5_m[]$)}
 Аксиомные схемы:
 \begin{itemize}
 \item $S5$
@@ -44,19 +44,19 @@ $\models [!\varphi]p \leftrightarrow (\varphi \to p)$
 
 \frame{\frametitle{Выразительность}
 \begin{description}
-\item[$\mathcal{L}_{K}$] $\varphi, \psi::= p \mid \neg \varphi  \mid (\varphi \wedge \psi) \mid K_i \varphi$
-\item[$\mathcal{L}_{K[]}$] $\varphi, \psi::= p \mid \neg \varphi  \mid (\varphi \wedge \psi) \mid K_i \varphi \mid [!\varphi]\psi$
+\item[$\EL$] $\varphi, \psi::= p \mid \neg \varphi  \mid (\varphi \wedge \psi) \mid K_i \varphi$
+\item[$\PAL$] $\varphi, \psi::= p \mid \neg \varphi  \mid (\varphi \wedge \psi) \mid K_i \varphi \mid [!\varphi]\psi$
 \end{description}
 \centering
-\begin{block}{Утверждение} $\mathcal{L}_{K} \equiv \mathcal{L}_{K[]} $
+\begin{block}{Утверждение} $\EL \equiv \PAL $
 \end{block}
 
 }
 
 \frame{\frametitle{Перевод $tr$}
 \begin{description}
-\item[$\mathcal{L}_{K}$] $\varphi, \psi::= p \mid \neg \varphi  \mid (\varphi \wedge \psi) \mid K_i \varphi$
-\item[$\mathcal{L}_{K[]}$] $\varphi, \psi::= p \mid \neg \varphi  \mid (\varphi \wedge \psi) \mid K_i \varphi \mid [!\varphi]\psi$
+\item[($\EL$)] $\varphi, \psi::= p \mid \neg \varphi  \mid (\varphi \wedge \psi) \mid K_i \varphi$
+\item[($\PAL$)] $\varphi, \psi::= p \mid \neg \varphi  \mid (\varphi \wedge \psi) \mid K_i \varphi \mid [!\varphi]\psi$
 \end{description}
 
 \begin{mydef}[Функция перевода $tr: L_{K[]} \mapsto  L_{K}$]
@@ -129,7 +129,7 @@ $\varphi \to K_i [!\varphi] \psi $ vs. $[!\varphi] K_i  \psi $
 
 \frame{
 \begin{block}{Теорема}
-$ \forall \varphi \in \mathcal{L}_{K[]} \; \vdash_{PAL} \varphi' \leftrightarrow tr(\varphi')$	
+$ \forall \varphi \in \PAL \; \vdash_{PAL} \varphi' \leftrightarrow tr(\varphi')$	
 \end{block}
 
 \alert{$\blacktriangleright$} Рассмотрим следующие случаи: $\varphi' = p, \neg \varphi, \varphi \wedge \psi,   K_i \varphi, [!\varphi]p, [!\varphi]\neg \psi, [!\varphi](\psi \wedge \chi),  [!\varphi]K_i \psi,  [!\varphi][!\psi]\chi$
@@ -184,11 +184,11 @@ $\vdash_{PAL}[!\varphi][!\psi]\chi \xleftrightarrow[3]{!RE} [!\varphi]tr([!\psi]
 \frame{\frametitle{Сборка доказательства}
 
 \begin{block}{Теорема о полноте $PAL$}
-$\forall \varphi \in L_{K[]}$:
+$\forall \varphi \in \PAL$:
 \begin{center}
-$\models_{S5} \varphi    \Rightarrow \;
-\models_{S5} tr(\varphi) \Rightarrow \;
-\vdash_{S5} tr(\varphi)  \Rightarrow \;
+$\models_{C_{S5}} \varphi    \Rightarrow \;
+\models_{C_{S5}} tr(\varphi) \Rightarrow \;
+\vdash_{S5_m} tr(\varphi)  \Rightarrow \;
 \vdash_{PAL} tr(\varphi) \Rightarrow \;
 \vdash_{PAL} \varphi   
 $	
