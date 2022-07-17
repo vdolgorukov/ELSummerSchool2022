@@ -1,0 +1,54 @@
+\input{header.tex}
+\usepackage{expl3, xparse}
+\usepackage{ebproof}
+\title[short title]{Сложные случаи: PALC, S5CD, PALCD}
+
+\begin{document}  \frame{\titlepage}
+
+\frame{\frametitle{$PALC$}
+\begin{block}{Утверждение}
+Формула $[!\varphi]C_G \psi \leftrightarrow (\varphi \to  C_G [!\varphi] \psi)$ не является общезначимой.
+\end{block}
+\begin{proof} Рассмотрим модель $M, x$
+\begin{enumerate}
+\item $M, x \models [!p]C_{ab} q$
+\item $M, x \models p$
+\item $M, x \not \models C_{ab} [!p] q $, поскольку 
+$M, x \models \hat{K}_a \hat{K}_b \langle !p \rangle \neg q$
+\end{enumerate}
+\end{proof}
+}
+
+\frame{\frametitle{Публичные объявления и общее знание}
+\begin{block}{Лемма}
+\begin{center}
+\begin{prooftree}
+\hypo{\models \chi \to [!\varphi]\psi} 
+\hypo{\models (\chi \wedge \varphi) \to E_G \chi}
+\infer2{\models \chi \to [!\varphi]C_G\psi}	
+\end{prooftree}
+\end{center}
+\end{block}
+
+}
+
+\frame{\frametitle{Публичные объявления и общее знание}
+\resizebox{0.95\textwidth}{!}{ 
+\begin{fitch}
+\models \chi \to [!\varphi] \psi	\\
+\models  (\chi \wedge \varphi) \to E_G \chi \\
+\fh \fw{M,x} \; M, x \models \chi & $\rhd \; M, x \models [!\varphi]C_G \psi \Leftrightarrow \rhd \; M, x \models \varphi \Rightarrow M^{!\varphi}, x \models C_G \psi$ \\
+\fa \fh M, x \models \varphi & $\rhd \; M^{!\varphi}, x \models C_G \psi$ \\
+\fa \fa \fh \fw{y}\; y\in W^{!\varphi} \; \\
+\fa \fa \fa M, y \models \chi  & по (*) \\
+\fa \fa \fa M, y \models [!\varphi] \psi & из 1, 6 \\
+\fa \fa \fa M, y \models \varphi \Rightarrow M^{!\varphi}, y \models \psi & из 7 по опр. \\
+\fa \fa \fa M, y \models \varphi & из 5 \\
+\fa \fa \fa  M^{!\varphi}, y \models \psi & 8,9 MP
+\end{fitch}
+}
+}
+
+
+
+\end{document}
