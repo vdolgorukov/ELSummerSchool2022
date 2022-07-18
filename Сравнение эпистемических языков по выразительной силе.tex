@@ -7,14 +7,18 @@
 
 
 \frame{\frametitle{Эпистемические языки}
-\begin{block}{Языки ($i \in Ag, G\subseteq Ag$)}
+\begin{block}{Языки}
+\begin{center}
 \begin{tabular}{ll}
 $(\EL)$   &    $\varphi, \psi::= p \mid \neg \varphi \mid (\varphi \wedge \psi) \mid K_i \varphi$ \\
 $(\ELE)$  &   $\varphi, \psi::=  p \mid \neg \varphi \mid (\varphi \wedge \psi) \mid K_i \varphi \mid E_G \varphi$\\
 $(\ELD)$ &   $\varphi, \psi::=  p \mid \neg \varphi \mid (\varphi \wedge \psi) \mid K_i \varphi \mid D_G \varphi$\\
 $(\ELC)$	&  $\varphi, \psi::=   p \mid \neg \varphi \mid (\varphi \wedge \psi) \mid K_i \varphi \mid C_G \varphi$
 \end{tabular} 
-\end{block}}
+($i \in Ag, G\subseteq Ag$)
+\end{center}
+\end{block}
+}
 
 \frame{\frametitle{Эквивалентность формул}
 \begin{block}{Определение}
@@ -55,7 +59,7 @@ $\forall M \in C \forall x \in  D(M): M, x \models \varphi \iff M, x  \models \p
 
 \frame{\frametitle{Сравнение языков по выразительной силе}
 \begin{block}{Определение}
-Модальный язык $L_2$ является не менее выразительным, чем модальный язык $L_1$ в классе моделей Крипке $C$ (обозначение: <<$L_1 \sqsubseteq_{C} L_2$>>) е.т.е.  
+Модальный язык $L_2$ является не менее выразительным, чем модальный язык $L_1$ в классе моделей Крипке $C$ (обозначение: \alert{$L_1 \preceq_{C} L_2$}) е.т.е.  
 \begin{center}
 $\forall \varphi_1 \in L_1 \exists \varphi_2 \in L_2: \varphi_1 \equiv_C \varphi_2$
 \end{center}
@@ -63,41 +67,48 @@ $\forall \varphi_1 \in L_1 \exists \varphi_2 \in L_2: \varphi_1 \equiv_C \varphi
 
 \begin{block}{Cокращения}
 \begin{itemize}
-\item $L_1 \sqsubseteq L_2:= L_1 \sqsubseteq_{All} L_2$, где $All$ – класс всех моделей Крипке 
+\item $L_1 \preceq L_2:= L_1 \preceq_{K} L_2$, где $K$ – класс всех моделей Крипке 
 \begin{multicols}{2}
-\item $L_1 \equiv_{C} L_2 := L_1 \sqsubseteq_{C} L_2 \text{ и } L_2  \sqsubseteq_{C} L_1 $
-\item $L_1 \sqsubset_{C} L_2 := L_1 \sqsubseteq_{C} L_2 \text{ и } L_2  \not \sqsubseteq_{C} L_1 $
-\item $L_1 \equiv  L_2 := L_1 \sqsubseteq  L_2 \text{ и } L_2  \sqsubseteq  L_1 $
-\item $L_1 \sqsubset L_2 := L_1 \sqsubseteq L_2 \text{ и } L_2  \not \sqsubseteq L_1 $
+\item $L_1 \equiv_{C} L_2 := L_1 \preceq_{C} L_2 \text{ и } L_2  \preceq_{C} L_1 $
+\item $L_1 \prec_{C} L_2 := L_1 \preceq_{C} L_2 \text{ и } L_2  \not \preceq_{C} L_1 $
+\item $L_1 \equiv  L_2 := L_1 \preceq  L_2 \text{ и } L_2  \preceq  L_1 $
+\item $L_1 \prec L_2 := L_1 \preceq L_2 \text{ и } L_2  \not \preceq L_1 $
 \end{multicols}
 \end{itemize}
 \end{block}
 }
 
 \frame{\frametitle{Сравнение эпистемических языков}
-\begin{block}{Языки ($i \in Ag, G\subseteq Ag$)}
+\begin{block}{Эпистемические языки }
+\begin{center}
 \begin{tabular}{ll}
 $(\EL)$   &    $\varphi, \psi::= p \mid \neg \varphi \mid (\varphi \wedge \psi) \mid K_i \varphi$ \\
 $(\ELE)$  &   $\varphi, \psi::=  p \mid \neg \varphi \mid (\varphi \wedge \psi) \mid K_i \varphi \mid E_G \varphi$\\
 $(\ELD)$ &   $\varphi, \psi::=  p \mid \neg \varphi \mid (\varphi \wedge \psi) \mid K_i \varphi \mid D_G \varphi$\\
 $(\ELC)$	&  $\varphi, \psi::=   p \mid \neg \varphi \mid (\varphi \wedge \psi) \mid K_i \varphi \mid C_G \varphi$
 \end{tabular} 
+($p \in Var, i \in Ag, G\subseteq Ag$)
+\end{center}
 \end{block}
 
-\begin{exampleblock}{Утверждения.}
-\begin{enumerate}
-\item $\EL \equiv \ELE$	
-\item $\EL \sqsubset \ELD$	
-\item $\EL \sqsubset \ELC$	
-\end{enumerate}
-\end{exampleblock}
 
+\begin{block}{Утверждение 1. }
+$\EL \equiv \ELE$
+\end{block}
+
+\begin{block}{Утверждение}
+$\EL \preceq \ELD$
+\end{block}
+
+\begin{block}{Утверждение}
+$\EL \preceq \ELC$
+\end{block}
 }
 
 \frame{\frametitle{Бисимуляция}
 }
 
-\frame{\frametitle{$\EL \sqsubset \ELD$}
+\frame{\frametitle{$\EL\prec \ELD$}
 Пример
 }
 
@@ -163,12 +174,12 @@ $(M_{n+1}, x) \equiv_n (M'_{n+1},x)$
 \end{exampleblock}
 }
 
-\frame{\frametitle{$EL \sqsubset_{S5} ELC$}
-$EL \sqsubseteq ELC$ – очевидно. Следовательно $EL \sqsubseteq_{S5} ELC$. Докажем, что $ELC \not \sqsubseteq_{S5} EL$. 
+\frame{\frametitle{$EL\prec_{S5} ELC$}
+$EL\preceq ELC$ – очевидно. Следовательно $EL\preceq_{S5} ELC$. Докажем, что $ELC \not\preceq_{S5} EL$. 
 }
 
 \frame{
-$EL \sqsubseteq ELC$ – очевидно. Следовательно $EL \sqsubseteq_{S5} ELC$. Докажем, что $ELC \not \sqsubseteq_{S5} EL$. 
+$EL\preceq ELC$ – очевидно. Следовательно $EL\preceq_{S5} ELC$. Докажем, что $ELC \not\preceq_{S5} EL$. 
 Допустим, что найдется $\varphi^* \in EL$ т.ч.$\varphi^* \equiv C_{ab} p$. Докажем, что такое допущение приводит к противоречию. Обозначим,  $md (\varphi^*)=n$. 
 \begin{prooftree}
 \hypo{M_{n+1}, x  \models C_{ab} p}

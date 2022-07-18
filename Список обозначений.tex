@@ -8,8 +8,6 @@
 \usepackage{ebproof}
 \usepackage{mathtools} 
 \usepackage{extarrows} 
-\usepackage{fitch}
-
 %Сокращения для названий языков
 \newcommand{\EL}{\mathcal{EL}}
 \newcommand{\ELC}{\mathcal{EL\text{-}C}}
@@ -20,30 +18,103 @@
 \newcommand{\PALC}{\mathcal{PAL\text{-}C}}
 \newcommand{\PALD}{\mathcal{PAL\text{-}D}}
 \newcommand{\PALCD}{\mathcal{PAL\text{-}CD}}
-\newcommand{\ELC}{\mathcal{EL\text{-}RC}}
+\newcommand{\ELRC}{\mathcal{EL\text{-}RC}}
 \newcommand{\PALRC}{\mathcal{PAL\text{-}RC}}
 
+\title{Языки, семантика и исчисления}
+
 \begin{document}
+\maketitle
 
 \section{Языки}
+\subsection{Эпистемические языки}
+\begin{center}
+\begin{tabular}{ll}
+($\EL$)   &$\varphi, \psi::=   p \mid \neg \varphi \mid (\varphi \wedge \psi) \mid K_i \varphi $ \\
+($\ELE$)  &$\varphi, \psi::=   p \mid \neg \varphi \mid (\varphi \wedge \psi) \mid K_i \varphi \mid E_G \varphi $ \\
+($\ELC$)  &$\varphi, \psi::=   p \mid \neg \varphi \mid (\varphi \wedge \psi) \mid K_i \varphi \mid C_G \varphi$ \\
+($\ELD$)  &$\varphi, \psi::=   p \mid \neg \varphi \mid (\varphi \wedge \psi) \mid K_i \varphi \mid D_G \varphi$  \\
+($\ELCD$) &$\varphi, \psi::=   p \mid \neg \varphi \mid (\varphi \wedge \psi) \mid K_i \varphi \mid C_G \varphi \mid D_G \varphi$  \\
+($\PAL$)  &$\varphi, \psi::=   p \mid \neg \varphi \mid (\varphi \wedge \psi) \mid K_i \varphi \mid [!\varphi]\psi$ \\
+($\PALC$) & $\varphi, \psi::=   p \mid \neg \varphi \mid (\varphi \wedge \psi) \mid K_i \varphi \mid [!\varphi]\psi \mid C_G \varphi$\\
+($\PALD$) & $\varphi, \psi::=   p \mid \neg \varphi \mid (\varphi \wedge \psi) \mid K_i \varphi \mid [!\varphi]\psi \mid D_G \varphi$\\
+($\PALCD$)& $\varphi, \psi::=   p \mid \neg \varphi \mid (\varphi \wedge \psi) \mid K_i \varphi \mid [!\varphi]\psi \mid C_G \varphi \mid D_G \varphi$ \\
+($\ELRC$) & $\varphi, \psi::=   p \mid \neg \varphi \mid (\varphi \wedge \psi) \mid K_i \varphi \mid C^\psi_G \varphi$ \\
+($\PALRC$) & $\varphi, \psi::=   p \mid \neg \varphi \mid (\varphi \wedge \psi) \mid K_i \varphi \mid [!\varphi]\psi \mid C^\psi_G \varphi $
+\end{tabular}
+\end{center}
+$Ag$ – конечное множество агентов, $Var$ – счетное множество пропозициональных переменных, 
+$i \in Ag$, $G \subseteq Ag$, $p\in Var$ 
+\subsection{Сокращения}
+\begin{multicols}{2}
 \begin{itemize}
-	\item $\EL$
-	\item $\ELC$
-	\item $\ELD$
-	\item $\ELE$
-	\item $\ELCD$
-	\item $\PAL$
-	\item $\PALC$
-	\item $\PALD$
-	\item $\PALCD$
+\item $\varphi \to \psi := \neg (\varphi \wedge \neg \psi)$
+\item $\varphi \vee \psi := \neg (\neg \varphi \wedge \neg \psi )$
+\item $\bot:= p \wedge \neg p$
+\item $\top:= \neg \bot$
+\item $\hat{K}_i \varphi:= \neg K_i \neg \varphi$
+\item $\langle ! \varphi \rangle \psi := \neg[!\varphi]\neg\psi $	
 \end{itemize}
+\end{multicols}
+
+
+
+
+\section{Семантика}
+\subsection{Модель Крипке}
+$M= (W, (\sim_i)_{i \in Ag},  V)$
+\subsection{Ограничения на $\sim_i$}
+\subsection{Семантика операторов}
+
+Базовая логика:
+\begin{itemize}
+\item $M, x \models p$ е.т.е.
+\item $M, x \models \neg \varphi$ е.т.е.
+\item $M, x \models \varphi \wedge \psi$ е.т.е.
+\end{itemize}
+
+Статические операторы:
+\begin{itemize}
+\item $M, x \models K_i \varphi$ е.т.е.
+\item $M, x \models D_G \varphi$ е.т.е.
+\item $M, x \models C_G \varphi$ е.т.е.
+\item $M, x \models C^\psi_G \varphi$ е.т.е.
+\end{itemize}
+
+Динамический оператор (публичное обновление)
+\begin{itemize}
+\item $M, x \models [!\varphi]\psi$ е.т.е.
+$M, x \models \varphi \Rightarrow M^{!\varphi}, x \models \psi$
+\end{itemize}
+
+Пусть $M= (W, (\sim_i)_{i \in Ag},  V)$ – модель Крипке, определим обновленную модель
+$$M^{!\varphi}= (W^{!\varphi}, (\sim^{!\varphi}_i)_{i \in Ag},  V^{!\varphi})$$ 
+где
+\begin{itemize}
+\item $W^{!\varphi}:= \{w \in W \mid M, w \models \varphi \}$
+\item $\sim^{!\varphi}_i:=\; \sim_{i} \cap \; (W^{!\varphi} \times W^{!\varphi})  $
+\item $V^{!\varphi}(p):= V(p) \cap W^{!\varphi}$	
+\end{itemize}
+
 
 \section{Исчисления}
-\begin{itemize}
-\item $S5_m$
-\item $S5_mC$		
-\item $S5_m[]$ = $PAL$	
+\subsection{$K_m$}
+\subsection{$K_m'$}
+\subsection{$KT_m$}
+\subsection{$KB_m$}
+\subsection{$K4_m$}
+\subsection{$K5_m$}
 
-\end{itemize}
+\subsection{$S4_m$}
+\subsection{$S5_m$}
+\subsection{$S5_mC$}
+\subsection{$S5_mC'$}
+\subsection{$S5_mD$}
+\subsection{$S5_mRC$}
+
+\subsection{$PAL$ (= $S5_m[]$)}
+\subsection{$PAL$-$C$ (= $S5_m[]C$)}
+\subsection{$PAL$-$D$ (= $S5_m[]D$)}
+\subsection{$PAL$-$RC$ (= $S5_m[]RC$)}
 
 \end{document}

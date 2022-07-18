@@ -59,7 +59,7 @@ $\models [!\varphi]p \leftrightarrow (\varphi \to p)$
 \item[($\PAL$)] $\varphi, \psi::= p \mid \neg \varphi  \mid (\varphi \wedge \psi) \mid K_i \varphi \mid [!\varphi]\psi$
 \end{description}
 
-\begin{mydef}[Функция перевода $tr: L_{K[]} \mapsto  L_{K}$]
+\begin{mydef}[Функция перевода $tr: \PAL \mapsto \EL $]
 \begin{multicols}{2}
 \begin{itemize}
 \item $tr(p):= p$	
@@ -108,7 +108,7 @@ $\varphi \to K_i [!\varphi] \psi $ vs. $[!\varphi] K_i  \psi $
 \begin{enumerate}
 	\item $c(p):= 1$
 	\item $c(\neg \varphi):= c(\varphi) + 1$
-	\item $c(\varphi \wedge \psi) = max\{\varphi,\psi\} + 1$
+	\item $c(\varphi \wedge \psi) = max\{c(\varphi),c(\psi)\} + 1$
 	\item $c(K_i \varphi):= c(\varphi) + 1$
 	\item $c([!\varphi]\psi):= (c(\varphi) + 4) \cdot c(\psi)$
 \end{enumerate}	
