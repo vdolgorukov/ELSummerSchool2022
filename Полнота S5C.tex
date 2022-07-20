@@ -2,8 +2,11 @@
 \usepackage{expl3, xparse}
 \usepackage{ebproof}
 \title[short title]{$S5C$: полнота и корректность}
+\newcounter{lnumber}
+\setcounter{lnumber}{1}
 
 \begin{document}  \frame{\titlepage}
+
 
 \frame{\frametitle{Исчисления $S5C$ и $S5C'$}
 \begin{block}{Теорема о дедуктивной эквивалентности $S5C$ и $S5C'$ (Упражнение)}
@@ -210,14 +213,14 @@ $\not \vdash_{S5C} \varphi \Rightarrow  \neg \varphi \not   \vdash_{S5C} \bot \R
 \end{block}
 }
 
-
+\section{Каноничность}
 \frame{\frametitle{Каноничность к.к.м.}
 
 \begin{block}{Определение} Класс моделей $S5$.	
 \end{block}
 
 
-\begin{block}{Лемма}
+\begin{block}{Лемма \arabic{lnumber} }
 $M^\Phi \in S5$, то есть, $\sim^\Phi_i$ – рефлексивно, симметрично и транзитивно.
 \end{block}
 }
@@ -251,6 +254,7 @@ $M^\Phi \in S5$, то есть, $\sim^\Phi_i$ – рефлексивно, сим
 %\end{block}
 %}
 
+\section{Лемма об истинности}
 \frame{\frametitle{Лемма об истинности}
 \begin{block}{Лемма}
 Пусть $\Phi$ замыкание формулы $\varphi_0$, $M^\Phi$ – к.к.м., $X \in W^\Phi$
@@ -333,7 +337,7 @@ $\boxed{S:= \{X' \in W^c \mid M^c, X' \models C_G \varphi\}}$ &
 $\boxed{\chi:= \bigvee \{ \underline{X'} \mid X' \in S \}}$ 
 \end{tabular}
 
-\begin{block}{Лемма $\vdash \underline{X} \to \chi$}
+\begin{block}{Лемма \arabic{lnumber} $\vdash \underline{X} \to \chi$}
   \alert{$\blacktriangleright$}  
 Доказательство: по построению $\chi$ (по КЛВ).
   \alert{$\blacktriangleleft$}	
@@ -384,6 +388,31 @@ $\boxed{\#_iX:= \{ \psi \mid K_i \psi \in X \}}$
 
 %http://www.actual.world/resources/tex/doc/Proofs.pdf
 
+
+\frame{
+\begin{block}{Лемма: Пусть $X, Y \in W^\Phi$, тогда $\underline{X}, \hat{K}_i \underline{Y}  \not \vdash \bot \Rightarrow X \sim^\Phi_i Y$}
+\end{block}
+
+\resizebox{\textwidth}{!}{
+\begin{fitch}
+\underline{X}, \hat{K}_i \underline{Y}  \not \vdash \bot \\
+\not \vdash \underline{X} \to  K_i \neg  \underline{Y}  \\
+\fh X \not \sim^\Phi_i Y &  $\rhd \; \metabot $ \\
+\fa \theta \in \Phi: K_i \theta \in X, \theta \not \in Y & из 3 \\
+\fa \neg \theta \in Y \\
+\fa Y \vdash \neg \theta \\
+\end{fitch}
+
+\begin{fitch}
+\ftag{7}{\fa \vdash \underline{Y} \to \neg \theta} \setcounter{fitchcounter}{7} \\
+\fa \vdash \theta \to \neg \underline{Y} \\
+\fa \vdash K_i \theta \to K_i \neg  \underline{Y} \\
+\fa \vdash \underline{X} \to K_i \theta \\
+\fa \vdash \underline{X} \to K_i \neg  \underline{Y}  \\
+\fa \metabot & 2, 11
+\end{fitch} }
+}
+
 \frame{
 \scalebox{.78}{
 \begin{tabular}{ccc}
@@ -392,6 +421,8 @@ $\boxed{\chi:= \bigvee \{ \underline{X'} \mid X' \in S \}}$
 \end{tabular}
 }
 
+%TODO переделать по предыдущей лемма
+%добавить счетчик для лемм и теорем
 \begin{block}{Лемма: $\vdash \chi \to E_G (\bigwedge \limits_{Y' \in \overline{S}} \neg \underline{Y'})$}
 
 \alert{$\blacktriangleright$}   

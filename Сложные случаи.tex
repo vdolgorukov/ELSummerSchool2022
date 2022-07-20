@@ -76,20 +76,19 @@ $M, x \models \hat{K}_a \hat{K}_b \langle !p \rangle \neg q$
 \resizebox{0.9\textwidth}{!}{ 
 \begin{fitch}
 (a) \models \chi \to [!\varphi] \psi \text{, }(b) \models (\chi \wedge \varphi) \to E_G \chi \\
-\fh \fw{M,x} \; M, x \models \chi & $\rhd \; M, x \models [!\varphi]C_G \psi \Leftrightarrow \rhd \; M, x \models \varphi \Rightarrow M^{!\varphi}, x \models C_G \psi$ \\
-\fa \fh M, x \models \varphi & $\rhd \; M, x \models C_G \psi \Leftrightarrow \rhd \; \forall y (x \sim_{G, \varphi}y \Rightarrow M, y \models [!\varphi]\psi)$ \\
-\fa \fa \fh \fw{y}\; x \sim_{G, \varphi}y & $\rhd \; M, y \models [!\varphi]\psi$ \\ 
-\fa \fa \fa x\sim_{i_1}y_1\sim_{i_2} \dots \sim_{i_n}y_n=y \text{ т.ч. } \\
-\ftag{~}{\fa \fa \fa i_1, \dots, i_n \in G \text{ и } M, x, y_1, \dots, y_n \models \varphi} & из 4 по опр. $x \sim_{G, \varphi}y$\\
-\fa \fa \fa M, x \models \chi \wedge \phi & 2, 3 \\
-\fa \fa \fa M, x \models E_G \chi & 1b, 6 по MP \\
-\fa \fa \fa M, x \models K_{i_1} \chi & из 7 т.к. $i_1 \in G$ \\
-\fa \fa \fa M, y_1 \models  \chi  & из 5, 8 \\
-\fa \fa \fa \vdots & повторяем 6--9 для $y_2, \dots, y_n$ \\
-\fa \fa \fa M, y \models  \chi & из 10 \\
-\fa \fa \fa M, y \models [!\varphi] \psi & 1, 11 \\
-\fa \fa \forall y (x \sim_{G, \varphi}y \Rightarrow M, y \models [!\varphi]\psi) & В$\forall\Rightarrow$ 4--12 \\
-\fa M, x \models [!\varphi]C_G \psi & В$\Rightarrow$ 3--13  \\
+\fh \fw{M,x} \; M, x \models \chi & $\rhd \; M, x \models [!\varphi]C_G \psi \Leftrightarrow \rhd \; \forall y (x \sim_{G, \varphi}y \Rightarrow M, y \models [!\varphi]\psi) $ \\
+\fa \fh \fw{y}\; x \sim_{G, \varphi}y & $\rhd \; M, y \models [!\varphi]\psi$ \\ 
+\fa \fa x\sim_{i_1}y_1\sim_{i_2} \dots \sim_{i_n}y_n=y \text{ т.ч. } \\
+\ftag{~}{\fa \fa i_1, \dots, i_n \in G \text{ и } M, x, y_1, \dots, y_n \models \varphi} & из 4 по опр. $x \sim_{G, \varphi}y$\\
+\fa \fa M, x \models \chi \wedge \phi & 2, 3 \\
+\fa \fa M, x \models E_G \chi & 1b, 6 по MP \\
+\fa \fa M, x \models K_{i_1} \chi & из 7 т.к. $i_1 \in G$ \\
+\fa \fa M, y_1 \models  \chi  & из 5, 8 \\
+\fa \fa \vdots & повторяем 6--9 для $y_2, \dots, y_n$ \\
+\fa \fa M, y \models  \chi & из 10 \\
+\fa \fa M, y \models [!\varphi] \psi & 1, 11 \\
+\fa \forall y (x \sim_{G, \varphi}y \Rightarrow M, y \models [!\varphi]\psi) & В$\forall\Rightarrow$ 4--12 \\
+\fa M, x \models [!\varphi]C_G \psi & def \\
 \models \chi \to [!\varphi]C_G \psi & В$\forall\Rightarrow$ 2--14
 \end{fitch}}
 }
