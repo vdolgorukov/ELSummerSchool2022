@@ -179,7 +179,44 @@ M^{\Phi}, X \models [!\varphi]C_G\psi
 \end{fitch}
 }
 
-\section{RC}
+\frame{\frametitle{$[!\varphi]C_G\psi \in X \Leftarrow M^{\Phi}, X \models [!\varphi]C_G\psi$}
+}
+
+\frame{
+\begin{block}{Лемма $(\chi \wedge \varphi) \to E_G \neg \underline{Y}$}
+Достаточно доказать, для любых $X \in S, Y \in \overline{S}, i \in G$ $\vdash (\underline{X} \wedge \varphi) \to K_i \neg \underline{Y} $	
+\end{block}
+\resizebox{1.0\textwidth}{!}{ 
+
+\begin{fitch}
+X \in S \\
+Y \in \overline{S} \\ 
+\fh \not \vdash (\underline{X} \wedge \varphi) \to K_i \neg \underline{Y} &  $\rhd \metabot$  \\
+\fa \underline{X}, \varphi, \neg K_i \neg \underline{Y} \not \vdash \bot \\
+\fa X, \varphi, \hat{K}_i \underline{Y} \not \vdash \bot \\
+\fa X, \varphi \not \vdash \bot \\
+\fa \varphi \in X \\
+\fa X, \hat{K}_i \underline{Y} \not \vdash \bot 
+\end{fitch}
+
+%\ftag{9}{\fa Y \vdash \neg  \psi   } \setcounter{fitchcounter}{9} 
+
+\begin{fitch}
+\ftag{9}{\fa X \sim^\Phi_i Y}  \setcounter{fitchcounter}{9} \\
+\fa M^\Phi, X \models \varphi & из 6 по ПИ \\
+\fa \models [!\varphi] C_G \psi \to (\varphi \to K_i [!\varphi] C_G \psi) \\
+\fa M^\Phi, X \models \varphi \to K_i [!\varphi] C_G \psi \\
+\fa M^\Phi, X \models K_i [!\varphi] C_G \psi \\
+\fa M^\Phi, Y \models [!\varphi] C_G \psi \\
+\fa Y \in S \\
+\fa \metabot  & 1, 14
+\end{fitch}
+
+}
+}
+
+
+\section{Условное общее знание}
 \frame{\frametitle{Условное общее знание}
 \begin{mydef}[RC]
 $M, x \models C^{\psi}_G \varphi$ е.т.е.
