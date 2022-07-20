@@ -231,9 +231,9 @@ $M^\Phi \in S5$, то есть, $\sim^\Phi_i$ – рефлексивно, сим
 \begin{fitch}
 %1%
 \fh \fw{X} \; X \in W^\Phi & $\rhd \; X \sim^\Phi_i X
-	\Leftrightarrow \rhd \; \forall \varphi (K_i \varphi \in X \Rightarrow \varphi \in X)$ \\
+	\Leftrightarrow \rhd \; \forall \varphi \in \Phi (K_i \varphi \in X \Rightarrow \varphi \in X)$ \\
 %2%
-	\fa \fh \fw{\varphi} \; K_i \varphi \in X & $\rhd \; \varphi \in X$ \\ 
+	\fa \fh \fw{\varphi}\in \Phi: K_i \varphi \in X & $\rhd \; \varphi \in X$ \\ 
 %3%
 	\fa \fa \varphi \in X & из 2, поскольку $\varphi \in \Phi$, $\vdash_{S5C} K_i \varphi \to \phi$ \\
 %4%
