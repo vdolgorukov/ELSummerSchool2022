@@ -5,30 +5,39 @@
 
 \begin{document}  \frame{\titlepage}
 
-\frame{\frametitle{Что значит $[!\varphi]C_G\psi$?}
-\begin{mydef}[$G$--путь, $x\sim_Gy$] Пусть $x, y \in W$, $G\subseteq Ag$. Будем говорить, что существует \alert{$G$--путь} из $x$ в $y$ (обозначение: \alert{$x\sim_Gy$}), если найдутся такие $y_1, \dots y_n \in W$ и $i_1, \dots , i_n \in G$, что $x\sim_{i_1}y_1\sim_{i_2} \dots \sim_{i_n}y_n=y$.
-\end{mydef}
-
-%TODO исправить: развернуть определение G-пути
-\begin{mydef}[$G$--$\varphi$--путь]
-Пусть $x, y \in W$, $G\subseteq Ag$. Будем говорить, что существует \alert{$G$--$\varphi$--путь} из $x$ в $y$ (обозначение: \alert{$x\sim_{G, \varphi}y$}), если 
-найдутся такие $y_1, \dots y_n \in W$ и $i_1, \dots , i_n \in G$, что  1) $x\sim_{i_1}y_1\sim_{i_2} \dots \sim_{i_n}y_n=y$ и 2) $M,x, y_1, \dots, y_n \models \varphi$.
-\end{mydef}
-}
-
-\frame{\frametitle{Что значит $[!\varphi]C_G\psi$?}
-
-\begin{exampleblock}{Упражнение} Докажите, что 
-	$\big(\bigcup \limits_{i \in G} \sim^{!\varphi}_i\big)^*  = \; \sim_{G, \varphi}$
-\end{exampleblock}
+\frame{\frametitle{Сложные случаи}
+\begin{itemize}
+\item $\PAL$ + общее знание
+\end{itemize}
 
 }
 
+\frame{\frametitle{Пути}
 
-\frame{\frametitle{Что значит $[!\varphi]C_G\psi$?}
-\begin{block}{Утверждение: $M, x \models [!\varphi]C_G\psi$ е.т.е. $\forall y (x \sim_{G, \varphi}y \Rightarrow M, y \models [!\varphi]\psi)$}
+
+\begin{block}{} \textbf{Определение 1}. Пусть $M=(W, (\sim_i)_{i \in Ag}, V)$ – модель Крипке, $x, y \in W$, $G\subseteq Ag$, $x, y \in W$, $G\subseteq Ag$, будем говорить, что существует \alert{$G$--путь} из $x$ в $y$ (обозначение: \alert{$x\sim_Gy$}), если найдутся такие $y_1, \dots y_n \in W$ и $i_1, \dots , i_n \in G$, что \alert{$x\sim_{i_1}y_1\sim_{i_2} \dots \sim_{i_n}y_n=y$}.
 \end{block}
-\pause
+
+\begin{block}{} \textbf{Определение 2}.
+Пусть $M=(W, (\sim_i)_{i \in Ag}, V)$ – модель Крипке, $x, y \in W$, $G\subseteq Ag$, будем говорить, что существует \alert{$G$--$\varphi$--путь} из $x$ в $y$ (обозначение: \alert{$x\sim_{G, \varphi}y$}), если  найдутся такие $y_1, \dots y_n \in W$ и $i_1, \dots , i_n \in G$, что   \alert{$x\sim_{i_1}y_1\sim_{i_2} \dots \sim_{i_n}y_n=y$} и \alert{$x, y_1, \dots, y_n \in [\varphi]_M$}.	
+\end{block}
+
+}
+
+\frame{\frametitle{Что значит $[!\varphi]C_G\psi$?}
+
+\begin{block}{}\textbf{Упражнение 1}. Докажите, что 
+	$\big(\bigcup \limits_{i \in G} \sim^{!\varphi}_i\big)^*  = \; \sim_{G, \varphi}$
+\end{block}
+
+}
+
+
+\frame{\frametitle{Что значит $[!\varphi]C_G\psi$?}
+\begin{block}{}\textbf{Утверждение 1:}
+$M, x \models [!\varphi]C_G\psi$ е.т.е. $\forall y (x \sim_{G, \varphi}y \Rightarrow M, y \models [!\varphi]\psi)$	
+\end{block}
+
 \alert{$\blacktriangleright$}  \pause
 \begin{enumerate}[<+->] 
 \item $M, x \models [!\varphi]C_G\psi \iff$ 
@@ -46,17 +55,15 @@
 }
 
 \frame{\frametitle{$PALC$}
-\begin{block}{Утверждение}
-Формула $[!\varphi]C_G \psi \leftrightarrow (\varphi \to  C_G [!\varphi] \psi)$ не является общезначимой.
+\begin{block}{} \textbf{Утверждение 2}: \alert{Формула $[!\varphi]C_G \psi \leftrightarrow (\varphi \to  C_G [!\varphi] \psi)$ не является общезначимой}.
 \end{block}
-\begin{proof} Рассмотрим модель $M, x$
+Рассмотрим модель $M, x$
 \begin{enumerate}
 \item $M, x \models [!p]C_{ab} q$
 \item $M, x \models p$
 \item $M, x \not \models C_{ab} [!p] q $, поскольку 
 $M, x \models \hat{K}_a \hat{K}_b \langle !p \rangle \neg q$
 \end{enumerate}
-\end{proof}
 }
 
 \frame{\frametitle{Публичные объявления и общее знание}
@@ -73,13 +80,13 @@ $M, x \models \hat{K}_a \hat{K}_b \langle !p \rangle \neg q$
 
 
 \frame{
-\resizebox{0.9\textwidth}{!}{ 
+\resizebox{.95\textwidth}{!}{ 
 \begin{fitch}
 (a) \models \chi \to [!\varphi] \psi \text{, }(b) \models (\chi \wedge \varphi) \to E_G \chi \\
-\fh \fw{M,x} \; M, x \models \chi & $\rhd \; M, x \models [!\varphi]C_G \psi \Leftrightarrow \rhd \; \forall y (x \sim_{G, \varphi}y \Rightarrow M, y \models [!\varphi]\psi) $ \\
+\fh \fw{M,x} \; M, x \models \chi & $\rhd \; M, x \models [!\varphi]C_G \psi \Leftrightarrow \rhd \; \forall y (x \sim_{G, \varphi}y \Rightarrow M, y \models [!\varphi]\psi)  $ \\
 \fa \fh \fw{y}\; x \sim_{G, \varphi}y & $\rhd \; M, y \models [!\varphi]\psi$ \\ 
 \fa \fa x\sim_{i_1}y_1\sim_{i_2} \dots \sim_{i_n}y_n=y \text{ т.ч. } \\
-\ftag{~}{\fa \fa i_1, \dots, i_n \in G \text{ и } M, x, y_1, \dots, y_n \models \varphi} & из 4 по опр. $x \sim_{G, \varphi}y$\\
+\fa \fa i_1, \dots, i_n \in G \text{ и } M, x, y_1, \dots, y_n \models \varphi & из 4 по опр. $x \sim_{G, \varphi}y$\\
 \fa \fa M, x \models \chi \wedge \phi & 2, 3 \\
 \fa \fa M, x \models E_G \chi & 1b, 6 по MP \\
 \fa \fa M, x \models K_{i_1} \chi & из 7 т.к. $i_1 \in G$ \\
@@ -129,60 +136,108 @@ $M, x \models \hat{K}_a \hat{K}_b \langle !p \rangle \neg q$
 
 
 \frame{
-\begin{block}{Утверждение: $\vdash [!\varphi]C_G\psi \to (\varphi \to  K_i[!\varphi] C_G \psi)$ для $i \in G$}
+\begin{block}{}
+Утверждение: $\vdash [!\varphi]C_G\psi \to (\varphi \to  K_i[!\varphi] C_G \psi)$ для $i \in G$
+\end{block}
 \begin{enumerate}
 \item $C_G\psi \to K_i C_G\psi $ 
 \item $[!\varphi]C_G\psi \to [!\varphi]K_i C_G\psi $
 \item $[!\varphi]K_i C_G\psi \to (\varphi \to  K_i[!\varphi] C_G \psi)$
 \item $[!\varphi]C_G\psi \to (\varphi \to  K_i[!\varphi] C_G \psi)$
 \end{enumerate}	
+}
+
+
+\frame{\frametitle{Лемма об истинности}
+\begin{block}{Лемма}
+Пусть $\Phi$ – замыкание некоторой формулы, $M^\Phi = (W^\Phi, (R^\Phi_i)_{i \in Ag}, V^\Phi)$ – конечная каноническая модель, тогда
+$$\alert{\forall \varphi' \in \Phi: \varphi' \in X \iff M^\Phi, X \models \varphi'}$$
 \end{block}
 }
 
 \frame{
-\begin{block}{Лемма:  $[!\varphi]C_G\psi \in X \Rightarrow \forall Y (X \sim^{\Phi}_{G,\varphi}Y \Rightarrow  [!\varphi]\psi \in Y)$}
+\begin{block}{Доказательство}
+Будем доказывать индукцией по $c(\varphi')$.
+\begin{description}
+\item[Предположение индукции] Обозначим $c(\varphi')=n$.
+$\forall \psi\in \Phi: c(\psi) < n \Rightarrow ( \psi \in X \iff M^\Phi, X \models \psi) $
+\item[Шаг индукции] Рассмотрим следующие случаи. 
+
+\begin{itemize}
+\item[Сл.1] $\varphi'= p$
+\item[Сл.2] $\varphi'= \neg \varphi $
+\item[Сл.3] $\varphi'= \varphi \wedge \psi$
+\item[Сл.4] $\varphi'= K_i \varphi $
+\item[Сл.5] $\varphi'= C_G \varphi $
+\item[Сл.6] $\varphi'= [\varphi]\psi$
+   \begin{itemize}
+     \item[Сл.6a] $\varphi'= [\varphi]p $ 
+     \item[Сл.6b] $\varphi'= [\varphi]\neg \psi$ 
+     \item[Сл.6c] $\varphi'= [\varphi](\psi \wedge \chi)$ 
+     \item[Сл.6d] $\varphi'= [\varphi]K_i \psi$ 
+     \item[Сл.6e] $\varphi'= [\varphi][\psi]\chi$ 
+     \item[Сл.6f] $\varphi'= [\varphi]C_G \psi p$ 
+   \end{itemize}
+\end{itemize}
+\end{description}
 \end{block}
-\resizebox{1.0\textwidth}{!}{ 
+}
+
+\frame{\frametitle{Сл. 6a-6e}
+\begin{itemize}
+\item Сл.6a 
+$c(\varphi \to p)<c([!\varphi]p)$ \\
+$[!\varphi]p \in X \Leftrightarrow (\varphi \to p)\in X
+\Leftrightarrow M^\Phi, X \models \varphi \to p 
+\Leftrightarrow M^\Phi, X \models [!\varphi]p
+$	
+\item Сл.6b–d. Упражнение.
+\item Сл.6e
+\end{itemize}
+
+}
+
+\frame{\frametitle{Случай 6f$\Rightarrow$}
+\resizebox{0.95\textwidth}{!}{ 
 \begin{fitch}
-[!\varphi]C_G\psi \in X \\
-\fh \fw{Y} \; X \sim^{\Phi}_{G,\varphi}Y & $\rhd \; [!\varphi]\psi \in Y$ \\
-\fa X\sim^{\Phi}_{i_1}Y_1\sim^{\Phi}_{i_2} \dots \sim^{\Phi}_{i_n}Y_n=Y \text{ т.ч. }\varphi \in X, \varphi \in Y_i \text{ и } i_1, \dots , i_n \in G & из 2 по опр. \\
-\fa \varphi \to  K_i[!\varphi] C_G \psi \in X & по утв. на сл. 10 и $\varphi \to  K_i[!\varphi] C_G \psi \in X \in \Phi$ \\
-\fa \varphi \in X & из 3\\
-\fa K_{i_1}[!\varphi] C_G \psi \in X & из 4,5 по MP\\ 
-\fa X\sim^{\Phi}_{i_1}Y_1 & из 3\\
-\fa [!\varphi] C_G \psi \in Y_1 & из 6,7 по опр. \\
-\fa \vdots & повторяем шаги 5--8 для  $Y_2$ и т.д. до  $Y_n=Y$ \\
-\fa [!\varphi] C_G \psi \in Y & из 9 \\
-\fa [!\varphi] \psi \in Y & из 10, $\vdash C_G \psi \to [!\varphi]  \psi $ и $[!\varphi]  \psi \in \Phi$ \\
-\forall Y (X \sim^{\Phi}_{G,\varphi}Y \Rightarrow  [!\varphi]\psi \in Y) & 2--11 В$\forall\Rightarrow$
+\fh [!\varphi]C_G\psi \in X & $\rhd \; M^\Phi, X \models [!\varphi]C_G\psi \Leftrightarrow \rhd \; \forall Y (X \sim_{G, \varphi} Y \Rightarrow M^\Phi, Y \models [!\varphi]\psi )$\\
+\fa \fh \fw{Y} \; X \sim^{\Phi}_{G,\varphi}Y & $\rhd \; M^\Phi, Y \models [!\varphi]\psi$ \\
+\fa \fa X\sim^{\Phi}_{i_1}Y_1\sim^{\Phi}_{i_2} \dots \sim^{\Phi}_{i_n}Y_n=Y \text{ т.ч. } i_1, \dots , i_n \in G & из 2 по опр. \\
+\ftag{~}{\fa \fa  \text{и } M^\Phi, X \models \varphi, M^\Phi, Y_1 \models \varphi, \dots,  M^\Phi, Y_n \models \varphi}  \\ 
+\fa \fa \varphi \in X, \varphi \in Y_1, \dots, \varphi \in Y_n & ПИ\\
+\fa \fa \varphi \to  K_i[!\varphi] C_G \psi \in X & по утв. на сл. 10 и $\varphi \to  K_i[!\varphi] C_G \psi \in X \in \Phi$ \\
+\fa \fa K_{i_1}[!\varphi] C_G \psi \in X & из 4,5 по MP \\
+\fa \fa X\sim^{\Phi}_{i_1}Y_1 & из 3\\
+\fa \fa [!\varphi] C_G \psi \in Y_1 & из 6,7 по опр. \\
+\fa \fa \vdots & повторяем шаги 5--8 для  $Y_2$ и т.д. до  $Y_n=Y$ \\
+\fa \fa [!\varphi] C_G \psi \in Y & из 9 \\
+\fa \fa [!\varphi] \psi \in Y & из 10, $\vdash C_G \psi \to [!\varphi]  \psi $ и $[!\varphi]  \psi \in \Phi$ \\
+\fa \fa  M^\Phi, Y \models [!\varphi] \psi & ПИ\\
+\fa \forall Y (X\sim^{\Phi}_{G,\varphi}Y \Rightarrow  [!\varphi]\psi \in Y) & 2--11 В$\forall\Rightarrow$
 \end{fitch}
 }
 }
 
 
-\frame{\frametitle{$[!\varphi]C_G\psi \in X \Rightarrow M^{\Phi}, X \models [!\varphi]C_G\psi$}
+%\frame{\frametitle{$[!\varphi]C_G\psi \in X \Rightarrow M^{\Phi}, X \models [!\varphi]C_G\psi$}
+%
+%\begin{block}{Что мы уже доказали?}
+%\begin{enumerate}
+%	\item $M, x \models [!\varphi]C_G\psi$ е.т.е. $\forall y (x \sim_{G, \varphi}y \Rightarrow M, y \models [!\varphi]\psi)$
+%	\item $[!\varphi]C_G\psi \in X \Rightarrow \forall Y (X \sim^{\Phi}_{G,\varphi}Y \Rightarrow  [!\varphi]\psi \in Y)$
+%\end{enumerate}	
+%\end{block}
+%
+%
+%\begin{fitch}
+%[!\varphi]C_G\psi \in X \\
+%\forall Y (X \sim^{\Phi}_{G,\varphi}Y \Rightarrow  [!\varphi]\psi \in Y) \\
+%\forall Y (X \sim^{\Phi}_{G,\varphi}Y \Rightarrow  M^{\Phi}, Y \models [!\varphi]\psi ) &  по ПИ \\
+%M^{\Phi}, X \models [!\varphi]C_G\psi
+%\end{fitch}
+%}
 
-\begin{block}{Что мы уже доказали?}
-\begin{enumerate}
-	\item $M, x \models [!\varphi]C_G\psi$ е.т.е. $\forall y (x \sim_{G, \varphi}y \Rightarrow M, y \models [!\varphi]\psi)$
-	\item $[!\varphi]C_G\psi \in X \Rightarrow \forall Y (X \sim^{\Phi}_{G,\varphi}Y \Rightarrow  [!\varphi]\psi \in Y)$
-\end{enumerate}	
-\end{block}
-
-
-\begin{fitch}
-[!\varphi]C_G\psi \in X \\
-\forall Y (X \sim^{\Phi}_{G,\varphi}Y \Rightarrow  [!\varphi]\psi \in Y) \\
-\forall Y (X \sim^{\Phi}_{G,\varphi}Y \Rightarrow  M^{\Phi}, Y \models [!\varphi]\psi ) &  по ПИ \\
-M^{\Phi}, X \models [!\varphi]C_G\psi
-\end{fitch}
-}
-
-\frame{\frametitle{$[!\varphi]C_G\psi \in X \Leftarrow M^{\Phi}, X \models [!\varphi]C_G\psi$}
-}
-
-\frame{
+\frame{\frametitle{Случай 6f$\Leftarrow$}
 \begin{block}{Лемма $(\chi \wedge \varphi) \to E_G \neg \underline{Y}$}
 Достаточно доказать, для любых $X \in S, Y \in \overline{S}, i \in G$ $\vdash (\underline{X} \wedge \varphi) \to K_i \neg \underline{Y} $	
 \end{block}
@@ -210,21 +265,20 @@ Y \in \overline{S} \\
 \fa M^\Phi, Y \models [!\varphi] C_G \psi \\
 \fa Y \in S \\
 \fa \metabot  & 1, 14
-\end{fitch}
-
-}
+\end{fitch} }
 }
 
 
 \section{Условное общее знание}
 \frame{\frametitle{Условное общее знание}
-\begin{mydef}[RC]
-$M, x \models C^{\psi}_G \varphi$ е.т.е.
-$\forall y (x\big(\bigcup \limits_{i \in G} \! \sim_i \cap \; (W \times [\psi]_M)  \big)^+y \Rightarrow M, y \models \varphi )$
-\end{mydef}
 
-\begin{block}{Утверждение}
-Общее знание выразимо через условное общее знание:
+\begin{block}{}\textbf{Определение 3}.
+$M, x \models \alert{C^{\psi}_G \varphi}$ е.т.е.
+$\forall y (x\big(\bigcup \limits_{i \in G} \! \sim_i \cap \; (W \times [\psi]_M)  \big)^+y \Rightarrow M, y \models \varphi )$	
+\end{block}
+
+
+\begin{block}{}\textbf{Утверждение}: \block{Общее знание выразимо через условное общее знание}:
 \begin{center}
 	$C_G \varphi \equiv C^{\top}_G \varphi$
 \end{center}	

@@ -6,6 +6,7 @@
 \section{$PAL$}
 
 \frame{\frametitle{Язык}
+
 \begin{exampleblock}{Язык $\PAL$}
 \centering
 $\varphi, \psi::= p \mid \neg \varphi  \mid (\varphi \wedge \psi) \mid K_i \varphi \mid [!\varphi]\psi$	
@@ -205,6 +206,20 @@ $K_i \top$
 \frame{\frametitle{Другие варианты аксиоматизации $PAL$}
 $PAL_1$, $PAL_2$,$PAL_3$, 
 Подробнее Wang
+}
+
+\frame{\frametitle{Дедуктивная эквивалентность}
+
+\myprop{$\vdash_{PAL_1} \varphi  \Leftrightarrow \; \vdash_{PAL_2} \varphi$}
+В силу теоремы о полноте.
+
+
+
+
+\begin{block}{Вопрос: Как доказать дедуктивную эквивалентность $PAL_1$ и $PAL_2$ непосредственно?}
+Задача сводится к том, чтобы вывести $COM!$ в $PAL_1$ и $RE!$ в $PAL_2$. Как это сделать? Гипотеза: индукцией по $c(\varphi)$.
+\end{block}
+
 }
 
 \end{document}

@@ -17,10 +17,23 @@
 \usepackage{mathtools} 
 \usepackage{extarrows} 
 \usepackage{fitch}
-%\theoremstyle{plain}
+
+%%%Настройка определений, теорем, лемм и пр
+\usepackage{amsthm}
+\theoremstyle{remark}
+\theoremstyle{mystyle}
 \newtheorem{mydef}{Определение}
+\newtheorem{mylemma}[theorem]{Лемма}
+\newtheorem{mycor}[theorem]{Утверждение}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \setbeamersize{text margin left=15pt,text margin right=15pt}
+
+%Команды
+\newcommand{\mydef}[1]{\textbf{Определение. }\alert{#1}}
+\newcommand{\mythm}[1]{\textbf{Теорема. }\alert{#1}}
+\newcommand{\mylem}[1]{\textbf{Лемма. }\alert{#1}}
+\newcommand{\myprop}[1]{\textbf{Утверждение. }\alert{#1}}
 
 %Сокращения для названий языков
 \newcommand{\EL}{\mathcal{EL}}
