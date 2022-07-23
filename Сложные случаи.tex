@@ -1,19 +1,41 @@
 \input{header.tex}
 \usepackage{expl3, xparse}
 \usepackage{ebproof}
-\title[short title]{Сложные случаи: PALC, S5CD, PALCD}
+\title[short title]{Сложные случаи: 
+$\PALC$, $\ELRC$, $\PALRC$
+}
 
 \begin{document}  \frame{\titlepage}
+\section{$PAL$-$C$}
 
 \frame{\frametitle{Сложные случаи}
 \begin{itemize}
-\item $\PAL$ + общее знание
+\item Как аксиоматизировать $\PALC$? 
+\item Как связаны $[!\varphi]$ и $C_G\psi$
+\item Есть ли аксиома редукции для $[!\varphi]\psi$?
 \end{itemize}
 
 }
 
-\frame{\frametitle{Пути}
+\frame{\frametitle{$PALC$}
+\begin{block}{} \textbf{Утверждение 1}: \alert{Формула $[!\varphi]C_G \psi \leftrightarrow (\varphi \to  C_G [!\varphi] \psi)$ не является общезначимой}.
+\end{block}
 
+\begin{proof}
+Рассмотрим модель $M, x$
+\begin{enumerate}
+\item $M, x \models [!p]C_{ab} q$
+\item $M, x \models p$
+\item $M, x \not \models C_{ab} [!p] q $, поскольку 
+$M, x \models \hat{K}_a \hat{K}_b \langle !p \rangle \neg q$
+\end{enumerate}	
+\end{proof}
+
+}
+
+
+
+\frame{\frametitle{Пути}
 
 \begin{block}{} \textbf{Определение 1}. Пусть $M=(W, (\sim_i)_{i \in Ag}, V)$ – модель Крипке, $x, y \in W$, $G\subseteq Ag$, $x, y \in W$, $G\subseteq Ag$, будем говорить, что существует \alert{$G$--путь} из $x$ в $y$ (обозначение: \alert{$x\sim_Gy$}), если найдутся такие $y_1, \dots y_n \in W$ и $i_1, \dots , i_n \in G$, что \alert{$x\sim_{i_1}y_1\sim_{i_2} \dots \sim_{i_n}y_n=y$}.
 \end{block}
@@ -54,18 +76,6 @@ $M, x \models [!\varphi]C_G\psi$ е.т.е. $\forall y (x \sim_{G, \varphi}y \Rig
 \pause \alert{$\blacktriangleleft$} 
 }
 
-\frame{\frametitle{$PALC$}
-\begin{block}{} \textbf{Утверждение 2}: \alert{Формула $[!\varphi]C_G \psi \leftrightarrow (\varphi \to  C_G [!\varphi] \psi)$ не является общезначимой}.
-\end{block}
-Рассмотрим модель $M, x$
-\begin{enumerate}
-\item $M, x \models [!p]C_{ab} q$
-\item $M, x \models p$
-\item $M, x \not \models C_{ab} [!p] q $, поскольку 
-$M, x \models \hat{K}_a \hat{K}_b \langle !p \rangle \neg q$
-\end{enumerate}
-}
-
 \frame{\frametitle{Публичные объявления и общее знание}
 \begin{block}{Лемма}
 \begin{center}
@@ -103,12 +113,11 @@ $M, x \models \hat{K}_a \hat{K}_b \langle !p \rangle \neg q$
 
 \frame{\frametitle{Исчисление $PALC$}
 \begin{itemize}
-\item $S5$
+\item Аксиомные схемы $S5$–$C$
 \item $[!\varphi]p \leftrightarrow (\varphi \to p)$	
 \item $[!\varphi]\neg \psi  \leftrightarrow (\varphi \to \neg [!\varphi]\psi)$
 \item $[!\varphi](\psi \wedge \chi) \leftrightarrow ([!\varphi]\psi \wedge [!\varphi]\chi) $
 \item $[!\varphi]K_i \psi \leftrightarrow (\varphi \to K_i [!\varphi] \psi)$
-\item Аксиомы и правила вывода $S5C$
 \item Правила вывода: $MP$, $NEC$, $RE!$
 \item Правило вывода
 \begin{center}
@@ -127,7 +136,7 @@ $M, x \models \hat{K}_a \hat{K}_b \langle !p \rangle \neg q$
 \frame{\frametitle{Полнота и корректность}
 \begin{block}{Теорема о полноте: схема доказательства}
 \begin{itemize}
-\item Замыкание
+\item Замыкание $cl(\varphi)$
 \item Случай $[!\varphi]C_G\psi$	
 \end{itemize}
 \end{block}
@@ -270,6 +279,7 @@ Y \in \overline{S} \\
 
 
 \section{Условное общее знание}
+\subsection{$\ELRC$}
 \frame{\frametitle{Условное общее знание}
 
 \begin{block}{}\textbf{Определение 3}.
@@ -278,7 +288,7 @@ $\forall y (x\big(\bigcup \limits_{i \in G} \! \sim_i \cap \; (W \times [\psi]_M
 \end{block}
 
 
-\begin{block}{}\textbf{Утверждение}: \block{Общее знание выразимо через условное общее знание}:
+\begin{block}{} \textbf{Утверждение}: Общее знание выразимо через условное общее знание:
 \begin{center}
 	$C_G \varphi \equiv C^{\top}_G \varphi$
 \end{center}	
@@ -286,9 +296,15 @@ $\forall y (x\big(\bigcup \limits_{i \in G} \! \sim_i \cap \; (W \times [\psi]_M
 \end{block}
 }
 
+\frame{
+\begin{block}{}Определение. $x(R_{G,+\varphi})y$
+\end{block}
+
+}
+
 \frame{\frametitle{Исчисление для условного общего знания}
 
-\begin{block}{Исчисление $S5_mRC$}
+\begin{block}{Исчисление $S5_m$–$RC$}
 Аксиомные схемы:
 \begin{description}
 \item[($S5_{K}$)] Аксиомные схемы $S5$ для $K_i$
@@ -317,6 +333,78 @@ $\forall y (x\big(\bigcup \limits_{i \in G} \! \sim_i \cap \; (W \times [\psi]_M
 \end{multicols}
 \end{block}
 }
+
+\frame{\frametitle{Некоторые полезные теоремы}
+\begin{block}{}\textbf{Упражнение}.Найдите доказательства для следующих теорем исчисления $S5_m$–$RC$:
+\begin{enumerate}
+\item $C^\psi_G \varphi \to E_G (\psi \to \varphi)$
+\item $C^\psi_G \varphi \to E_G (\psi \to E_G (\psi \to \varphi))$
+\item $C^\varphi_G \varphi $
+\item $C^\psi_G \varphi \to C^\psi_G C^\psi_G \varphi$
+\item $C^\psi_G \varphi \leftrightarrow C^\psi_G(\psi \wedge  \varphi)$
+\item $C^\psi_G \varphi \leftrightarrow C^\psi_G (\psi \to \varphi)$
+\end{enumerate}
+\end{block}
+}
+
+\frame{\frametitle{Полнота $S5_m$-$RC$}
+Сборка доказательства. 
+\begin{itemize}
+\item $\Phi = cl(\varphi)$
+\item Лемма об истинности: случай $C^\psi_G\varphi$	
+\end{itemize}
+}
+
+
+\frame{\frametitle{Замыкание}
+\begin{block}{}Определение. К определению $\Phi$ добавляем правило
+\begin{itemize}
+\item $C^\psi_G \varphi \in \Phi \Rightarrow \{K_i (\psi \to (\varphi \wedge C^\psi_G \varphi ) \mid i \in G \} \subset \Phi$
+\end{itemize}
+\end{block}
+}
+
+\frame{\frametitle{Лемма об истинности: Cл. $\psi'= C^\psi_G\varphi$. ($\Rightarrow$)}
+%\begin{block}{Cлучай $C^\psi_G\varphi$. ($\Rightarrow$)$C^\psi_G \varphi \in \Phi$}
+%Для $C^\psi_G\varphi \in X \Rightarrow M^\Phi, X \models C^\psi_G \varphi$
+%\end{block}
+\resizebox{0.9\textwidth}{!}{ 
+\begin{fitch}
+\fh C^\psi_G\varphi \in X & $\rhd \; M^\Phi, X \models C^\psi_G \varphi \Leftrightarrow \rhd \; \forall Y (X(R^{\Phi}_{G, + \psi}) Y \Rightarrow M^\Phi, Y \models \varphi)$ \\
+\fa \fh  \fw{Y} \; X(R^{\Phi}_{G, + \psi}) Y & $\rhd \; M^\Phi, Y \models \varphi$ \\
+\fa \fa XR^\Phi_{i_1}Y_1R^\Phi_{i_2}\dots R^\Phi_{i_n}Y_n = Y \text{ т.ч.} & \\
+\fa \fa \{i_1, \dots, i_n \} \subseteq G \\
+\fa \fa M^\Phi, Y_1 \models \psi, \dots, M^\Phi, Y_n \models \psi \\
+\fa \fa \psi \in Y_1, \dots, \psi \in Y_n & по ПИ \\
+\fa \fa K_{i_1}(\psi \to (\varphi \wedge C^\psi_G \varphi)) \in X \\
+\fa \fa  \psi \to (\varphi \wedge C^\psi_G \varphi) \in Y_1 \\
+\fa \fa \varphi \wedge C^\psi_G \varphi \in Y_1 \\
+\fa \fa \text{повторяем до } Y_n=Y \\
+\fa \fa \varphi \wedge C^\psi_G \varphi \in Y_n \\
+\fa \fa \varphi \in Y_n \\
+\fa \fa  M^\Phi, Y \models \varphi & по ПИ
+\end{fitch}}
+}
+
+\frame{\frametitle{Лемма об истинности: Cл. $\psi'= C^\psi_G\varphi$. ($\Leftarrow$)}
+\begin{itemize}
+\item $\underline{X} \to E_G(\psi \to \chi)$
+\item $\chi \to E_G(\psi \to \chi)$
+\item $\chi \to (\psi \to \varphi)$
+\end{itemize}
+}
+
+
+\frame{
+\begin{block}{} Утверждение. $\vdash \underline{X} \to E_G(\psi \to \chi)$. 
+\begin{proof} Достаточно доказать, что $\vdash \underline{X} \to K_i(\psi \to \chi)$ для $i \in G$.
+Вспомним, что $\chi \leftrightarrow \bigwedge \{ \neg \underline{Y} \mid Y \in \overline{S} \}$. Тогда,  нам нужно доказать, что $\vdash \underline{X} \to K_i(\psi \to \bigwedge \{ \neg \underline{Y} \mid Y \in \overline{S} \} )$, что эквивалентно
+$\vdash \underline{X} \to \bigwedge \{K_i (  \psi \to \neg \underline{Y}) \mid Y \in \overline{S} \}$. Значит, достаточно доказать, что для $Y \in \overline{S}$:  $\vdash \underline{X} \to  K_i (  \psi \to \neg \underline{Y}) $. 
+\end{proof}
+\end{block}
+}
+
+\subsection{$\PALRC$}
 
 \frame{\frametitle{Аксиома редукции для условного общего знания}
 \begin{block}{Исчисление $S5_m[]$-$RC$ ($PAL$-$RC$)}

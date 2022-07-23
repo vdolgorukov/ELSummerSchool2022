@@ -99,12 +99,27 @@ $$M^{!\varphi}= (W^{!\varphi}, (\sim^{!\varphi}_i)_{i \in Ag},  V^{!\varphi})$$
 
 \section{Исчисления}
 \subsection{$K_m$}
+Аксиомные схемы:
 \begin{itemize}
 \item Тавтологии КЛВ
-\item $K_i (\varphi \to \psi) \to (K_i \varphi \to K_i \psi) $	
+\item[($K$)] $K_i (\varphi \to \psi) \to (K_i \varphi \to K_i \psi) $	
 \end{itemize}
 
+\begin{multicols}{3}
+\begin{prooftree}
+\hypo{\varphi}, \hypo{\varphi \to \psi}
+\infer2{\psi}	
+\end{prooftree}
+
+\begin{prooftree}
+\hypo{\varphi}	
+\infer1{K_i \varphi}
+\end{prooftree}
+\end{multicols}
+
+
 \subsection{$K_m'$}
+
 \subsection{$KT_m$}
 \subsection{$KB_m$}
 \subsection{$K4_m$}
@@ -115,22 +130,104 @@ $$M^{!\varphi}= (W^{!\varphi}, (\sim^{!\varphi}_i)_{i \in Ag},  V^{!\varphi})$$
 
 
 \subsection{$S5_mC$}
+\begin{itemize}
+\item Все тавтологии КЛВ
+\item Аксиомы S5 для каждого оператора $K_i$
+\item ($K_C$) $C_G (\varphi \to \psi) \to (C_G \varphi \to C_G \psi)$
+\item ($fix$) $C_G \varphi \to E_G(\varphi \wedge C_G \varphi)$ 
+\item($ind$) $C_G (\varphi \to E_G \varphi) \to (\varphi \to C_G \varphi)$
+\end{itemize}
+
+Правила вывода: 
+\begin{multicols}{3}
+
+\begin{prooftree}
+\hypo{\varphi}, \hypo{\varphi \to \psi}
+\infer2[MP]{\psi}	
+\end{prooftree}
+
+\begin{prooftree}
+\hypo{\varphi}	
+\infer1{K_i \varphi}
+\end{prooftree}
+
+\begin{prooftree}
+\hypo{\varphi}	
+\infer1{C_G \varphi}
+\end{prooftree}
+\end{multicols}
+
+
 \subsection{$S5_mC'$}
+Аксиомные схемы:
+\begin{enumerate}
+\item Все тавтологии КЛВ
+\item Аксиомные схемы S5 для оператора $K_i$
+\item ($fix$)  $C_G \varphi \to E_G(\varphi \wedge C_G \varphi)$
+\end{enumerate}
+
+Правила вывода: 
+\begin{multicols}{3}
+\begin{prooftree}
+\hypo{\varphi}, \hypo{\varphi \to \psi}
+\infer2[MP]{\psi}	
+\end{prooftree}
+
+\begin{prooftree}
+\hypo{\varphi}	
+\infer1{K_i \varphi}
+\end{prooftree}
+
+\begin{prooftree}
+\hypo{\varphi \to E_G (\psi \wedge \varphi)}	
+\infer1[$ind_R$]{\varphi \to C_G \psi}
+\end{prooftree}	
+\end{multicols} 
+
+
+
+
 \subsection{$S5_mD$}
 \subsection{$S5_mRC$}
 
 \subsection{$PAL$ (= $S5_m[]$)}
 \begin{itemize}
-\item Аксиомные схемы и правила вывода $S5$	
+\item Аксиомные схемы $S5_m$	
 \item $[!\varphi]p \leftrightarrow (\varphi \to p)$
 \item $[!\varphi]\neg \psi \leftrightarrow (\varphi \to \neg[!\varphi]\psi)$
 \item $[!\varphi](\psi \wedge \chi) \leftrightarrow ([!\varphi]\psi \wedge [!\varphi]\chi)$
 \item $[!\varphi]K_i\psi \leftrightarrow (\varphi \to K_i[!\varphi]\psi)$
-\item Правила вывода: RE!
+\end{itemize}
+
+Правила вывода: 
+\begin{multicols}{3}
+\begin{prooftree}
+\hypo{\varphi \rightarrow \psi}
+\infer1[RE!]{[!\chi]\varphi \rightarrow [!\chi]\psi}	
+\end{prooftree}
+
+\begin{prooftree}
+\hypo{\varphi}, \hypo{\varphi \to \psi}
+\infer2{\psi}	
+\end{prooftree}
+
+\begin{prooftree}
+\hypo{\varphi}	
+\infer1{K_i \varphi}
+\end{prooftree}
+\end{multicols}
+
+
+\subsection{$PAL'$}
+В исчислении $PAL$ заменяем правило $RE!$ на следующую аксиомную схему
+\begin{itemize}
+\item[(comp)] $[!\varphi][!\psi]\chi \leftrightarrow [! (\varphi \wedge [!\varphi] \psi)]\chi$
 \end{itemize}
 
 \subsection{$PAL$-$C$ (= $S5_m[]C$)}
+$S5_mC + PAL + $
 \subsection{$PAL$-$D$ (= $S5_m[]D$)}
+
 \subsection{$PAL$-$RC$ (= $S5_m[]RC$)}
 
 \end{document}
