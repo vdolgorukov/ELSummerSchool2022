@@ -37,11 +37,11 @@ $M, x \models \hat{K}_a \hat{K}_b \langle !p \rangle \neg q$
 
 \frame{\frametitle{Пути}
 
-\begin{block}{} \textbf{Определение 1}. Пусть $M=(W, (\sim_i)_{i \in Ag}, V)$ – модель Крипке, $x, y \in W$, $G\subseteq Ag$, $x, y \in W$, $G\subseteq Ag$, будем говорить, что существует \alert{$G$--путь} из $x$ в $y$ (обозначение: \alert{$x\sim_Gy$}), если найдутся такие $y_1, \dots y_n \in W$ и $i_1, \dots , i_n \in G$, что \alert{$x\sim_{i_1}y_1\sim_{i_2} \dots \sim_{i_n}y_n=y$}.
+\begin{block}{} \textbf{Определение 1}. Пусть $M=(W, (\sim_i)_{i \in Ag}, V)$ – модель Крипке, $x, y \in W$, $G\subseteq Ag$, $x, y \in W$, $G\subseteq Ag$, будем говорить, что существует \alert{$G$-путь} из $x$ в $y$ (обозначение: \alert{$x\sim_Gy$}), если найдутся такие $y_1, \dots, y_n \in W$ и $i_1, \dots, i_n \in G$, что \alert{$x\sim_{i_1}y_1\sim_{i_2} \dots \sim_{i_n}y_n=y$}.
 \end{block}
 
 \begin{block}{} \textbf{Определение 2}.
-Пусть $M=(W, (\sim_i)_{i \in Ag}, V)$ – модель Крипке, $x, y \in W$, $G\subseteq Ag$, будем говорить, что существует \alert{$G$--$\varphi$--путь} из $x$ в $y$ (обозначение: \alert{$x\sim_{G, \varphi}y$}), если  найдутся такие $y_1, \dots y_n \in W$ и $i_1, \dots , i_n \in G$, что   \alert{$x\sim_{i_1}y_1\sim_{i_2} \dots \sim_{i_n}y_n=y$} и \alert{$x, y_1, \dots, y_n \in [\varphi]_M$}.	
+Пусть $M=(W, (\sim_i)_{i \in Ag}, V)$ – модель Крипке, $x, y \in W$, $G\subseteq Ag$, будем говорить, что существует \alert{$G$-$\varphi$-путь} из $x$ в $y$ (обозначение: \alert{$x\sim_{G, \varphi}y$}), если  найдутся такие $y_1, \dots, y_n \in W$ и $i_1, \dots, i_n \in G$, что   \alert{$x\sim_{i_1}y_1\sim_{i_2} \dots \sim_{i_n}y_n=y$} и \alert{$M, x \models \varphi, M, y_1 \models \varphi, \dots, M, y_n \models \varphi$}.	
 \end{block}
 
 }
@@ -49,7 +49,7 @@ $M, x \models \hat{K}_a \hat{K}_b \langle !p \rangle \neg q$
 \frame{\frametitle{Что значит $[!\varphi]C_G\psi$?}
 
 \begin{block}{}\textbf{Упражнение 1}. Докажите, что 
-	$\big(\bigcup \limits_{i \in G} \sim^{!\varphi}_i\big)^*  = \; \sim_{G, \varphi}$
+	$\big(\bigcup \limits_{i \in G} \sim^{!\varphi}_i\big)^+  = \; \sim_{G, \varphi}$
 \end{block}
 
 }
@@ -110,16 +110,24 @@ $M, x \models [!\varphi]C_G\psi$ е.т.е. $\forall y (x \sim_{G, \varphi}y \Rig
 \end{fitch}}
 }
 
+\frame{
+\begin{exampleblock}{Упражнение}
+Переписать предыдущее доказательство в более строгом виде: индукцией по $n$ 
+в пункте $x\sim_{i_1}y_1\sim_{i_2} \dots \sim_{i_n}y_n=y $ и далее.
+\end{exampleblock}
+
+}
 
 \frame{\frametitle{Исчисление $PALC$}
 \begin{itemize}
-\item Аксиомные схемы $S5$–$C$
+\item Аксиомные схемы $S5_m$–$C$
 \item $[!\varphi]p \leftrightarrow (\varphi \to p)$	
 \item $[!\varphi]\neg \psi  \leftrightarrow (\varphi \to \neg [!\varphi]\psi)$
 \item $[!\varphi](\psi \wedge \chi) \leftrightarrow ([!\varphi]\psi \wedge [!\varphi]\chi) $
 \item $[!\varphi]K_i \psi \leftrightarrow (\varphi \to K_i [!\varphi] \psi)$
-\item Правила вывода: $MP$, $NEC$, $RE!$
-\item Правило вывода
+\item $[!\varphi][!\psi]\chi \leftrightarrow [!(\varphi \wedge [!\varphi]\psi)]\chi$
+\item Правила вывода: $MP$, $NEC$ для $K_i$
+\item Правило вывода:
 \begin{center}
 \begin{prooftree}
 \hypo{\chi \to [!\varphi]\psi} 
@@ -137,6 +145,7 @@ $M, x \models [!\varphi]C_G\psi$ е.т.е. $\forall y (x \sim_{G, \varphi}y \Rig
 \begin{block}{Теорема о полноте: схема доказательства}
 \begin{itemize}
 \item Замыкание $cl(\varphi)$
+\item $c(\varphi)$ переопределить
 \item Случай $[!\varphi]C_G\psi$	
 \end{itemize}
 \end{block}
@@ -159,14 +168,14 @@ $M, x \models [!\varphi]C_G\psi$ е.т.е. $\forall y (x \sim_{G, \varphi}y \Rig
 
 \frame{\frametitle{Лемма об истинности}
 \begin{block}{Лемма}
-Пусть $\Phi$ – замыкание некоторой формулы, $M^\Phi = (W^\Phi, (R^\Phi_i)_{i \in Ag}, V^\Phi)$ – конечная каноническая модель, тогда
+Пусть $\Phi$ – замыкание некоторой формулы, $M^\Phi = (W^\Phi, (R^\Phi_i)_{i \in Ag}, V^\Phi)$ – конечная каноническая модель, $X \in W^\Phi$ тогда
 $$\alert{\forall \varphi' \in \Phi: \varphi' \in X \iff M^\Phi, X \models \varphi'}$$
 \end{block}
 }
 
 \frame{
 \begin{block}{Доказательство}
-Будем доказывать индукцией по $c(\varphi')$.
+Будем доказывать (возвратной) индукцией по $c(\varphi')$.
 \begin{description}
 \item[Предположение индукции] Обозначим $c(\varphi')=n$.
 $\forall \psi\in \Phi: c(\psi) < n \Rightarrow ( \psi \in X \iff M^\Phi, X \models \psi) $
@@ -277,9 +286,26 @@ Y \in \overline{S} \\
 \end{fitch} }
 }
 
+\frame{\frametitle{Как быть с $RE$?}
+$[!\varphi][!\psi]\chi$
+}
+
 
 \section{Условное общее знание}
 \subsection{$\ELRC$}
+
+\frame{\frametitle{Аксиомы редукции}
+%TOD напомнить языки
+\begin{itemize}
+\item $\EL \equiv \PAL$
+\item $\ELD \equiv \PALD$
+\item $\ELC \prec \PALC$
+\item $\ELC$+? $\equiv \PALC$ +?
+\item $\ELRC \equiv \PALRC$
+\end{itemize}
+
+
+}
 \frame{\frametitle{Условное общее знание}
 
 \begin{block}{}\textbf{Определение 3}.
@@ -297,8 +323,14 @@ $\forall y (x\big(\bigcup \limits_{i \in G} \! \sim_i \cap \; (W \times [\psi]_M
 }
 
 \frame{
-\begin{block}{}Определение. $x(R_{G,+\varphi})y$
+\begin{block}{} \textbf{Определение 3}.
+Пусть $M=(W, (\sim_i)_{i \in Ag}, V)$ – модель Крипке, $x, y \in W$, $G\subseteq Ag$, будем говорить, что существует \alert{$G$-$\cdot\varphi$-путь} из $x$ в $y$ (обозначение: \alert{$R_{G,+\varphi}$}), если  найдутся такие $y_1, \dots, y_n \in W$ и $i_1, \dots, i_n \in G$, что   \alert{$xR_{i_1}y_1R_{i_2} \dots R_{i_n}y_n=y$} и \alert{$M, y_1 \models \varphi, \dots, M, y_n \models \varphi$}.	
 \end{block}
+
+\begin{block}{}
+	$M, x \models C^{\psi}_G \varphi$ е.т.е. $\forall y (xR_{G, \cdot \psi}y \Rightarrow M, y \models \varphi)$ 
+\end{block}
+
 
 }
 
@@ -402,6 +434,44 @@ $\forall y (x\big(\bigcup \limits_{i \in G} \! \sim_i \cap \; (W \times [\psi]_M
 $\vdash \underline{X} \to \bigwedge \{K_i (  \psi \to \neg \underline{Y}) \mid Y \in \overline{S} \}$. Значит, достаточно доказать, что для $Y \in \overline{S}$:  $\vdash \underline{X} \to  K_i (  \psi \to \neg \underline{Y}) $. 
 \end{proof}
 \end{block}
+}
+
+%TODO напомнить, что такое \chi и \underline{S}
+\frame{
+\begin{block}{}\textbf{Утверждение}. Пусть $X \in S$, $Y \in \underline{S}$, тогда \alert{$\vdash \underline{X} \to K_i(\psi \to \neg \underline{Y})$}
+\end{block}
+\resizebox{1.0\textwidth}{!}{ 
+\begin{fitch}
+X \in S, Y \in \underline{S} \\
+M^\Phi, X \models  C^\psi_G\varphi \\
+M^\Phi, Y \not \models  C^\psi_G\varphi \\
+\fh \not \vdash \underline{X} \to K_i(\psi \to \neg \underline{Y}) & $\rhd \; \metabot$ \\
+\fa \underline{X} \not \vdash K_i(\psi \to \neg \underline{Y}) \\
+\fa \underline{X}\not \vdash \neg K_i(\psi \to \neg \underline{Y}) \to \bot \\
+\fa \underline{X}, \neg K_i(\psi \to \neg \underline{Y}) \not \vdash  \bot \\
+\fa \underline{X}, \hat{K}_i(\psi \wedge \underline{Y}) \not \vdash  \bot 
+\end{fitch}
+\begin{fitch}
+\ftag{9}{X R^\Phi_i Y}& 8 по утв. (*) \setcounter{fitchcounter}{9} \\
+\fa \psi \in Y & 8 по утв. (*) \\
+\fa X \models K_i (\psi \to C^\psi_G\varphi) \\
+\fa Y \models \psi \to C^\psi_G \varphi \\
+\fa Y \models \psi & по ПИ \\ 
+\fa Y \models C^\psi_G\varphi \\
+\fa \metabot \\
+\vdash \underline{X} \to K_i(\psi \to \neg \underline{Y})
+\end{fitch}}	
+
+}
+
+\frame{
+\begin{block}{}\textbf{Утверждение (*)}. Пусть $X, Y \in W^\Phi$, тогда
+\begin{center}
+\alert{$\underline{X}, \hat{K}_i(\varphi \wedge \underline{Y}) \not \vdash  \bot \Rightarrow 
+(XR^{\Phi}_iY \text{ и } \varphi \in Y)$}
+\end{center}
+\end{block}
+
 }
 
 \subsection{$\PALRC$}
