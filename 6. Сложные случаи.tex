@@ -464,7 +464,7 @@ $cl_1(\varphi') \subset cl_2(\varphi') \subset cl_3 (\varphi') \subset cl(\varph
 \end{block}
 }
 
-\frame{\frametitle{Лемма об истинности: Cл. $\psi'= C^\psi_G\varphi$. ($\Rightarrow$)}
+\frame{\frametitle{Лемма об истинности: Cл. $\psi'= C^\psi_G\varphi$ ($\Rightarrow$)}
 %\begin{block}{Cлучай $C^\psi_G\varphi$. ($\Rightarrow$)$C^\psi_G \varphi \in \Phi$}
 %Для $C^\psi_G\varphi \in X \Rightarrow M^\Phi, X \models C^\psi_G \varphi$
 %\end{block}
@@ -495,16 +495,55 @@ $cl_1(\varphi') \subset cl_2(\varphi') \subset cl_3 (\varphi') \subset cl(\varph
 }
 
 
-\frame{
-\begin{block}{} Утверждение. $\vdash \underline{X} \to E_G(\psi \to \chi)$. 
-\begin{proof} Достаточно доказать, что $\vdash \underline{X} \to K_i(\psi \to \chi)$ для $i \in G$.
-Вспомним, что $\chi \leftrightarrow \bigwedge \{ \neg \underline{Y} \mid Y \in \overline{S} \}$. Тогда,  нам нужно доказать, что $\vdash \underline{X} \to K_i(\psi \to \bigwedge \{ \neg \underline{Y} \mid Y \in \overline{S} \} )$, что эквивалентно
-$\vdash \underline{X} \to \bigwedge \{K_i (  \psi \to \neg \underline{Y}) \mid Y \in \overline{S} \}$. Значит, достаточно доказать, что для $Y \in \overline{S}$:  $\vdash \underline{X} \to  K_i (  \psi \to \neg \underline{Y}) $. 
-\end{proof}
-\end{block}
+\frame{\frametitle{Cл. $\psi'= C^\psi_G\varphi$ ($\Leftarrow$) Сборка доказательства}
+\begin{center}
+$\footnotesize\boxed{S:= \{ X \in W^\Phi \mid  M^\Phi, X \models C^\psi_G \varphi  \}}$ 
+$\footnotesize\boxed{\chi:= \bigvee \{\underline{X} 
+\mid  X \in S \} }$
+$\footnotesize\boxed{\overline{S}:= W^\Phi \backslash S}$
+\end{center}
+
+\resizebox{1.02\textwidth}{!}{
+\begin{prooftree}[separation=0.9em]
+\hypo{\underline{X} \to E_G(\psi \to \chi)} 
+    \hypo{\chi \to E_G(\psi \to \bigwedge \{\neg \underline{Y} \mid Y \in \overline{S} \})} \hypo{\chi \leftrightarrow \bigwedge \{\neg \underline{Y} \mid Y \in \overline{S} \}}
+       \infer2{\chi \to E_G(\psi \to \chi)}
+       \infer1{C^\psi_G(\chi \to E_G(\psi \to \chi))}         \hypo{C^\psi_G(\chi \to E_G(\psi \to \chi)) \to (E_G(\psi \to \chi) \to C^\psi_G \chi)}
+       \infer2{E_G(\psi \to \chi) \to C^\psi_G \chi}
+\infer2{\underline{X} \to C^\psi_G \chi}
+                           \hypo{C^\psi_G\chi \to C^\psi_G(\psi \wedge \chi)}
+\infer2{\underline{X} \to C^\psi_G(\psi \wedge \chi)}
+
+\hypo{(\psi \wedge \chi) \to C^\psi_G \varphi}
+\infer1{C^\psi_G(\psi \wedge \chi) \to C^\psi_G\varphi}
+
+\infer2{\underline{X} \to C^\psi_G \varphi}
+\infer1{X \vdash C^\psi_G \varphi}
+\hypo{C^\psi_G \varphi \in \Phi}
+\infer2{C^\psi_G \varphi \in X}                            	
+\end{prooftree}
+}
 }
 
-%TODO напомнить, что такое \chi и \underline{S}
+
+\frame{
+\begin{block}{} \textbf{Утверждение}.
+
+$\chi \to E_G (\psi \to \bigwedge \{\neg \underline{Y} \mid Y \in \overline{S} \}) \Leftrightarrow $
+\end{block}
+
+Доказательство.
+\begin{enumerate}
+\item $\forall i \in G$: $\underline{X} \to  K_i (\psi \to \bigwedge \{\neg \underline{Y} \mid Y \in \overline{S} \})$ 	
+\item $\forall i \in G$: $\underline{X} \to  K_i (\bigwedge \{\psi \to \neg \underline{Y} \mid Y \in \overline{S} \})$ 
+\item $\forall i \in G$: $\underline{X} \to  \bigwedge \{K_i (\psi \to \neg \underline{Y}) \mid Y \in \overline{S} \}$
+\item $\forall i \in G \; \forall Y \in \overline{S}$: $\underline{X} \to K_i (\psi \to \neg \underline{Y}) $
+\end{enumerate}
+
+
+
+}
+
 \frame{
 \begin{block}{}\textbf{Утверждение}. Пусть $X \in S$, $Y \in \underline{S}$, тогда \alert{$\vdash \underline{X} \to K_i(\psi \to \neg \underline{Y})$}
 \end{block}
