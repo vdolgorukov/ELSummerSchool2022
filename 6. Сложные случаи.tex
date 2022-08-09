@@ -307,6 +307,24 @@ $(*) \;  c([!(\varphi \wedge [!\varphi]\psi)]\chi) < c([!\varphi][!\psi]\chi)$
 %\end{fitch}
 %}
 
+\frame{\frametitle{Случай 6f($\Leftarrow$): сборка доказательства}
+}
+
+\frame{
+\begin{block}{}\textbf{Утверждение}.
+$\vdash \chi \to [!\varphi]\psi$ 
+\end{block}
+Достаточно доказать, что $\underline{X} \to [!\varphi]\psi$ для $X \in S$.
+\begin{enumerate}
+\item $M^\Phi, X \models [!\varphi]C_G \psi$	
+\item $M^\Phi, X \models [!\varphi] \psi$
+\item $c([!\varphi]\psi) < c([!\varphi]C_G\psi)$
+\item $[!\varphi] \psi \in X $ по П.И.
+\item $X \vdash [!\varphi] \psi $ 
+\item $\vdash \underline{X} \to [!\varphi] \psi $
+\end{enumerate}
+}
+
 \frame{\frametitle{Случай 6f$\Leftarrow$}
 \begin{block}{Лемма $(\chi \wedge \varphi) \to E_G \neg \underline{Y}$}
 Достаточно доказать, для любых $X \in S, Y \in \overline{S}, i \in G$ $\vdash (\underline{X} \wedge \varphi) \to K_i \neg \underline{Y} $	
@@ -502,7 +520,7 @@ $\footnotesize\boxed{\chi:= \bigvee \{\underline{X}
 \mid  X \in S \} }$
 $\footnotesize\boxed{\overline{S}:= W^\Phi \backslash S}$
 \end{center}
-
+\begin{center}
 \resizebox{1.02\textwidth}{!}{
 \begin{prooftree}[separation=0.9em]
 \hypo{\underline{X} \to E_G(\psi \to \chi)} 
@@ -514,30 +532,43 @@ $\footnotesize\boxed{\overline{S}:= W^\Phi \backslash S}$
                            \hypo{C^\psi_G\chi \to C^\psi_G(\psi \wedge \chi)}
 \infer2{\underline{X} \to C^\psi_G(\psi \wedge \chi)}
 
-\hypo{(\psi \wedge \chi) \to C^\psi_G \varphi}
+\hypo{(\psi \wedge \chi) \to \varphi}
 \infer1{C^\psi_G(\psi \wedge \chi) \to C^\psi_G\varphi}
 
 \infer2{\underline{X} \to C^\psi_G \varphi}
 \infer1{X \vdash C^\psi_G \varphi}
-\hypo{C^\psi_G \varphi \in \Phi}
-\infer2{C^\psi_G \varphi \in X}                            	
+%\hypo{C^\psi_G \varphi \in \Phi}
+\infer1{C^\psi_G \varphi \in X}                            	
 \end{prooftree}
 }
+\end{center}
+
 }
 
 
 \frame{
-\begin{block}{} \textbf{Утверждение}.
 
-$\chi \to E_G (\psi \to \bigwedge \{\neg \underline{Y} \mid Y \in \overline{S} \}) \Leftrightarrow $
+\begin{center}
+$\footnotesize\boxed{S:= \{ X \in W^\Phi \mid  M^\Phi, X \models C^\psi_G \varphi  \}}$ 
+$\footnotesize\boxed{\chi:= \bigvee \{\underline{X} 
+\mid  X \in S \} }$
+$\footnotesize\boxed{\overline{S}:= W^\Phi \backslash S}$
+\end{center}
+
+\begin{block}{} \textbf{Утверждение}.
+\begin{center}
+$\vdash \chi \to E_G (\psi \to \bigwedge \{\neg \underline{Y} \mid Y \in \overline{S} \}) \Leftrightarrow \forall i \in G \; \forall X \in S \; \forall Y \in \overline{S} \vdash \underline{X} \to K_i (\psi \to \neg \underline{Y}) $
+\end{center}
 \end{block}
 
 Доказательство.
 \begin{enumerate}
-\item $\forall i \in G$: $\underline{X} \to  K_i (\psi \to \bigwedge \{\neg \underline{Y} \mid Y \in \overline{S} \})$ 	
-\item $\forall i \in G$: $\underline{X} \to  K_i (\bigwedge \{\psi \to \neg \underline{Y} \mid Y \in \overline{S} \})$ 
-\item $\forall i \in G$: $\underline{X} \to  \bigwedge \{K_i (\psi \to \neg \underline{Y}) \mid Y \in \overline{S} \}$
-\item $\forall i \in G \; \forall Y \in \overline{S}$: $\underline{X} \to K_i (\psi \to \neg \underline{Y}) $
+\item $ \vdash \chi \to E_G (\psi \to \bigwedge \{\neg \underline{Y} \mid Y \in \overline{S} \}) \Leftrightarrow $
+\item $\forall i \in G$ $\vdash \chi \to K_i (\psi \to \bigwedge \{\neg \underline{Y} \mid Y \in \overline{S} \}) \Leftrightarrow $
+\item $\forall i \in G \; \forall X \in S$ $ \vdash \underline{X} \to  K_i (\psi \to \bigwedge \{\neg \underline{Y} \mid Y \in \overline{S} \}) \Leftrightarrow $ 	
+\item $\forall i \in G \; \forall X \in S$  $\vdash \underline{X} \to  K_i (\bigwedge \{\psi \to \neg \underline{Y} \mid Y \in \overline{S} \}) \Leftrightarrow $ 
+\item $\forall i \in G \; \forall X \in S$ $\vdash \underline{X} \to  \bigwedge \{K_i (\psi \to \neg \underline{Y}) \mid Y \in \overline{S} \} \Leftrightarrow $
+\item $\forall i \in G \; \; \forall X \in S\; \forall Y \in \overline{S}$ $\vdash \underline{X} \to K_i (\psi \to \neg \underline{Y}) $
 \end{enumerate}
 
 
@@ -545,6 +576,12 @@ $\chi \to E_G (\psi \to \bigwedge \{\neg \underline{Y} \mid Y \in \overline{S} \
 }
 
 \frame{
+\begin{center}
+$\footnotesize\boxed{S:= \{ X \in W^\Phi \mid  M^\Phi, X \models C^\psi_G \varphi  \}}$ 
+$\footnotesize\boxed{\chi:= \bigvee \{\underline{X} 
+\mid  X \in S \} }$
+$\footnotesize\boxed{\overline{S}:= W^\Phi \backslash S}$
+\end{center}
 \begin{block}{}\textbf{Утверждение}. Пусть $X \in S$, $Y \in \underline{S}$, тогда \alert{$\vdash \underline{X} \to K_i(\psi \to \neg \underline{Y})$}
 \end{block}
 \resizebox{1.0\textwidth}{!}{ 
@@ -580,6 +617,40 @@ M^\Phi, Y \not \models  C^\psi_G\varphi \\
 \end{block}
 
 }
+
+\frame{
+\begin{block}{}\textbf{Утверждение} $\vdash (\psi \wedge \chi) \to \varphi$
+\end{block}
+Достаточно доказать, что $\vdash \underline{X} \to (\psi \to \varphi)$ для $X\in S $. \\
+
+\resizebox{1.0\textwidth}{!}{ 
+\begin{fitch}
+M^\Phi, X \models C^\psi_G	\varphi \\
+M^\Phi, X \models K_i (\psi \to \varphi) & для $i \in G$ \\
+\fh y_0 = \#_i X \cup \{\psi\} \cup \{ \neg \varphi \} \not \vdash \bot & $\rhd \; \metabot$ \\
+\fa y_0 \subset Y \in W^\Phi & по л.Линденбаума \\
+\fa XR^\Phi_iY & по опр $R^\Phi$ из 3, 4 \\
+\fa M^\Phi, Y  \models \psi \to \varphi \\
+\fa M^\Phi, Y  \models \psi \Rightarrow  M^\Phi, Y  \models \varphi \\
+\fa \psi \in Y \Rightarrow \varphi \in Y & по ПИ \\
+\fa \varphi \in Y 
+\end{fitch}
+
+\begin{fitch}
+\ftag{10}{ \fa \neg \varphi \in Y} \setcounter{fitchcounter}{10} \\ 
+\fa \metabot	\\
+\#_i X \cup \{\psi\} \cup \{ \neg \varphi \}  \vdash \bot & 3--11 \\
+\#_i X \cup \{\psi\} \vdash \varphi \\
+\#_i X \vdash \psi \to \varphi \\
+X \vdash \#_i X & по $S5$ \\
+X \vdash \psi \to \varphi \\
+\vdash \underline{X} \to  (\psi \to \varphi)
+\end{fitch}
+}
+
+
+}
+
 
 \subsection{$\PALRC$}
 

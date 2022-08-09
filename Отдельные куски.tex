@@ -1,0 +1,49 @@
+\input{header.tex} \title{Основные понятия}
+
+\begin{document}  
+
+\frame{
+\begin{block}{}\textbf{Утверждение}. Пусть $X, Y \in W^\Phi$, тогда
+\alert{$ X \not \sim^\Phi_i Y \Rightarrow \; \vdash \underline{X} \to K_i \neg \underline{Y}$}
+\end{block}
+
+\resizebox{\textwidth}{!}{ 
+\begin{fitch}
+X \not \sim^\Phi_i Y & \\
+\exists \theta \in \Phi: K_i \theta \in X, \theta \not \in Y \text{ или }
+K_i \theta \in Y, \theta \not \in X \\
+\fh K_i \theta \in X, \theta \not \in Y  & $\rhd \; \vdash \underline{X} \to K_i \neg \underline{Y} $ \\
+\fa \neg \theta \in Y & экономное отрицание? \\
+\fa Y \vdash \neg \theta \\
+\fa \vdash \underline{Y}  \to \neg \theta \\
+\fa \vdash \theta \to \neg \underline{Y}   \\
+\fa \vdash K_i \theta \to K_i \neg \underline{Y}   \\
+\fa \vdash \underline{X} \to K_i \theta \\
+\fa \vdash \underline{X} \to K_i \neg \underline{Y} 
+\end{fitch} 
+
+\begin{fitch}
+\fh K_i \theta \in Y, \theta \not \in X  & $\rhd \; \vdash \underline{X} \to K_i \neg \underline{Y} $ \\
+\fa \neg \theta \in X \\
+\fa X \vdash \neg \theta \\
+\fa \vdash \underline{X} \to \neg \theta \\ 
+\fa \vdash \theta \to  \neg \underline{X} \\
+\fa \vdash K_i \theta \to  K_i \neg \underline{X} \\
+\fa \vdash \underline{Y} \to K_i \theta \\
+\fa \vdash \underline{Y} \to K_i \neg \underline{X} \\
+\fa \vdash \hat{K}_i \underline{X}  \to \neg \underline{Y} \\
+\fa \vdash K_i \hat{K}_i \underline{X}  \to K_i \neg \underline{Y} \\
+\fa \vdash \underline{X} \to K_i \hat{K}_i \underline{X} \\
+\fa \vdash  \underline{X} \to K_i \neg \underline{Y}
+\end{fitch}
+}
+
+\begin{block}{}\textbf{Следствие.} Пусть $X, Y \in W^\Phi$, тогда $\underline{X}, \hat{K}_i \underline{Y} \not \vdash \bot \Rightarrow
+X \sim^\Phi_i Y  $
+	
+\end{block}
+
+
+}
+
+\end{document}

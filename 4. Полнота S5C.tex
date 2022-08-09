@@ -74,59 +74,59 @@ $\models_{S5C} \varphi \iff \vdash_{S5C} \varphi $
 %Пример: пусть $\Gamma = \{p, \neg K_i q, r, \neg s\}$, тогда $\neg \Gamma = \{\neg p, \neg r\}$	
 %\end{block}
 
-\begin{block}{} Определение. \alert{Замыкание $cl(\varphi)$}.
-Для $\varphi \in L_{KC}$ определим четыре множества:
-$cl_1(\varphi) \subset cl_2(\varphi) \subset cl_3 (\varphi) \subset cl(\varphi)$.
-\begin{description}
-\item[$cl_1(\varphi)$] – наименьшее множество, замкнутое по следующим правилам:
-\begin{enumerate}
-\item $\varphi \in cl_1(\varphi)$
-\item если $\psi \in cl_1(\varphi)$, то $Sub(\psi) \subseteq cl_1(\varphi)$
-\item если $C_G \psi \in cl_1(\varphi)$, то $\{K_i C_G \psi \mid i \in G \} \subseteq cl_1(\varphi)$	
-\end{enumerate}
-\item[$cl_2(\varphi)$]$:= cl_1(\varphi) \cup \{ \neg \psi \mid \psi \in cl_1(\varphi) \text{ и } \psi \not = \neg \dots \}$	 
-\item[$cl_3(\varphi)$]$:= cl_2(\varphi) \cup \{K_i K_i \psi \mid K_i \psi \in cl_2(\varphi) \} \cup \{K_i \neg K_i \psi \mid \neg K_i \psi \in cl_2(\varphi) \}$	
-\item[$cl(\varphi)$]$:=cl_3(\varphi) \cup \{ \neg \psi \mid \psi \in cl_3(\varphi) \text{ и }  \psi \not = \neg \dots \}$
-\end{description}
-\end{block}
-}
+%TODO Замыкание Фишера-Ладнера
+%\begin{block}{} Определение. \alert{Замыкание $cl(\varphi)$}.
+%Для $\varphi \in L_{KC}$ определим четыре множества:
+%$cl_1(\varphi) \subset cl_2(\varphi) \subset cl_3 (\varphi) \subset cl(\varphi)$.
+%\begin{description}
+%\item[$cl_1(\varphi)$] – наименьшее множество, замкнутое по следующим правилам:
+%\begin{enumerate}
+%\item $\varphi \in cl_1(\varphi)$
+%\item если $\psi \in cl_1(\varphi)$, то $Sub(\psi) \subseteq cl_1(\varphi)$
+%\item если $C_G \psi \in cl_1(\varphi)$, то $\{K_i C_G \psi \mid i \in G \} \subseteq cl_1(\varphi)$	
+%\end{enumerate}
+%\item[$cl_2(\varphi)$]$:= cl_1(\varphi) \cup \{ \neg \psi \mid \psi \in cl_1(\varphi) \text{ и } \psi \not = \neg \dots \}$	 
+%\item[$cl_3(\varphi)$]$:= cl_2(\varphi) \cup \{K_i K_i \psi \mid K_i \psi \in cl_2(\varphi) \} \cup \{K_i \neg K_i \psi \mid \neg K_i \psi \in cl_2(\varphi) \}$	
+%\item[$cl(\varphi)$]$:=cl_3(\varphi) \cup \{ \neg \psi \mid \psi \in cl_3(\varphi) \text{ и }  \psi \not = \neg \dots \}$
+%\end{description}
+%\end{block}
+%}
 
 %TODO добавить q и ~q!
-\frame{
-\begin{exampleblock}{Пример $cl_1(\varphi) \subset cl_2(\varphi) \subset cl_3 (\varphi) \subset cl(\varphi)$}
-\centering 
-\scalebox{0.75}{
-\begin{tabular}{|c|c|c|c|c|}
-\hline
-$\varphi$               & $cl_1(\varphi)$         & $cl_2(\varphi)$                 & $cl_3(\varphi)$                 & $cl(\varphi)$                   \\ \hline
-$\neg p \wedge C_{ab}q$ & $\neg p \wedge C_{ab}q$ & $\neg p \wedge C_{ab}q$         & $\neg p \wedge C_{ab}q$         & $ \neg p \wedge C_{ab}q$        \\ \hline
-                        &                         & $\neg (\neg p \wedge C_{ab} q)$ & $\neg (\neg p \wedge C_{ab} q)$ & $\neg (\neg p \wedge C_{ab} q)$ \\ \hline
-                        & $\neg p$                & $\neg p$                        & $\neg p$                        & $\neg p$                        \\ \hline
-                        & $p$                     & $p$                             & $p$                             & $p$                             \\ \hline
-                        & $C_{ab}q$               & $C_{ab}q$                       & $C_{ab}q$                       & $C_{ab}q$                       \\ \hline
-                        &                         & $\neg C_{ab}q$                  & $\neg C_{ab}q$                  & $\neg C_{ab}q$                  \\ \hline
-                        & $q$                     & $q$                             & $q$                             & $q$                             \\ \hline
-                        &                         & $\neg q$                        & $\neg q$                        & $\neg q$                        \\ \hline
-                        & $K_a C_{ab}q$           & $K_a C_{ab}q$                   & $K_a C_{ab}q$                   & $K_a C_{ab}q$                   \\ \hline
-                        &                         & $\neg K_a C_{ab}q$              & $\neg K_a C_{ab}q$              & $\neg K_a C_{ab}q$              \\ \hline
-                        & $K_bC_{ab}q$            & $K_bC_{ab}q$                    & $K_bC_{ab}q$                    & $K_bC_{ab}q$                    \\ \hline
-                        &                         & $\neg K_bC_{ab}q$               & $\neg K_bC_{ab}q$               & $\neg K_bC_{ab}q$               \\ \hline
-                        &                         &                                 & $K_a K_a C_{ab}q$               & $K_a K_a C_{ab}q$               \\ \hline
-                        &                         &                                 &                                 & $\neg K_a K_a C_{ab}q$          \\ \hline
-                        &                         &                                 & $K_a \neg K_a C_{ab}q$          & $K_a \neg K_a C_{ab}q$          \\ \hline
-                        &                         &                                 &                                 & $\neg K_a \neg K_a C_{ab}q$     \\ \hline
-                        &                         &                                 & $K_b K_b C_{ab}q$               & $K_b K_b C_{ab}q$               \\ \hline
-                        &                         &                                 &                                 & $\neg K_b  K_b C_{ab}q$         \\ \hline
-                        &                         &                                 & $K_b \neg K_b C_{ab}q$          & $K_b \neg K_b C_{ab}q$          \\ \hline
-                        &                         &                                 &                                 & $K_b \neg K_b C_{ab}q$          \\ \hline
-\end{tabular}
-}	
-\end{exampleblock}
-}
+%\frame{
+%\begin{exampleblock}{Пример $cl_1(\varphi) \subset cl_2(\varphi) \subset cl_3 (\varphi) \subset cl(\varphi)$}
+%\centering 
+%\scalebox{0.75}{
+%\begin{tabular}{|c|c|c|c|c|}
+%\hline
+%$\varphi$               & $cl_1(\varphi)$         & $cl_2(\varphi)$                 & $cl_3(\varphi)$                 & $cl(\varphi)$                   \\ \hline
+%$\neg p \wedge C_{ab}q$ & $\neg p \wedge C_{ab}q$ & $\neg p \wedge C_{ab}q$         & $\neg p \wedge C_{ab}q$         & $ \neg p \wedge C_{ab}q$        \\ \hline
+%                        &                         & $\neg (\neg p \wedge C_{ab} q)$ & $\neg (\neg p \wedge C_{ab} q)$ & $\neg (\neg p \wedge C_{ab} q)$ \\ \hline
+%                        & $\neg p$                & $\neg p$                        & $\neg p$                        & $\neg p$                        \\ \hline
+%                        & $p$                     & $p$                             & $p$                             & $p$                             \\ \hline
+%                        & $C_{ab}q$               & $C_{ab}q$                       & $C_{ab}q$                       & $C_{ab}q$                       \\ \hline
+%                        &                         & $\neg C_{ab}q$                  & $\neg C_{ab}q$                  & $\neg C_{ab}q$                  \\ \hline
+%                        & $q$                     & $q$                             & $q$                             & $q$                             \\ \hline
+%                        &                         & $\neg q$                        & $\neg q$                        & $\neg q$                        \\ \hline
+%                        & $K_a C_{ab}q$           & $K_a C_{ab}q$                   & $K_a C_{ab}q$                   & $K_a C_{ab}q$                   \\ \hline
+%                        &                         & $\neg K_a C_{ab}q$              & $\neg K_a C_{ab}q$              & $\neg K_a C_{ab}q$              \\ \hline
+%                        & $K_bC_{ab}q$            & $K_bC_{ab}q$                    & $K_bC_{ab}q$                    & $K_bC_{ab}q$                    \\ \hline
+%                        &                         & $\neg K_bC_{ab}q$               & $\neg K_bC_{ab}q$               & $\neg K_bC_{ab}q$               \\ \hline
+%                        &                         &                                 & $K_a K_a C_{ab}q$               & $K_a K_a C_{ab}q$               \\ \hline
+%                        &                         &                                 &                                 & $\neg K_a K_a C_{ab}q$          \\ \hline
+%                        &                         &                                 & $K_a \neg K_a C_{ab}q$          & $K_a \neg K_a C_{ab}q$          \\ \hline
+%                        &                         &                                 &                                 & $\neg K_a \neg K_a C_{ab}q$     \\ \hline
+%                        &                         &                                 & $K_b K_b C_{ab}q$               & $K_b K_b C_{ab}q$               \\ \hline
+%                        &                         &                                 &                                 & $\neg K_b  K_b C_{ab}q$         \\ \hline
+%                        &                         &                                 & $K_b \neg K_b C_{ab}q$          & $K_b \neg K_b C_{ab}q$          \\ \hline
+%                        &                         &                                 &                                 & $K_b \neg K_b C_{ab}q$          \\ \hline
+%\end{tabular}
+%}	
+%\end{exampleblock}
+%}
 
 
 \frame{
-
 
 \begin{block}{Утверждение}
 Для любого $\varphi \in L_{KC}$: $cl(\varphi)$ – конечно
@@ -157,19 +157,19 @@ $\neg p \wedge C_{ab}q$ & $\neg p \wedge C_{ab}q$ & $\neg p \wedge C_{ab}q$     
 }
 
 \frame{\frametitle{Конечная каноническая модель}
-\begin{mydef} Обозначим $\Phi= cl(\varphi)$ для формулы $\varphi \in L_{KC}$. $M^{\Phi} = (W^{\Phi}, (\sim_i^{\Phi})_{i \in Ag}, V^{\Phi})$ – \alert{конечная каноническая модель}, где 
+
+\begin{exampleblock}{Обозначение}
+	$\boxed{\#_iX:= \{ \varphi \mid K_i \varphi \in X \}}$
+\end{exampleblock}
+
+
+\begin{block}{}Определение.  Обозначим $\Phi= cl(\varphi)$ для формулы $\varphi \in L_{KC}$. $M^{\Phi} = (W^{\Phi}, (\sim_i^{\Phi})_{i \in Ag}, V^{\Phi})$ – \alert{конечная каноническая модель}, где 
 \begin{itemize}
 	\item $W^{\Phi} = \{X \subset \Phi \mid X - \Phi\text{-м.} S5C\text{-н.м. формул} \} $
 	\item $X \sim^{\Phi}_{i} Y:= \forall \varphi \in \Phi : K_i \varphi \in X \Rightarrow	 \varphi \in Y $ для любого $i \in Ag$
 	 \item $X \models p \iff p \in X$ 
 \end{itemize}
-\end{mydef}
-
- 
-\begin{exampleblock}{Упражнение}
-Используя следующее обозначение: $\boxed{\#_iX:= \{ \varphi \mid K_i \varphi \in X \}}$, переформулировать $X \sim^{c}_{i} Y$
-\end{exampleblock}
-
+\end{block}
 }
 
 \frame{\frametitle{к.м. vs. к.к.м.}
