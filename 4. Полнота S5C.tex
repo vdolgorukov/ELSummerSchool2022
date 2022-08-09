@@ -7,7 +7,6 @@
 
 \begin{document}  \frame{\titlepage}
 
-
 \frame{\frametitle{Исчисления $S5C$ и $S5C'$}
 \begin{block}{Теорема о дедуктивной эквивалентности $S5C$ и $S5C'$ (Упражнение)}
 \centering
@@ -68,29 +67,29 @@ $\models_{S5C} \varphi \iff \vdash_{S5C} \varphi $
 
 %TODO разобраться c \neg \Gamma и умным отрицанием
 \frame{\frametitle{Замыкание}
-%\begin{block}{Обозначение}
-%$\Gamma \subseteq L_{CK}$, определим
-%	$\neg \Gamma := \{\neg \varphi \mid \varphi \in \Gamma \text{ и } \varphi \text{ не начинается с } "\neg" \}$.
-%Пример: пусть $\Gamma = \{p, \neg K_i q, r, \neg s\}$, тогда $\neg \Gamma = \{\neg p, \neg r\}$	
-%\end{block}
+\begin{block}{Обозначение}
+$\Gamma \subseteq L_{CK}$, определим
+	$\neg \Gamma := \{\neg \varphi \mid \varphi \in \Gamma \text{ и } \varphi \text{ не начинается с } "\neg" \}$.
+Пример: пусть $\Gamma = \{p, \neg K_i q, r, \neg s\}$, тогда $\neg \Gamma = \{\neg p, \neg r\}$	
+\end{block}
 
 %TODO Замыкание Фишера-Ладнера
-%\begin{block}{} Определение. \alert{Замыкание $cl(\varphi)$}.
-%Для $\varphi \in L_{KC}$ определим четыре множества:
-%$cl_1(\varphi) \subset cl_2(\varphi) \subset cl_3 (\varphi) \subset cl(\varphi)$.
-%\begin{description}
-%\item[$cl_1(\varphi)$] – наименьшее множество, замкнутое по следующим правилам:
-%\begin{enumerate}
-%\item $\varphi \in cl_1(\varphi)$
-%\item если $\psi \in cl_1(\varphi)$, то $Sub(\psi) \subseteq cl_1(\varphi)$
-%\item если $C_G \psi \in cl_1(\varphi)$, то $\{K_i C_G \psi \mid i \in G \} \subseteq cl_1(\varphi)$	
-%\end{enumerate}
-%\item[$cl_2(\varphi)$]$:= cl_1(\varphi) \cup \{ \neg \psi \mid \psi \in cl_1(\varphi) \text{ и } \psi \not = \neg \dots \}$	 
-%\item[$cl_3(\varphi)$]$:= cl_2(\varphi) \cup \{K_i K_i \psi \mid K_i \psi \in cl_2(\varphi) \} \cup \{K_i \neg K_i \psi \mid \neg K_i \psi \in cl_2(\varphi) \}$	
-%\item[$cl(\varphi)$]$:=cl_3(\varphi) \cup \{ \neg \psi \mid \psi \in cl_3(\varphi) \text{ и }  \psi \not = \neg \dots \}$
-%\end{description}
-%\end{block}
-%}
+\begin{block}{} Определение. \alert{Замыкание $cl(\varphi)$}.
+Для $\varphi \in L_{KC}$ определим четыре множества:
+$cl_1(\varphi) \subset cl_2(\varphi) \subset cl_3 (\varphi) \subset cl(\varphi)$.
+\begin{description}
+\item[$cl_1(\varphi)$] – наименьшее множество, замкнутое по следующим правилам:
+\begin{enumerate}
+\item $\varphi \in cl_1(\varphi)$
+\item если $\psi \in cl_1(\varphi)$, то $Sub(\psi) \subseteq cl_1(\varphi)$
+\item если $C_G \psi \in cl_1(\varphi)$, то $\{K_i C_G \psi \mid i \in G \} \subseteq cl_1(\varphi)$	
+\end{enumerate}
+\item[$cl_2(\varphi)$]$:= cl_1(\varphi) \cup \{ \neg \psi \mid \psi \in cl_1(\varphi) \text{ и } \psi \not = \neg \dots \}$	 
+\item[$cl_3(\varphi)$]$:= cl_2(\varphi) \cup \{K_i K_i \psi \mid K_i \psi \in cl_2(\varphi) \} \cup \{K_i \neg K_i \psi \mid \neg K_i \psi \in cl_2(\varphi) \}$	
+\item[$cl(\varphi)$]$:=cl_3(\varphi) \cup \{ \neg \psi \mid \psi \in cl_3(\varphi) \text{ и }  \psi \not = \neg \dots \}$
+\end{description}
+\end{block}
+}
 
 %TODO добавить q и ~q!
 %\frame{
@@ -187,10 +186,6 @@ $[X]_L \subseteq X$, но верно, что $[X]_L \cap \Phi \subseteq X$. Бо
 \end{block} 
 	
 \end{mydef}
-
-	
-
-
 }
 
 \frame{\frametitle{Схема доказательства}
@@ -213,7 +208,6 @@ $\not \vdash_{S5C} \varphi \Rightarrow  \neg \varphi \not   \vdash_{S5C} \bot \R
 \end{block}
 }
 
-%TODO посмотреть у Кузнеца
 \section{Каноничность}
 \frame{\frametitle{Каноничность к.к.м.}
 
@@ -249,36 +243,30 @@ $M^\Phi \in S5$, то есть, $\sim^\Phi_i$ – рефлексивно, сим
 }
 
 
-%\frame{\frametitle{Каноничность к.к.м.}
-%\begin{block}{Упражнение}
-%Докажите, что $\sim^\Phi_i$ – евклидово.
-%\end{block}
-%}
-
 \section{Лемма об истинности}
 \frame{\frametitle{Лемма об истинности}
 \begin{block}{Лемма}
-Пусть $\Phi$ замыкание формулы $\varphi_0$, $M^\Phi$ – к.к.м., $X \in W^\Phi$
+Пусть $\Phi$ замыкание некоторой формулы $M^\Phi$ – к.к.м., $X \in W^\Phi$
 \begin{center}
 \alert{$\forall \varphi' \in \Phi: \varphi' \in X \iff M^\Phi, X \models \varphi'$}
 \end{center}	
 \begin{proof} Докажем индукцией по построению $\varphi'$.
 \begin{itemize}
 \item[БИ] $\varphi'=p$
+\item[ПИ] $\forall \psi \in Sub(\varphi'): \psi \in X \iff M^\Phi, X \models \psi$
 \item[ШИ]
 \begin{itemize}
-\item[Сл.1] $\varphi'= \neg \varphi_1$	
+\item[Сл.1] $\varphi'= \neg \varphi$	
 \item[Сл.2] $\varphi'= \varphi_1 \wedge \varphi_2$
 \item[Сл.3] $\varphi'= K_i \varphi$	
-\item[Сл.4] \alert{$\varphi'= C_G \varphi$}
+\item[Сл.4] $\varphi'= C_G \varphi$
 \end{itemize}
 \end{itemize}
-	
 \end{proof}
-
 \end{block}
-
 }
+
+\frame{\frametitle{Сл. 3. $\varphi'= K_i \varphi$	}}
 
 \frame{\frametitle{Сл.4 $\varphi'= C_G \varphi$}
 \begin{block}{Обозначения}
@@ -291,20 +279,18 @@ $M^\Phi \in S5$, то есть, $\sim^\Phi_i$ – рефлексивно, сим
 
 }
 
-\frame{\frametitle{Сл.4. ($\Leftarrow$) $C_G \varphi \in X \Leftarrow M^\Phi, X \models C_G \varphi$
-}
-
-\scalebox{.78}{
+\frame{\frametitle{Сл.4. ($\Leftarrow$) $C_G \varphi \in X \Leftarrow M^\Phi, X \models C_G \varphi$}
+\begin{center}
+\resizebox{0.7\textwidth}{!}{ 
 \begin{tabular}{ccc}
 $\boxed{S:= \{X' \in W^c \mid M^c, X' \models C_G \varphi\}}$ &
 $\boxed{\chi:= \bigvee \{ \underline{X'} \mid X' \in S \}}$ &
 $\boxed{\overline{S}:= W^c \setminus S}$
 \end{tabular}
 }
+\end{center}
 
-
-\begin{figure}
-\resizebox{\textwidth}{!}{ 
+\resizebox{1.025\textwidth}{!}{ 
 \begin{prooftree}
 \hypo{\vdash \underline{X} \to \chi }
 
@@ -328,7 +314,7 @@ $\boxed{\overline{S}:= W^c \setminus S}$
 
 \end{prooftree}   
 }
-\end{figure}
+
 }
 
 
@@ -390,124 +376,120 @@ $\boxed{\#_iX:= \{ \psi \mid K_i \psi \in X \}}$
 %http://www.actual.world/resources/tex/doc/Proofs.pdf
 
 
-\frame{
-\begin{block}{Лемма: Пусть $X, Y \in W^\Phi$, тогда $\underline{X}, \hat{K}_i \underline{Y}  \not \vdash \bot \Rightarrow X \sim^\Phi_i Y$}
-\end{block}
+%\frame{
+%\begin{block}{Лемма: Пусть $X, Y \in W^\Phi$, тогда $\underline{X}, \hat{K}_i \underline{Y}  \not \vdash \bot \Rightarrow X \sim^\Phi_i Y$}
+%\end{block}
+%
+%\resizebox{\textwidth}{!}{
+%\begin{fitch}
+%\underline{X}, \hat{K}_i \underline{Y}  \not \vdash \bot \\
+%\not \vdash \underline{X} \to  K_i \neg  \underline{Y}  \\
+%\fh X \not \sim^\Phi_i Y &  $\rhd \; \metabot $ \\
+%\fa \theta \in \Phi: K_i \theta \in X, \theta \not \in Y & из 3 \\
+%\fa \neg \theta \in Y \\
+%\fa Y \vdash \neg \theta \\
+%\end{fitch}
+%
+%\begin{fitch}
+%\ftag{7}{\fa \vdash \underline{Y} \to \neg \theta} \setcounter{fitchcounter}{7} \\
+%\fa \vdash \theta \to \neg \underline{Y} \\
+%\fa \vdash K_i \theta \to K_i \neg  \underline{Y} \\
+%\fa \vdash \underline{X} \to K_i \theta \\
+%\fa \vdash \underline{X} \to K_i \neg  \underline{Y}  \\
+%\fa \metabot & 2, 11
+%\end{fitch} }
+%}
 
-\resizebox{\textwidth}{!}{
-\begin{fitch}
-\underline{X}, \hat{K}_i \underline{Y}  \not \vdash \bot \\
-\not \vdash \underline{X} \to  K_i \neg  \underline{Y}  \\
-\fh X \not \sim^\Phi_i Y &  $\rhd \; \metabot $ \\
-\fa \theta \in \Phi: K_i \theta \in X, \theta \not \in Y & из 3 \\
-\fa \neg \theta \in Y \\
-\fa Y \vdash \neg \theta \\
-\end{fitch}
-
-\begin{fitch}
-\ftag{7}{\fa \vdash \underline{Y} \to \neg \theta} \setcounter{fitchcounter}{7} \\
-\fa \vdash \theta \to \neg \underline{Y} \\
-\fa \vdash K_i \theta \to K_i \neg  \underline{Y} \\
-\fa \vdash \underline{X} \to K_i \theta \\
-\fa \vdash \underline{X} \to K_i \neg  \underline{Y}  \\
-\fa \metabot & 2, 11
-\end{fitch} }
-}
-
-\frame{
-\scalebox{.78}{
-\begin{tabular}{ccc}
-$\boxed{S:= \{X' \in W^c \mid M^c, X' \models C_G \varphi\}}$ &
-$\boxed{\chi:= \bigvee \{ \underline{X'} \mid X' \in S \}}$ 
-\end{tabular}
-}
+%\frame{
+%\scalebox{.78}{
+%\begin{tabular}{ccc}
+%$\boxed{S:= \{X' \in W^c \mid M^c, X' \models C_G \varphi\}}$ &
+%$\boxed{\chi:= \bigvee \{ \underline{X'} \mid X' \in S \}}$ 
+%\end{tabular}
+%}
 
 %TODO переделать по предыдущей лемма
 %добавить счетчик для лемм и теорем
-\begin{block}{Лемма: $\vdash \chi \to E_G (\bigwedge \limits_{Y' \in \overline{S}} \neg \underline{Y'})$}
+%\begin{block}{Лемма: $\vdash \chi \to E_G (\bigwedge \limits_{Y' \in \overline{S}} \neg \underline{Y'})$}
+%
+%\alert{$\blacktriangleright$}   
+%Достаточно доказать, что $\forall i \in G \; \forall X \in S \; \forall Y \in \overline{S} \; \vdash \underline{X} \to K_i \neg \underline{Y} $   
+%\resizebox{\textwidth}{!}{ 
+%\begin{fitch}
+%\fb \fw{i} \; i \in G    \\
+%\fa \fw{X} \; X \in S     \\
+%\fj \fw{Y} \; Y \in W^\Phi \setminus S    \\
+%\fa M^c, X \models C_G \varphi & 2     \\ 
+%\fa M^c, Y \not \models C_G \varphi & 3    \\
+%\fa X \not \sim^{c}_{i}Y &  из 2,3      \\
+%\fa \exists \psi:  K_i \psi \in X, \psi \not \in Y     \\
+%\fa \neg \psi \in Y 
+%\end{fitch} 
+%  
+%\begin{fitch} 
+%\ftag{9}{\fa Y \vdash \neg  \psi   } \setcounter{fitchcounter}{9}   \\
+%\fa \vdash \underline{Y} \to \neg \psi   \\
+%\fa \vdash \psi \to \neg\underline{Y}   \\
+%\fa \vdash K_i \psi \to K_i \neg \underline{Y}   \\
+%\fa X \vdash K_i \psi  & по постр. $\psi$    \\
+%\fa \vdash  \underline{X} \to  K_i \psi    \\
+%\fa \vdash \underline{X} \to K_i \neg \underline{Y}
+%\end{fitch}
+%}
+%  \\ \alert{$\blacktriangleleft$}
+%\end{block}
+%}
 
-\alert{$\blacktriangleright$}   
-Достаточно доказать, что $\forall i \in G \; \forall X \in S \; \forall Y \in \overline{S} \; \vdash \underline{X} \to K_i \neg \underline{Y} $   
-\resizebox{\textwidth}{!}{ 
-\begin{fitch}
-\fb \fw{i} \; i \in G    \\
-\fa \fw{X} \; X \in S     \\
-\fj \fw{Y} \; Y \in W^\Phi \setminus S    \\
-\fa M^c, X \models C_G \varphi & 2     \\ 
-\fa M^c, Y \not \models C_G \varphi & 3    \\
-\fa X \not \sim^{c}_{i}Y &  из 2,3      \\
-\fa \exists \psi:  K_i \psi \in X, \psi \not \in Y     \\
-\fa \neg \psi \in Y 
-\end{fitch} 
-  
-\begin{fitch} 
-\ftag{9}{\fa Y \vdash \neg  \psi   } \setcounter{fitchcounter}{9}   \\
-\fa \vdash \underline{Y} \to \neg \psi   \\
-\fa \vdash \psi \to \neg\underline{Y}   \\
-\fa \vdash K_i \psi \to K_i \neg \underline{Y}   \\
-\fa X \vdash K_i \psi  & по постр. $\psi$    \\
-\fa \vdash  \underline{X} \to  K_i \psi    \\
-\fa \vdash \underline{X} \to K_i \neg \underline{Y}
-\end{fitch}
-}
-  \\ \alert{$\blacktriangleleft$}
-\end{block}
-}
+%\frame{
+%\begin{block}{Лемма: $\forall S \subseteq W^c \vdash \bigwedge \{Y \mid Y \in \overline{S} \} \leftrightarrow  \bigvee \{ X \mid X \in S\}$, где $\overline{S}:= W^c \setminus S$ }
+%\alert{$\blacktriangleright$} Доказательство собирается из следующих утверждений:
+%\begin{enumerate}
+%\item $\forall X, Y \in W^c$ т.ч. $X \not = Y \vdash \neg (\underline{X} \wedge \underline{Y})$
+%\item $\vdash \bigvee \{ \underline{X} \mid X \in W^c \}$	
+%\end{enumerate}
+%\alert{$\blacktriangleleft$}	
+%\end{block}
+%
+%\begin{exampleblock}{Упражнение} Собрать доказательство леммы из утверждений. Подсказка: понадобится только КЛВ.
+%\end{exampleblock}
+%}
 
-\frame{
-\begin{block}{Лемма: $\forall S \subseteq W^c \vdash \bigwedge \{Y \mid Y \in \overline{S} \} \leftrightarrow  \bigvee \{ X \mid X \in S\}$, где $\overline{S}:= W^c \setminus S$ }
-\alert{$\blacktriangleright$} Доказательство собирается из следующих утверждений:
-\begin{enumerate}
-\item $\forall X, Y \in W^c$ т.ч. $X \not = Y \vdash \neg (\underline{X} \wedge \underline{Y})$
-\item $\vdash \bigvee \{ \underline{X} \mid X \in W^c \}$	
-\end{enumerate}
-\alert{$\blacktriangleleft$}	
-\end{block}
-
-\begin{exampleblock}{Упражнение} Собрать доказательство леммы из утверждений. Подсказка: понадобится только КЛВ.
-\end{exampleblock}
-}
-
-\frame{
-\begin{block}{Утверждение: $\forall X, Y \in W^\Phi$ т.ч. $X \not = Y \vdash \neg (\underline{X} \wedge \underline{Y})$}	
-\begin{center}
-\begin{fitch}
-\fb \fw{X} \; X \in W^\Phi \\
-\fa \fw{Y} \; Y \in W^\Phi  \\ 
-\fj  X \not = Y \\ 
-\fa X \subset (X \cup Y), Y \subset (X \cup Y) & 1 теория множеств \\
-\fa X \cup Y \vdash \bot &  2 по опр. м.н.м \\
-\fa \underline{X}, \underline{Y} \vdash \bot & 3\\
-\fa \vdash \neg (\underline{X} \wedge \underline{Y}) & 4 
-\end{fitch}
-\end{center}
-\end{block}
-}
-
-
-\frame{
-\begin{block}{Утверждение $\vdash \bigvee \{ \underline{X} \mid X \in W^\Phi \}$}
-\end{block}
-
-\resizebox{0.95\textwidth}{!}{ 
-\begin{fitch}	
-\fh \not \vdash \bigvee \{ \underline{X} \mid X \in W^\Phi \} & $\rhd$ <<$\bot$>> \\
-\fa \not \vdash  \underline{X_1} \vee \dots \vee \underline{X_n}, X_i \in W^\Phi &  \\
-\fa \forall X_i \in W^\Phi \not \vdash \underline{X_i} & \\
-\fa \forall X_i \in W^\Phi \exists \varphi  \in X_i \not \vdash \varphi  &  \\
-\fa \not \vdash h(X_1) \vee \dots \vee h(X_n) & $h(X_i):= \varphi \text{ т.ч. } \varphi \in X_i  \text{ и } \not \vdash \varphi$  \\
-\fa  \neg h(X_1), \dots, \neg h(X_n) \not \vdash \bot  \\
-\fa \{ \neg h(X_1), \dots , \neg h(X_n) \} \subseteq X_j \in W^\Phi & по л. Линд. \\
-\fa h(X_j) \in X_j \\
-\fa \neg h(X_j) \in X_j \\
-\fa \text{<<}\bot\text{>>}
-\end{fitch} 
- }
-}
+%\frame{
+%\begin{block}{Утверждение: $\forall X, Y \in W^\Phi$ т.ч. $X \not = Y \vdash \neg (\underline{X} \wedge \underline{Y})$}	
+%\begin{center}
+%\begin{fitch}
+%\fb \fw{X} \; X \in W^\Phi \\
+%\fa \fw{Y} \; Y \in W^\Phi  \\ 
+%\fj  X \not = Y \\ 
+%\fa X \subset (X \cup Y), Y \subset (X \cup Y) & 1 теория множеств \\
+%\fa X \cup Y \vdash \bot &  2 по опр. м.н.м \\
+%\fa \underline{X}, \underline{Y} \vdash \bot & 3\\
+%\fa \vdash \neg (\underline{X} \wedge \underline{Y}) & 4 
+%\end{fitch}
+%\end{center}
+%\end{block}
+%}
 
 
+%\frame{
+%\begin{block}{Утверждение $\vdash \bigvee \{ \underline{X} \mid X \in W^\Phi \}$}
+%\end{block}
+%
+%\resizebox{0.95\textwidth}{!}{ 
+%\begin{fitch}	
+%\fh \not \vdash \bigvee \{ \underline{X} \mid X \in W^\Phi \} & $\rhd$ <<$\bot$>> \\
+%\fa \not \vdash  \underline{X_1} \vee \dots \vee \underline{X_n}, X_i \in W^\Phi &  \\
+%\fa \forall X_i \in W^\Phi \not \vdash \underline{X_i} & \\
+%\fa \forall X_i \in W^\Phi \exists \varphi  \in X_i \not \vdash \varphi  &  \\
+%\fa \not \vdash h(X_1) \vee \dots \vee h(X_n) & $h(X_i):= \varphi \text{ т.ч. } \varphi \in X_i  \text{ и } \not \vdash \varphi$  \\
+%\fa  \neg h(X_1), \dots, \neg h(X_n) \not \vdash \bot  \\
+%\fa \{ \neg h(X_1), \dots , \neg h(X_n) \} \subseteq X_j \in W^\Phi & по л. Линд. \\
+%\fa h(X_j) \in X_j \\
+%\fa \neg h(X_j) \in X_j \\
+%\fa \metabot
+%\end{fitch} 
+% }
+%}
 
-
-}
 
 \end{document}

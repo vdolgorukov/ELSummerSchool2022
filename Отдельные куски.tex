@@ -2,6 +2,7 @@
 
 \begin{document}  
 
+%TODO исправить \sim^\Phi_i
 \frame{
 \begin{block}{}\textbf{Утверждение}. Пусть $X, Y \in W^\Phi$, тогда
 \alert{$ X \not \sim^\Phi_i Y \Rightarrow \; \vdash \underline{X} \to K_i \neg \underline{Y}$}
@@ -54,6 +55,33 @@ X \sim^\Phi_i Y  $
 \fa \forall Y (X\sim^\Phi_iY \Rightarrow M^\Phi, Y \models \varphi) \\
 \fa M^\Phi, X \models K_i \varphi 
 \end{fitch}
+}
+
+\frame{\frametitle{$\varphi'= K_i \varphi$ ($\Leftarrow$)}
+Обозначения: $\boxed{K_i X:= \{ K_i  \psi \mid K_i \psi \in X \} }$, $\boxed{\neg K_i X:= \{ \neg K_i \psi \mid \neg K_i \psi \in X \} }$
+\resizebox{1.8\textheight}{!}{
+\begin{fitch}
+\fh	K_i \varphi \not \in X & $\rhd \; M^\Phi, X \not \models K_i \varphi \Leftrightarrow \rhd \; \exists  Y (X\sim^\Phi_iY \wedge M^\Phi, Y \not \models \varphi )$ \\
+\fa \neg K_i \varphi \in X \\ 
+\fa \vdash \underline{X} \to \neg K_i \varphi \\
+\fa \fh y_0 = K_i X \cup  \neg K_i X \cup \{ \neg \varphi \} \vdash \bot & $\rhd \; \metabot$ \\
+\fa \fa K_i X, \neg K_i X  \vdash \varphi \\
+\fa \fa \vdash ((K_i \psi_1 \wedge \dots \wedge K_i \psi_n) \wedge
+(\neg K_i \chi_1 \wedge \dots \wedge \neg K_i \chi_m)) \to  \varphi \\
+\fa \fa \vdash K_i ((K_i \psi_1 \wedge \dots \wedge K_i \psi_n) \wedge
+(\neg K_i \chi_1 \wedge \dots \wedge \neg K_i \chi_m)) \to  K_i \varphi  \\
+\fa \fa \vdash  ((K_i K_i \psi_1 \wedge \dots \wedge K_i K_i \psi_n) \wedge
+(K_i \neg K_i \chi_1 \wedge \dots \wedge K_i \neg K_i \chi_m)) \to  K_i \varphi \\
+\fa \fa \vdash  ((K_i \psi_1 \wedge \dots \wedge K_i \psi_n) \wedge
+(\neg K_i \chi_1 \wedge \dots \wedge \neg K_i \chi_m)) \to  K_i \varphi \\
+\fa \fa 
+\vdash \underline{X} \to ((K_i \psi_1 \wedge \dots \wedge K_i \psi_n) \wedge
+(\neg K_i \chi_1 \wedge \dots \wedge \neg K_i \chi_m)) \\
+\fa \fa \vdash \underline{X} \to K_i \varphi \\
+\fa \fa \metabot \\
+\fa y_0 = K_i X \cup  \neg K_i X \cup \{ \neg \varphi \} \not \vdash \bot 
+\end{fitch}
+  }
 }
 
 \end{document}
