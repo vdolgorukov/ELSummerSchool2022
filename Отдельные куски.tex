@@ -2,86 +2,67 @@
 
 \begin{document}  
 
-%TODO исправить \sim^\Phi_i
-\frame{
-\begin{block}{}\textbf{Утверждение}. Пусть $X, Y \in W^\Phi$, тогда
-\alert{$ X \not \sim^\Phi_i Y \Rightarrow \; \vdash \underline{X} \to K_i \neg \underline{Y}$}
-\end{block}
 
-\resizebox{1.8\textheight}{!}{ 
-\begin{fitch}
-\fh X \not \sim^\Phi_i Y & $\rhd \; \vdash \underline{X} \to K_i \neg \underline{Y} $ \\
-\fa \exists \theta \in \Phi: K_i \theta \in X, \theta \not \in Y \text{ или }
-K_i \theta \in Y, \theta \not \in X \\
-\fa \fh K_i \theta \in X, \theta \not \in Y  & $\rhd \; \vdash \underline{X} \to K_i \neg \underline{Y} $ \\
-\fa \fa \neg \theta \in Y & экономное отрицание? \\
-\fa \fa Y \vdash \neg \theta \\
-\fa \fa \vdash \underline{Y}  \to \neg \theta \\
-\fa \fa \vdash \theta \to \neg \underline{Y}   \\
-\fa \fa \vdash K_i \theta \to K_i \neg \underline{Y}   \\
-\fa \fa \vdash \underline{X} \to K_i \theta \\
-\fa \fa \vdash \underline{X} \to K_i \neg \underline{Y} \\
-\fa \fh K_i \theta \in Y, \theta \not \in X & $\rhd \; \vdash \underline{X} \to K_i \neg \underline{Y} $  \\
-\fa \fa \neg \theta \in X 
-\end{fitch} 
-\begin{fitch}
-\ftag{13}{\fa \fa \vdash \underline{X} \to \neg \theta}  & \setcounter{fitchcounter}{13}  \\
-\fa \fa \vdash \theta \to  \neg \underline{X} \\
-\fa \fa \vdash K_i \theta \to  K_i \neg \underline{X} \\
-\fa \fa \vdash \underline{Y} \to K_i \theta \\
-\fa \fa \vdash \underline{Y} \to K_i \neg \underline{X} \\
-\fa \fa \vdash \hat{K}_i \underline{X}  \to \neg \underline{Y} \\
-\fa \fa \vdash K_i \hat{K}_i \underline{X}  \to K_i \neg \underline{Y} \\
-\fa \fa \vdash \underline{X} \to K_i \hat{K}_i \underline{X} \\
-\fa \fa \vdash  \underline{X} \to K_i \neg \underline{Y} \\
-\fa \vdash  \underline{X} \to K_i \neg \underline{Y}
-\end{fitch}
- }
-}
 
-\frame{
-\begin{block}{}\textbf{Следствие.} Пусть $X, Y \in W^\Phi$, тогда $\underline{X}, \hat{K}_i \underline{Y} \not \vdash \bot \Rightarrow
-X \sim^\Phi_i Y  $	
-\end{block}
-}
 
-\frame{\frametitle{$\varphi'= K_i \varphi$ ($\Rightarrow$)}
-\begin{fitch}
-\fh K_i \varphi \in X & $\rhd \; M^\Phi, X \models K_i \varphi \Leftrightarrow \rhd \; \forall Y (X\sim^\Phi_iY \Rightarrow M^\Phi, Y \models \varphi )$ \\ 
-\fa \fh \fw{Y} \; X\sim^\Phi_iY & $\rhd \; M^\Phi, Y \models \varphi $ \\
-\fa \fa K_i \varphi \in Y & из 1, 2 \\
-\fa \fa \varphi \in Y & из 3 т.к. $\varphi \in \Phi$ и $\vdash K_i \varphi \to \varphi$ \\ 
-\fa \fa M^\Phi, Y \models \varphi & из 4 по ПИ \\
-\fa \forall Y (X\sim^\Phi_iY \Rightarrow M^\Phi, Y \models \varphi) \\
-\fa M^\Phi, X \models K_i \varphi 
-\end{fitch}
-}
 
-\frame{\frametitle{$\varphi'= K_i \varphi$ ($\Leftarrow$)}
-Обозначения: $\boxed{K_i X:= \{ K_i  \psi \mid K_i \psi \in X \} }$, $\boxed{\neg K_i X:= \{ \neg K_i \psi \mid \neg K_i \psi \in X \} }$
-\resizebox{1.8\textheight}{!}{
-\begin{fitch}
-\fh	K_i \varphi \not \in X & $\rhd \; M^\Phi, X \not \models K_i \varphi \Leftrightarrow \rhd \; \exists  Y (X\sim^\Phi_iY \wedge M^\Phi, Y \not \models \varphi )$ \\
-\fa \neg K_i \varphi \in X \\ 
-\fa \vdash \underline{X} \to \neg K_i \varphi \\
-\fa \fh y_0 = K_i X \cup  \neg K_i X \cup \{ \neg \varphi \} \vdash \bot & $\rhd \; \metabot$ \\
-\fa \fa K_i X, \neg K_i X  \vdash \varphi \\
-\fa \fa \vdash ((K_i \psi_1 \wedge \dots \wedge K_i \psi_n) \wedge
-(\neg K_i \chi_1 \wedge \dots \wedge \neg K_i \chi_m)) \to  \varphi \\
-\fa \fa \vdash K_i ((K_i \psi_1 \wedge \dots \wedge K_i \psi_n) \wedge
-(\neg K_i \chi_1 \wedge \dots \wedge \neg K_i \chi_m)) \to  K_i \varphi  \\
-\fa \fa \vdash  ((K_i K_i \psi_1 \wedge \dots \wedge K_i K_i \psi_n) \wedge
-(K_i \neg K_i \chi_1 \wedge \dots \wedge K_i \neg K_i \chi_m)) \to  K_i \varphi \\
-\fa \fa \vdash  ((K_i \psi_1 \wedge \dots \wedge K_i \psi_n) \wedge
-(\neg K_i \chi_1 \wedge \dots \wedge \neg K_i \chi_m)) \to  K_i \varphi \\
-\fa \fa 
-\vdash \underline{X} \to ((K_i \psi_1 \wedge \dots \wedge K_i \psi_n) \wedge
-(\neg K_i \chi_1 \wedge \dots \wedge \neg K_i \chi_m)) \\
-\fa \fa \vdash \underline{X} \to K_i \varphi \\
-\fa \fa \metabot \\
-\fa y_0 = K_i X \cup  \neg K_i X \cup \{ \neg \varphi \} \not \vdash \bot 
-\end{fitch}
-  }
-}
+%%TODO разобраться c \neg \Gamma и умным отрицанием
+%\frame{\frametitle{Замыкание}
+%\begin{block}{Обозначение}
+%$\Gamma \subseteq L_{CK}$, определим
+%	$\neg \Gamma := \{\neg \varphi \mid \varphi \in \Gamma \text{ и } \varphi \text{ не начинается с } "\neg" \}$.
+%Пример: пусть $\Gamma = \{p, \neg K_i q, r, \neg s\}$, тогда $\neg \Gamma = \{\neg p, \neg r\}$	
+%\end{block}
+%
+%%TODO Замыкание Фишера-Ладнера
+%\begin{block}{} Определение. \alert{Замыкание $cl(\varphi)$}.
+%Для $\varphi \in L_{KC}$ определим четыре множества:
+%$cl_1(\varphi) \subset cl_2(\varphi) \subset cl_3 (\varphi) \subset cl(\varphi)$.
+%\begin{description}
+%\item[$cl_1(\varphi)$] – наименьшее множество, замкнутое по следующим правилам:
+%\begin{enumerate}
+%\item $\varphi \in cl_1(\varphi)$
+%\item если $\psi \in cl_1(\varphi)$, то $Sub(\psi) \subseteq cl_1(\varphi)$
+%\item если $C_G \psi \in cl_1(\varphi)$, то $\{K_i C_G \psi \mid i \in G \} \subseteq cl_1(\varphi)$	
+%\end{enumerate}
+%\item[$cl_2(\varphi)$]$:= cl_1(\varphi) \cup \{ \neg \psi \mid \psi \in cl_1(\varphi) \text{ и } \psi \not = \neg \dots \}$	 
+%\item[$cl_3(\varphi)$]$:= cl_2(\varphi) \cup \{K_i K_i \psi \mid K_i \psi \in cl_2(\varphi) \} \cup \{K_i \neg K_i \psi \mid \neg K_i \psi \in cl_2(\varphi) \}$	
+%\item[$cl(\varphi)$]$:=cl_3(\varphi) \cup \{ \neg \psi \mid \psi \in cl_3(\varphi) \text{ и }  \psi \not = \neg \dots \}$
+%\end{description}
+%\end{block}
+%}
+
+%TODO добавить q и ~q!
+%\frame{
+%\begin{exampleblock}{Пример $cl_1(\varphi) \subset cl_2(\varphi) \subset cl_3 (\varphi) \subset cl(\varphi)$}
+%\centering 
+%\scalebox{0.75}{
+%\begin{tabular}{|c|c|c|c|c|}
+%\hline
+%$\varphi$               & $cl_1(\varphi)$         & $cl_2(\varphi)$                 & $cl_3(\varphi)$                 & $cl(\varphi)$                   \\ \hline
+%$\neg p \wedge C_{ab}q$ & $\neg p \wedge C_{ab}q$ & $\neg p \wedge C_{ab}q$         & $\neg p \wedge C_{ab}q$         & $ \neg p \wedge C_{ab}q$        \\ \hline
+%                        &                         & $\neg (\neg p \wedge C_{ab} q)$ & $\neg (\neg p \wedge C_{ab} q)$ & $\neg (\neg p \wedge C_{ab} q)$ \\ \hline
+%                        & $\neg p$                & $\neg p$                        & $\neg p$                        & $\neg p$                        \\ \hline
+%                        & $p$                     & $p$                             & $p$                             & $p$                             \\ \hline
+%                        & $C_{ab}q$               & $C_{ab}q$                       & $C_{ab}q$                       & $C_{ab}q$                       \\ \hline
+%                        &                         & $\neg C_{ab}q$                  & $\neg C_{ab}q$                  & $\neg C_{ab}q$                  \\ \hline
+%                        & $q$                     & $q$                             & $q$                             & $q$                             \\ \hline
+%                        &                         & $\neg q$                        & $\neg q$                        & $\neg q$                        \\ \hline
+%                        & $K_a C_{ab}q$           & $K_a C_{ab}q$                   & $K_a C_{ab}q$                   & $K_a C_{ab}q$                   \\ \hline
+%                        &                         & $\neg K_a C_{ab}q$              & $\neg K_a C_{ab}q$              & $\neg K_a C_{ab}q$              \\ \hline
+%                        & $K_bC_{ab}q$            & $K_bC_{ab}q$                    & $K_bC_{ab}q$                    & $K_bC_{ab}q$                    \\ \hline
+%                        &                         & $\neg K_bC_{ab}q$               & $\neg K_bC_{ab}q$               & $\neg K_bC_{ab}q$               \\ \hline
+%                        &                         &                                 & $K_a K_a C_{ab}q$               & $K_a K_a C_{ab}q$               \\ \hline
+%                        &                         &                                 &                                 & $\neg K_a K_a C_{ab}q$          \\ \hline
+%                        &                         &                                 & $K_a \neg K_a C_{ab}q$          & $K_a \neg K_a C_{ab}q$          \\ \hline
+%                        &                         &                                 &                                 & $\neg K_a \neg K_a C_{ab}q$     \\ \hline
+%                        &                         &                                 & $K_b K_b C_{ab}q$               & $K_b K_b C_{ab}q$               \\ \hline
+%                        &                         &                                 &                                 & $\neg K_b  K_b C_{ab}q$         \\ \hline
+%                        &                         &                                 & $K_b \neg K_b C_{ab}q$          & $K_b \neg K_b C_{ab}q$          \\ \hline
+%                        &                         &                                 &                                 & $K_b \neg K_b C_{ab}q$          \\ \hline
+%\end{tabular}
+%}	
+%\end{exampleblock}
+%}
 
 \end{document}
