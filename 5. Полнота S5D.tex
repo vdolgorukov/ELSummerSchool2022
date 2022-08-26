@@ -77,7 +77,42 @@ $\vec{M}, \vec{X} \models p \Leftrightarrow  p \in last(\vec{X})$
 \frame{\frametitle{Случай $D_G \varphi$}
 }
 
-\frame{\frametitle{Сборка доказательства}
+\frame{\frametitle{Случай $D_G \varphi$}
+\begin{block}{}\alert{Утверждение}. $\vec{X} (\bigcap \limits_{i \in G } \vec{R}_i )\vec{Y}  \iff \exists G' (G \subseteq G' \wedge \vec{X}\hat{R}_{G'}\vec{Y})$
+\end{block}
+
+\begin{center}
+$\vec{X} (\bigcap \limits_{i \in G } \vec{R}_i )\vec{Y} \xLeftrightarrow{(1)}$
+$\forall i \in G\!: \vec{X}\vec{R}_i \vec{Y} \xLeftrightarrow{(2)} $
+$\forall i \in G \exists G' (i \in G' \wedge \vec{X}\hat{R}_{G'}\vec{Y}) \xLeftrightarrow{(3)}$	\\
+$\exists G' \forall i \in G (i \in G' \wedge \vec{X}\hat{R}_{G'}\vec{Y}) \xLeftrightarrow{(4)}$ 
+$\exists G' (G \subseteq G' \wedge \vec{X}\hat{R}_{G'}\vec{Y})$
+\end{center}
+
+
+\begin{itemize}
+\item (1) по опр. $\bigcap$	
+\item (2) по опр. $\vec{X}\vec{R}_i\vec{Y}$	
+\item (4) по опр. $\subseteq$
+\item (3$\Leftarrow$) в силу $\exists x \forall y R(x, y) \to  \forall y \exists x R(x,y)$  
+\item (3$\Rightarrow$) нужно использовать следующие факты: 
+\begin{itemize}
+\item $\neg (\vec{X}\hat{R}_{G}\vec{Y} \wedge \vec{X}\hat{R}_{G'}\vec{Y} ) $ для $G \not = G'$
+\item $\forall x \forall y (x \not = y \to \neg (Px \wedge Py)) \to ( 
+\forall x \exists y (xRy \wedge Py) \to \exists y  \forall x (xRy \wedge Py) )$ (Упражнение)
+\end{itemize}
+
+\end{itemize}
+
+
+
+
 }
+
+%\frame{\frametitle{Сборка доказательства}
+%}
+
+%\frame{\frametitle{Другой вариант сборки: через p-морфизм}
+%}
 
 \end{document}
