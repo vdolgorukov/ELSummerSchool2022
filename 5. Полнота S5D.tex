@@ -2,12 +2,82 @@
 \usepackage{expl3, xparse}
 \usepackage{ebproof}
 
-\title{Полнота S5D}
+\title{Эпистемическая логика с дистрибутивным знанием}
 
 \begin{document}  \frame{\titlepage}
+\section{Исчисление $K_{m}D$}
 
+\frame{\frametitle{Исчисление $K_{m}D$}
+\begin{enumerate}
+\item Аксиомные схемы $K$ для $K_i$
+\item Аксиомные схемы $K$ для $D_G$
+\item $K_i \varphi \leftrightarrow D_{i} \varphi$
+\item $D_G \varphi \to D_{G'} \varphi$	, где $G \subseteq G'$
+\item Правило Гёделя для $G$
+\end{enumerate}
+}
 
-\section{Исчисление $S5D$}
+\frame{\frametitle{Каноническая модель: первое приближение}
 
+Каноническая модель
+
+\begin{block}{}Каноническая достижимость: $X R^c_G Y:= \forall \varphi \in \ELD: D_G \varphi \in X \Rightarrow \varphi \in Y$
+\end{block}
+
+Но! Не гарантируется, что $R^c_G = \bigcap \limits_{i \in G} R^c_i$  
+}
+
+\frame{\frametitle{Распутывание модели в дерево (tree unraveling)}
+Пример с одной модальностью.
+Пути:  $\langle x \rangle$, $\langle y \rangle$, $\langle z \rangle$, 
+$\langle w \rangle$, $\langle x, a, y \rangle$, $\langle x, a, y, b, w \rangle $ и т.д. 
+}
+
+\frame{\frametitle{Каноническая псевдомодель $\to$ каноническая модель}
+Мы будем понимать $K_i$ как синоним для $D_{i}$
+\begin{block}{}\alert{Определение}.
+\textbf{Каноническая псевдомодель} $M^c = (W^c, R^c_{G_1}, \dots,  R^c_{G_n},  V^c)$, где 
+\begin{itemize}
+\item $\emptyset \not = G_i \subseteq Ag $ 
+\item $W^c = \{ X \mid X - \text{м.н.м.} \}$
+\item $XR^c_GY \Leftrightarrow \forall \varphi (D_G \varphi \in X \Rightarrow \varphi \in Y)$	
+\item $V^c(p) = \{ X \in W^c \mid p \in X \}$, то есть, $X \models p \Leftrightarrow p \in X$
+\end{itemize}
+\end{block}
+}
+
+\frame{
+
+\begin{block}{}\alert{Определение}. Последовательность  $\langle X_1, G_1, X_2, \dots, G_{n-1}, X_n \rangle$ т.ч. $X_1, \dots, X_n \in W^c$, $\emptyset \not = G_i \subseteq Ag $, $X_{i} R^{c}_{G_i} X_{i+1}$
+будем называть \textbf{каноническим путем}.  
+\end{block}
+
+\begin{block}{}\alert{Определение}. Пусть  $\vec{X} = \langle X_1, G_1, X_2, \dots, G_{n-1}, X_n \rangle$, тогда $last(\vec{X})= X_n$.
+\end{block}
+
+\begin{block}{}\alert{Определение}. \textbf{$\vec{X}\hat{R}_G\vec{Y}$} $\Leftrightarrow \vec{Y} = \langle \vec{X}, G, Y \rangle$. для некотороко $Y \in W^C$.  То есть, $\vec{Y}$ продолжает $\vec{X}$ на $G$-ребро.
+\end{block}
+}
+
+\frame{\frametitle{Каноническая модель}
+\begin{block}{}\alert{Определение}. $\vec{M} =(\vec{W}, (\vec{R}_i)_{i \in Ag}, \vec{V})$ – каноническая модель, где	
+\begin{itemize}
+\item $\vec{W} = \{\vec{X} \mid \vec{X} \text{ – путь на } W^c \}$ 
+\item $\vec{X}\vec{R}_i\vec{Y} 
+\Leftrightarrow \exists G (i \in G \wedge \vec{x}\hat{R}_G\vec{y}) $
+\item $\vec{V}(p) = \{ \vec{X} \in \vec{W} \mid p \in last (\vec{X}) \}$, то есть,  
+$\vec{M}, \vec{X} \models p \Leftrightarrow  p \in last(\vec{X})$ 
+\end{itemize}
+\end{block}
+}
+
+\frame{\frametitle{Лемма об истинности}
+}
+
+\frame{\frametitle{Случай $D_G \varphi$}
+}
+
+\frame{\frametitle{Сборка доказательства}
+}
 
 \end{document}

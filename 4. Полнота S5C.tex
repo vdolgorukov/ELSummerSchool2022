@@ -236,6 +236,22 @@ $M^\Phi \in S5$, то есть, $\sim^\Phi_i$ – рефлексивно, сим
 
 \frame{\frametitle{БИ, Сл.1, Сл.2}
 Повторяем доказательства из теоремы о полноте S5
+}
+
+\frame{
+
+\begin{block}{} Обозначения:
+\begin{itemize}
+\item $K_i X:= \{ K_i \psi \mid K_i \psi \in X\}$
+\item $\neg K_i X:= \{\neg K_i \psi \mid\neg K_i \psi \in X\}$ 
+\end{itemize}
+\end{block}
+
+
+\begin{block}{}Утверждение.\\
+	$(K_i X \cup \neg K_i X) \subseteq Y \Leftrightarrow X \sim^\Phi_i Y$ \\
+	
+\end{block}
 
 }
 
@@ -289,6 +305,7 @@ $M^\Phi \in S5$, то есть, $\sim^\Phi_i$ – рефлексивно, сим
 \fa y_0 \subset Y \in W^\Phi \\
 \fa X\sim^\Phi_i Y \\
 \fa \neg \varphi \in Y \\
+\fa \varphi \not \in Y \\
 \fa M^\Phi, Y \not \models  \varphi & ПИ \\
 \fa \exists  Y (X\sim^\Phi_iY \wedge M^\Phi, Y \not \models \varphi ) \\
 \fa M^\Phi, X \not \models K_i \varphi  	
@@ -369,45 +386,46 @@ $\boxed{\chi:= \bigvee \{ \underline{X'} \mid X' \in S \}}$
 
 
 \frame{
-\scalebox{.78}{
-\begin{tabular}{ccc}
+\scalebox{.7}{
+\begin{tabular}{cccc}
 $\boxed{S:= \{X' \in W^c \mid M^c, X' \models C_G \varphi\}}$ &
 $\boxed{\chi:= \bigvee \{ \underline{X'} \mid X' \in S \}}$ &
-$\boxed{\#_iX:= \{ \psi \mid K_i \psi \in X \}}$
+$\boxed{K_i X:= \{ K_i \psi \mid K_i \psi \in X\}}$ & 
+$\boxed{\neg K_i X:= \{\neg K_i \psi \mid\neg K_i \psi \in X\}}$ 
 \end{tabular}
 }
 
-\begin{block}{}Лемма: $\vdash \chi \to \varphi$
+\begin{block}{} Утверждение: $\vdash \chi \to \varphi$
 \end{block}
 
-Достаточно доказать, что для любого $X \in S \vdash \underline{X} \to \varphi$	
+Достаточно доказать, что для любого $X \in S \vdash \underline{X} \to \varphi$.	
 %TODO исправить ссылки на номера строк
-
+%TODO добавить \Gamma \vdash \Delta
+%TODO добавить транзитивность вывода
 \resizebox{\textwidth}{!}{ 
 \centering
 \begin{fitch} 
-\fh \fw{X} \; X \in S \\
-\fa M^c, X \models C_G \varphi & $X \in S$  \\ 
-\fa M^c, X \models K_i \varphi 	\text{ для } i \in G & 1  \\
-\fa y_0 := \#_iX \cup \{ \neg \varphi \} & постр.  \\   
-\fa \fh   y_0 \not \vdash \bot & $\rhd: \text{<<}\bot\text{>>}$  \\ 
+\fh \fw{X} \; X \in S & $\rhd \; \vdash \underline{X} \to \varphi$\\
+\fa M^c, X \models C_G \varphi & 1  \\ 
+\fa M^c, X \models K_i \varphi 	\text{ для } i \in G & 2  \\
+\fa \fh y_0 :=  K_i X \cup \neg K_i X  \cup \{ \neg \varphi \} \not \vdash \bot & $\rhd: \text{<<}\bot\text{>>}$ \\   
 \fa \fa y_0 \subseteq Y \in W^c & \text{по л.Линд.} \\ 
 \fa \fa X \sim^c_i Y & по постр. $Y$\\ 
-\fa \fa M^c, Y \models \varphi & 1, 4
+\fa \fa \neg \varphi \in Y \\
+
 \end{fitch}
 
 \begin{fitch} 
-\ftag{9}{\fb \fb \varphi \in Y}  & \text{по п.и.}  \setcounter{fitchcounter}{9} \\
-\fa \fa \neg \varphi \in Y  & \text{по постр.} $Y$  \\ 
-\fa \fa  \text{<<}\bot\text{>>}  & 6, 7 \\
+\ftag{8}{\fb \fb M^\Phi, Y \models \varphi }  & \text{}  \setcounter{fitchcounter}{8} \\
+\fa \fa \varphi \in Y  & \text{по ПИ}   \\ 
+\fa \fa  \text{<<}\bot\text{>>}  &  \\
 \fa y_0 \vdash \bot  & \\ 
-\fa \#_iX \vdash \varphi & 4 \\ 
-\fa X \vdash \#_iX  & 3 \\ 
-\fa X \vdash \varphi  &  5, 6 \\ 
-\fa \vdash \underline{X} \to \varphi & 7
+\fa   K_i X \cup \neg K_i X  \vdash \varphi &  \\ 
+\fa X \vdash K_i X \cup \neg K_i X  & по постр. \\ 
+\fa X \vdash \varphi  &  \\ 
+\fa \vdash \underline{X} \to \varphi & 
 \end{fitch}
-}
-
+            }
 }
 
 
