@@ -7,6 +7,42 @@
 
 \begin{document}  \frame{\titlepage}
 
+\frame{\frametitle{Эпистемическая логика + общее знание}
+\begin{block}{Исисление S5C}
+Аксиомные схемы:
+\begin{itemize}
+\item Тавтологии КЛВ
+\item Аксиомные S5 для каждого оператора $K_i$
+\item ($K_C$) $C_G (\varphi \to \psi) \to (C_G \varphi \to C_G \psi)$
+\item ($fix$) $C_G \varphi \to E_G(\varphi \wedge C_G \varphi)$ 
+\item($ind$) $C_G (\varphi \to E_G \varphi) \to (\varphi \to C_G \varphi)$
+\end{itemize}
+Правила вывода: MP, $G_K$, $G_C$
+\end{block}
+}
+
+
+\frame{\frametitle{Эпистемическая логика + общее знание}
+\begin{block}{Исисление S5C'}
+Аксиомные схемы:
+\begin{itemize}
+\item Тавтологии КЛВ
+\item Аксиомные S5 для каждого оператора $K_i$
+\item ($K_C$) $C_G (\varphi \to \psi) \to (C_G \varphi \to C_G \psi)$
+\item ($fix$) $C_G \varphi \to E_G(\varphi \wedge C_G \varphi)$ 
+\end{itemize}
+Правила вывода: MP, $G_K$ 
+\begin{center}
+\begin{prooftree}
+\hypo{\varphi \to E_G (\psi \wedge \varphi)}
+\infer1[$ind_R$]{\varphi \to C_G \psi}	
+\end{prooftree}
+\end{center}
+
+\end{block}
+}
+
+
 \frame{\frametitle{Исчисления $S5C$ и $S5C'$}
 \begin{block}{Теорема о дедуктивной эквивалентности $S5C$ и $S5C'$ (Упражнение)}
 \centering
@@ -440,7 +476,7 @@ $\boxed{\neg K_i X:= \{\neg K_i \psi \mid\neg K_i \psi \in X\}}$
 \fa \exists \theta \in \Phi: K_i \theta \in X, \theta \not \in Y \text{ или }
 K_i \theta \in Y, \theta \not \in X \\
 \fa \fh K_i \theta \in X, \theta \not \in Y  & $\rhd \; \vdash \underline{X} \to K_i \neg \underline{Y} $ \\
-\fa \fa \neg \theta \in Y & экономное отрицание? \\
+\fa \fa \neg \theta \in Y &  \\
 \fa \fa Y \vdash \neg \theta \\
 \fa \fa \vdash \underline{Y}  \to \neg \theta \\
 \fa \fa \vdash \theta \to \neg \underline{Y}   \\
@@ -540,6 +576,7 @@ $\boxed{\chi:= \bigvee \{ \underline{X'} \mid X' \in S \}}$
 
 \frame{
 \begin{block}{Утверждение: $\forall X, Y \in W^\Phi$ т.ч. $X \not = Y \vdash \neg (\underline{X} \wedge \underline{Y})$}	
+\end{block}
 \begin{center}
 \begin{fitch}
 \fb \fw{X} \; X \in W^\Phi \\
@@ -551,7 +588,6 @@ $\boxed{\chi:= \bigvee \{ \underline{X'} \mid X' \in S \}}$
 \fa \vdash \neg (\underline{X} \wedge \underline{Y}) & 4 
 \end{fitch}
 \end{center}
-\end{block}
 }
 
 
