@@ -75,9 +75,31 @@ $\vec{M}, \vec{X} \models p \Leftrightarrow  p \in last(\vec{X})$
 }
 
 \frame{\frametitle{Случай $D_G \varphi$}
+\begin{center}
+$\vec{M}, \vec{X} \models D_G \varphi$
+$\xLeftrightarrow[]{\text{def.}} $ \\
+$\forall \vec{Y} (\vec{X} (\bigcap \limits_{i \in G} \vec{R}_i ) \vec{Y} 
+\Rightarrow \vec{M}, \vec{Y} \models \varphi )$ 
+$\xLeftrightarrow[]{\text{п.и.}} $ \\
+$\forall \vec{Y} (\vec{X} (\bigcap \limits_{i \in G} \vec{R}_i ) \vec{Y} 
+\Rightarrow  \varphi \in last(\vec{Y}))$
+$\xLeftrightarrow[]{\text{лема}} $\\
+$D_G \varphi \in last(\vec{X})$
+\end{center}
 }
 
-\frame{\frametitle{Случай $D_G \varphi$}
+
+
+\frame{
+
+\begin{block}{}\alert{Лемма}.
+$	D_G \varphi \in last(\vec{X}) \iff  \forall \vec{Y} (\vec{X} (\bigcap \limits_{i \in G} \vec{R}_i ) \vec{Y} \Rightarrow  \varphi \in last(\vec{Y}))$
+\end{block}
+
+}
+
+
+\frame{
 \begin{block}{}\alert{Утверждение}. $\vec{X} (\bigcap \limits_{i \in G } \vec{R}_i )\vec{Y}  \iff \exists G' (G \subseteq G' \wedge \vec{X}\hat{R}_{G'}\vec{Y})$
 \end{block}
 
@@ -103,11 +125,31 @@ $\exists G' (G \subseteq G' \wedge \vec{X}\hat{R}_{G'}\vec{Y})$
 \end{itemize}
 
 \end{itemize}
+}
 
+\frame{
+($\Rightarrow$)
 
+\begin{fitch}
+D_G \varphi \in last(\vec{X})  \\	
+\fh \neg \forall \vec{Y} (\vec{X} (\bigcap \limits_{i \in G} \vec{R}_i ) \vec{Y} \Rightarrow  \varphi \in last(\vec{Y})) & $\rhd \; \metabot$ \\
+\fa \vec{X} (\bigcap \limits_{i \in G} \vec{R}_i ) \vec{Y} & из 1  \\
+\fa \varphi \not \in last(\vec{Y}) \\
+\fa  G \subseteq G' \wedge \vec{X}\hat{R}_{G'} \vec{Y} & по утв.  \\
+\fa last(\vec{X}) R^c_{G'} last(\vec{Y}) & из 7 по опр $\hat{R}$\\
+\fa D_{G'} \varphi \in last(\vec{X}) \\
+\fa \varphi \in last(\vec{Y}) & из 1, 10  \\
+\fa \metabot & 5, 11 \\
+\forall \vec{Y} (\vec{X} (\bigcap \limits_{i \in G} \vec{R}_i ) \vec{Y} \Rightarrow  \varphi \in last(\vec{Y})) & 2-12 КЛВ
+\end{fitch}
+}
 
+\frame{
+($\Leftarrow$)
 
 }
+
+%frame{\frametitle{Модификация для S5 и др.}}
 
 %\frame{\frametitle{Сборка доказательства}
 %}

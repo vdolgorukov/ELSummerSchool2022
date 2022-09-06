@@ -1,4 +1,5 @@
-\input{header.tex}
+\input{header.tex} \title{Сравнение языков по выразительности}
+
 
 \begin{document}  \frame{\titlepage}
 
@@ -105,7 +106,19 @@ $\EL \preceq \ELC$
 \end{block}
 }
 
-\frame{\frametitle{Бисимуляция}
+\frame{\frametitle{Бисимуляции}
+\begin{block}{}\textbf{Определение.} Пусть $M=(W,(R_i)_{i \in Ag},V)$ и $M'=(W',(R')_{i \in Ag},V')$ -- модели Крипке, тогда отношение $Z \subseteq W \times W'$ называется \textbf{бисимуляцией}, если выполняются следующие условия:
+
+\begin{description}
+  \item[(var)] $xZx' \Rightarrow$ $M, x \models p \Leftrightarrow M', x' \models p$
+  \item[(zig)]  $(x R_i y \land  x Z x' ) \Rightarrow \exists y'  (x' R'_i y'  \land yZy')$
+  \item[(zag)]  $(x' R'_i y' \land x Z x') \Rightarrow  \exists y (x R_i y  \land y Z y' )$
+\end{description}
+\end{block}
+}
+
+\frame{\frametitle{Примеры}
+
 }
 
 \frame{\frametitle{$\EL\prec \ELD$}

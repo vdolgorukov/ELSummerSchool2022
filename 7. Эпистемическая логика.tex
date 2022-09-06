@@ -1,0 +1,499 @@
+\input{header}
+\subtitle{\textit{7. Эпистемическая логика (статическая)}}
+%TODO картинка елочка для общего знания двух агентов
+
+\begin{document}
+\frame[plain]{\titlepage}
+\frame{\frametitle{Оглавление}\tableofcontents}
+
+\section{Основные идеи эпистемической логики}
+\stitle{Основные идеи эпистемической логики}
+
+\frame{\frametitle{Термины}
+\pause
+\begin{itemize}[<+->]
+	\item Знание vs. мнение 
+	\item Метазнание = знание о знании
+	\item Эпистемическая логика = логика знания (и метазнания)
+	\item Доксатическая логика = логика мнения (и метамнения)
+	\end{itemize}
+}
+
+\frame{\frametitle {Пример : Информационное обновление} \pause
+\begin{block}{Информационное обновление}
+Мама Ангелина Петровна, папа Аристарх Платонович и малыш Петечка заказали три блюда (каждый – только одно):  \pause
+ мороженое,  \pause
+  рыбу фугу  \pause 
+  и бифштекс с кровью. \pause
+    \\
+официант: \textit{рыба?}  \pause 
+мама Ангелина Петровна: \textit{мне!}  \pause
+ \\
+официант: \textit{мороженое?}  \pause
+ папа Аристарх Платонович: \textit{мне!}   \pause
+  \\ 
+официант: \textit{ага!  \pause 
+значит, бифштекс с кровью малышу Петечке} 	
+\end{block}
+}
+
+\frame{ \frametitle{Пример : Метазнание}
+\begin{center}	
+\includegraphics[width=0.9\linewidth]{images/Joe.jpg} \\
+\href{http://youtu.be/YyfozcsTPmQ}{\underline{Что знает Джо?}}
+\end{center}
+}
+
+\frame { \frametitle {Пример .  Информационное обновление + метазнание}
+
+\begin{block}{Рассуждающие мудрецы}
+\textit{На голову каждого из трех мудрецов надели шляпу (всего 5 шляп: 3 черных и 2 белых). Каждый мудрец может видеть шляпы на двух других мудрецах, но не знает какая шляпа на нем. Каждому мудрецу нужно догадаться, какая на нем шляпа и сказать ответ. Как же они это сделали?}
+\end{block}
+}
+
+\frame { \frametitle {Логика: от теории дедукции к теории информационого обновления}
+\vspace{-1cm}
+\includegraphics[width=0.23\linewidth]{images/vanBenthem.jpg} \\
+Й. ван Бентем: 
+\begin{quotation}
+<<Спрашивание и получение ответов являются такими же важными логическими формами деятельности, что и извлечение следствий!>>	
+\end{quotation}
+}
+
+\frame { \frametitle {(Статическая) эпистемическая логика}  \pause
+
+\begin{itemize}[<+->]
+	\item агент $i$ знает, что  $\varphi$  \\
+          $K_i \varphi$
+    \item агент $i$ не  знает, что  $\varphi$  \\
+            $\neg K_i \varphi$ 
+    \item агент $i$ знает, что  $ \neg \varphi$  \\
+           $K_i \neg \varphi$ 
+    \item  агент $i$ не  знает, что  $ \neg \varphi$ \\
+           агент $i$ допускает, что  $\varphi$  \\
+           $ \neg K_i \neg \varphi$  \pause
+            $= \hat{K}_{i} \varphi$      
+\end{itemize}
+}
+
+\section{Синтаксис и семантика эпистемической логики}
+\stitle{Синтаксис и семантика эпистемической логики}
+
+\subsection{Синтаксис}
+\frame { \frametitle{Правильно построенная формула}
+\begin{block}{Язык эпистемической логики}
+\centering
+$ \varphi ::=   p \mid \neg \varphi \mid (\varphi \wedge \psi) \mid (\varphi \vee  \psi) \mid (\varphi  \to  \psi) \mid K_i \varphi  \mid \hat{K}_{i} \varphi $ 	
+\end{block}
+}
+
+\subsection{Исчисление}
+\frame{ \frametitle{Исчисление} \pause
+\begin{block}{}
+\begin{itemize}[<+->]
+	\item[K] $K_i (\varphi \to \psi) \to (K_i \varphi \to K_i \psi)  $
+	\item[T] $K_i \varphi \to \varphi $
+	\item[4] $K_i \varphi \to K_i K_i \varphi $
+	\item[5] $ \neg K_i \varphi  \to K_i \neg K_i \varphi $  
+	\item[G] $ \underline{\vdash \varphi}$ \\
+             $ \vdash K_i \varphi$  
+\end{itemize}
+\end{block}
+}
+%\subsubsection{Эпистемический шестиугольник}
+%\frame{\frametitle{Эпистемический шестиугольник}
+%\begin{center}
+%\begin{tikzpicture}[scale=1.55, auto, ultra thick,main node/.style={fill=blue!20,rounded corners, font=\rmfamily\Large\bf}]
+%\node[main node] (1) at (1,2) { $ \hat{K}_{i} \varphi$}; 
+%\node[main node] (2) at (3,0.75) {$\hat{K}_{i} \varphi \wedge \hat{K}_{i}  \neg \varphi $};
+%\node[main node] (3) at (5,2) {$\hat{K}_{i} \neg \varphi$}; 
+%\node[main node] (4) at (5,4) {$ K_i \neg \varphi$}; 
+%\node[main node] (5) at (3,5.25) {$ K_i \varphi \vee K_i \neg \varphi$}; 
+%\node[main node] (6) at (1,4) {$ K_i \varphi $};
+%\path
+%(6) edge [-,HSEblue] node {} (2) 
+%edge [-,HSEblue] node {} (4) 
+%edge [->,black] node {} (1) 
+%edge [->, black] node {} (5) 
+%edge [-,red] node {} (3) 
+%(1) edge [-,black!60!green] node {} (5) 
+%edge [-,red] node {} (4) 
+%edge [-,black!60!green] node {} (3) 
+%(2) edge [->, black] node {} (1) 
+%edge [-,HSEblue] node {} (4) 
+%edge [->, black] node {} (3) 
+%edge [-,red] node {} (5) 
+%(3) edge [-,black!60!green] node {} (5) 
+%(4) edge [->, black] node {} (3)
+%(4) edge [->, black] node {} (5) ;
+%\end{tikzpicture}
+%\end{center}
+%}
+
+\subsection{Cемантика}
+\frame {\frametitle{Модель}
+\begin{block}{}
+$\mathcal{M}=(\mathcal{A},W, \{ \sim_{i} \}_{i \in \mathcal{A}},V)$  \\  \pause 
+\begin{itemize}
+	\item  $\mathcal{A}$ – множество агентов 
+	\item  $W$ – множество возможных миров (ситуаций)
+	\item  $\sim_{i}$ – отношение на $W$ для агента  $i$ 
+	\item  $V: Var \mapsto \mathcal{P}(W)$ 
+\end{itemize}
+\end{block}
+}
+
+\frame {\frametitle{Выполнимость в модели}
+\begin{block}{}
+ $\mathcal{M}, w \models p$ е.т.е. $ w \in V(p)$ \\ 
+  $\mathcal{M}, w \models \varphi \wedge \psi $ е.т.е. $ \mathcal{M}, w \models \varphi$ и $ \mathcal{M}, w \models \psi$ \\ 
+ $\mathcal{M}, w \models  \neg \varphi   $ е.т.е. $\mathcal{M}, w \not \models \varphi$ \\ 
+для $\vee$ и $\to$ – аналогично \\ 
+ $\mathcal{M}, w \models  K_i \varphi   $ е.т.е. $ \forall w' (w \sim_i w' \to \mathcal{M}, w'  \models \varphi) $ \\ 
+ $\mathcal{M}, w \models  \hat{K}_{i} \varphi  $ е.т.е. $ \exists w' (w \sim_i w'  \wedge \mathcal{M}, w'  \models \varphi) $
+ \end{block}
+ }
+
+
+\frame {\frametitle{Ограничения на $\sim_{i}$}
+\begin{itemize}[<+->]
+\item $K_i \varphi \to \varphi $ \\
+\item $ \forall w' (w'  \sim_{i} w') $ \\ 
+\item $K_i\varphi  \to K_i K_i \varphi $ \\
+\item $ \forall w' \forall w''\forall w''' ( (w' \sim_{i} w'' \wedge  w'' \sim_{i} w''') \to w' \sim_{i} w''')$ \\
+\item $ \neg K_i \varphi  \to K_i \neg K_i \varphi $ \\
+\item $ \forall w' \forall w'' ( (w' \sim_{i} w'' \wedge w'\sim_{i} w''') \to  w'' \sim_{i} w''')$ 
+
+\end{itemize}
+}
+
+\frame{\frametitle {$a$ знает, что $p$}
+\centering
+\begin{multicols}{2}
+ $\mathcal{M}_1, w_1 \models K_a p$ 
+\columnbreak   
+\begin{tikzpicture}[modal, node distance=3.7cm]
+\node[world](1)              {$\underline{w_1}: p$};  \pause
+\node[world](2)[right of=1]  {$w_2: p$};  \pause
+\path[<->] (1) edge[loop above] node{$a$}(1);  \pause
+\path[<->] (2) edge[loop above] node{$a$}(2);  \pause
+\path[<->] (1) edge             node{$a$}(2); 
+\end{tikzpicture}
+\end{multicols}
+}
+
+
+\frame { \frametitle {$a$ не знает, что  $p$}
+\pause $\mathcal{M}_2, w_1 \models \neg K_a p$ \\  \pause
+\begin{center}
+\begin{tikzpicture}[modal, node distance=3.7cm]
+\node[world](1)               [label= below left:{$\underline{w_1}$}]{$p$};  \pause
+\node[world](2) [right of=1]  [label=below left:{$w_2$}]{$\neg p$};  \pause
+
+\path[<->] (1) edge[loop above] node{$a$}(1);  \pause
+\path[<->] (2) edge[loop above] node{$a$}(2);  \pause
+\path[<->] (1) edge             node{$a$}(2); 
+\end{tikzpicture}
+\end{center}
+}
+
+\sstitle{Несколько примеров}
+
+\frame{\frametitle{Пример : <<Пьеро и Мальвина>>}
+
+<<Пьеро любит Мальвину ($l$), но она об этом не знает>> \pause 
+\begin{center}
+$l \wedge K_p l \wedge \neg K_m l \wedge \neg K_m \neg l$	
+\end{center}
+\pause 
+\begin{center}
+\begin{tikzpicture}[modal, node distance=3.7cm, font=\small]
+\pause
+\node[world] (1) [label= below left:{$\underline{w_1}$}]{$l$};
+\pause
+\node[world] (2) [right of=1] [label= below left:{$w_2$}]{$\neg l$};
+\pause
+\path[<->](1) edge [HSEblue]          node {m} (2);  
+\pause
+\path[<->](1) edge [HSEblue, loop above]  node {m} (1); 
+\pause
+\path[<->](2) edge [HSEblue, loop above]  node {m} (2); 
+\pause
+\path[<->](1) edge [red, loop left]  node {p} (1);
+\pause
+\path[<->](2) edge [red, loop right]  node {p} (2); 
+\end{tikzpicture}
+\end{center}
+}
+
+\frame{\frametitle{Пример : <<Пьеро и Мальвина>>}
+
+<<Пьеро любит Мальвину ($l$), но она об этом не знает>>
+\begin{center}
+$l \wedge K_p l \wedge \neg K_m l \wedge \neg K_m \neg l$	
+\end{center}
+
+
+\begin{center}
+\begin{tikzpicture}[modal, node distance=3.7cm, font=\small]
+\node[world] (1) [label= below left:{$\underline{w_1}$}]{$l$};
+\node[world] (2) [right of=1] [label= below left:{$w_2$}]{$\neg l$};
+\path[<->](1) edge [HSEblue]          node {m} (2);  
+\end{tikzpicture}
+\end{center}
+\footnotesize{Петли подразумеваются во всех мирах для всех агентов, их можно не изображать.}
+}
+
+\frame{\frametitle{Пример 5: <<прагматика вопроса>>}
+$a$ спрашивает у $b$: <<это здание Вышки?>> 	
+\pause 
+\begin{center}
+\begin{tikzpicture}[modal, node distance=3.7cm, font=\small]
+\node[world] (1) [label= below left:{$\underline{w_1}$}]{$p$};
+\node[world] (2) [right of=1] [label= below left:{$w_2$}]{$\neg p$};
+\path[<->](1) edge [HSEblue]          node {a} (2);  
+\end{tikzpicture}
+\end{center}
+}
+
+\frame[plain]{\frametitle{Пример : <<сложные отношения>>}
+\pause 
+<<Аня любит Борю, но он об этом не знает, а Боря любит Аню, но она об этом не знает>>	
+\pause  
+\begin{center}
+\begin{tikzpicture}[modal, node distance=3.5cm]
+
+\node[world] (1) [label= below left:{$\underline{w_1}$}]{$p, q$};
+\node[world] (2) [right of=1] [label= below left:{$w_2$}]{$p, \neg q$};
+\node[world] (3) [below  of=1][label= below left:{$w_3$}]{$\neg p, q$};
+\node[world] (4) [right of=3][label= below left:{$w_4$}] {$\neg p, \neg q$};
+
+\path[<->](1) edge [HSEblue]             node       {a} (2);
+\path[<->](3) edge [HSEblue]             node[below]{a} (4);
+\path[<->](1) edge [red]              node[left] {b} (3);
+\path[<->](2) edge [red]              node       {b} (4);
+
+\end{tikzpicture}
+\end{center} }
+
+\frame { \frametitle{Формулы и модели}
+\begin{block}{Упражнение}
+Построить модель для следующих формул (или доказать, что это невозможно)\\ \pause
+\begin{multicols}{2}
+\begin{enumerate}[<+->]
+	\item $\neg K_a \varphi  \wedge K_b \varphi $
+	\item   $\neg K_a \varphi  \wedge \varphi $ 
+	\item $ K_a \varphi  \wedge \neg \varphi $
+	\item  $ \hat{K}_a \varphi  \wedge \neg \varphi $
+	\item $K_a \varphi  \wedge  ( \varphi \to \psi)  \wedge \neg K_a \psi $
+	\item $K_a \varphi  \wedge  K_a ( \varphi \to \psi)  \wedge \neg K_a\psi $ 
+	\item $ \hat{K}_a \varphi  \wedge \hat{K}_a \neg \varphi  $
+	\item $ K_a K_b \varphi \wedge \neg K_a \varphi$
+	\item $ K_a K_b \varphi  \wedge \neg  K_b K_a \varphi  $
+	\item $ K_b K_a \varphi  \wedge K_a K_b \varphi \wedge   \neg K_a K_b  K_a \varphi  $ 
+\end{enumerate}
+\end{multicols}
+\end{block}
+
+}
+
+
+\section{Формы группового (коллективного) знания}
+\stitle{Формы группового (коллективного) знания}
+
+\frame{ \frametitle{Групповое знание}
+
+\begin{block}{Итерация знания} \pause
+$K_{i}^{n}\varphi  := \underbrace{K_i ... K_i}_{n раз}\varphi$  	
+\end{block}
+
+\pause
+
+\begin{block}{Пример} \pause
+$K_{a}^{3} \varphi=K_a K_a K_a \varphi$ \\ \pause
+Для любого $i$ верно, что $K_{i}^{n} \varphi=K_i \varphi$	
+\end{block}
+}
+
+\subsection{<<Все знают>> (распространенное знание)}
+
+\frame{ \frametitle{<<Все знают>> (распространенное знание)}
+\begin{block}{Распространенное знание:}
+\begin{center}
+$E_{G} \varphi := \bigwedge \limits_{i \in G} K_i \varphi$			
+\end{center}
+\end{block}
+\pause
+\begin{block}{Пример} \pause
+$E_{ab} \varphi = K_a \varphi \wedge K_b \varphi$ 	
+\end{block}
+}
+
+\frame{\frametitle{<<Все знают>>}
+\begin{block}{Что значит $E_{ab}^{2} \varphi$?} \pause
+$E_{ab}^{2} \varphi = E_{ab} E_{ab} \varphi$  \pause
+ $= E_{ab} (K_a \varphi \wedge K_b \varphi)$  \pause 
+ $= K_a K_b \varphi \wedge K_b K_a \varphi \wedge K_a K_a \varphi \wedge K_b K_b \varphi$  \pause
+  $= K_a \varphi \wedge K_b \varphi \wedge K_a K_b \varphi \wedge K_b K_a \varphi $ \\  \pause	
+\end{block}
+\pause 
+\begin{block}{Упражнение:}
+Построить модель для формулы: $E_{ab} \wedge \neg E_{ab}^{2}$	
+\end{block}
+}
+
+\subsection{Общее знание}
+\frame{\frametitle{<<Общее знание>>}
+\begin{block}{<<Общее знание>> (<<common knowledge>>)}
+$C_G \varphi := \bigwedge \limits_{i=0}^{\infty} E_{G}^{i}  \varphi = \varphi \wedge  E_{G} \varphi \wedge E_{G}^{2} \varphi \wedge E_{G}^{3} \varphi ...  $	
+\end{block}
+}
+
+%TODO Общее знание: сделать лесенку
+\frame{\frametitle{Пример : <<Дед Мороз>>} 
+\begin{block}{Ситуация:} \textit{Пятилетний Андрюша уже знает, что Деда Мороза не существует \pause и он знает, что папа (Борис) знает, что Деда Мороза не существует. \pause Папа знает, что Андрюша знает правду о Деде Морозе. \pause  Но Андрюша пока не знает, знает ли папа, что он уже знает правду. }
+\end{block}
+\pause 
+\begin{block}{Формализация:} \pause
+\begin{multicols}{3}
+\begin{enumerate}[<+->]
+    \item $K_a p$
+    \item $K_b  p$ 
+    \item $E_{ab} p$
+    \item $K_a K_b p$
+    \item $K_b K_a p$
+    \item $E^2_{ab} p$
+    \item $\neg K_a K_b K_a p$ 
+    \item $\neg E^3_{ab} p$
+	\item $ \neg C_{ab} p$
+\end{enumerate}
+\end{multicols}
+\end{block}
+}
+
+
+
+%TODO Общее знание: Льюис, Грайс, экономисты (лекция Соколова), Томаселло
+
+
+\frame{\frametitle{Пример : <<Сплетни>>}
+\begin{block}{Ситуация:} \textit{Аня рассказала Боре страшный секрет ($p$). Боря рассказал его Свете, но попросил Свету не рассказывать об этом Ане. Света ничего не сказала Ане.}
+\end{block}
+\pause 
+\begin{block}{Формализация:}
+\begin{multicols}{3}
+\begin{enumerate}[<+->]
+\item $K_a p$
+\item $K_b p$
+\item $K_c p$
+\item $E_{abc} p$
+\item $K_a K_b p$
+\item $K_b K_a p$
+\item $K_a K_b K_a p$
+\item $K_b K_a K_b p$
+\item $E^{10}_{ab} p$
+\item $C_{ab} p$
+\item $K_b K_c K_b K_c p$
+\item $E^{100}_{bc} p$
+\item $C_{bc} p$
+\item $\neg K_a K_c p$
+\item $\neg E^2_{ac}p$
+\item $\neg C_{ac} p$
+\item $\neg C_{abc} p$
+\end{enumerate}
+\end{multicols}	
+\end{block}
+} 
+
+\subsection{Дистрибутивное знание}
+\frame{\frametitle{<<Дистрибутивное (распределенное) знание>> }
+\begin{block}{<<Дистрибутивное (распределенное) знание>>:}
+знание, которое есть у группы потенциально, если бы все агенты обменялись информацией \\ \pause
+%$D_G \varphi $ е.т.е. существует такое $G' \subseteq G$, что  для каждого $i \in G'$ найдется формула $\varphi_i$ такая, что 1) $K_i \varphi_i$ и 2) $ (\bigwedge \varphi_i \to \varphi)$
+\end{block}
+\begin{block}{Пример}\pause
+$K_a \varphi \wedge K_b (\varphi \to \psi)$ \\  
+$D_{ab} \psi$		
+\end{block}
+
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{\frametitle{Определения форм группового знания}
+\begin{block}{Групповое отношение достижимости} \pause 
+\begin{itemize}[<+->]
+\item $R_{E_{G}}:=\bigcup \limits_{ i \in G} \sim_i$ 
+\item $R_{D_{G}}:=\bigcap \limits_{ i \in G} \sim_i$ 
+\item  $R_{C_{G}}: = (\bigcup \limits_{ i \in G} \sim_i)^{*}$, т.е. рефлексивное транзитивное замыкание отношения $R_{E_{G}}$ \\ \pause
+\footnotesize{(Пример транзитивного замыкания: Пусть $R$ – отношение <<быть родителем>>, тогда транзитивное замыкание этого отношения – отношение <<быть предком>>)}.
+\end{itemize}
+\end{block}
+}
+
+\frame{\frametitle{*Определения форм группового знания}
+\begin{block}{Три вида группового знания:} \pause
+\begin{itemize}[<+->]
+\item $M, w_i \models E_G \varphi $ е.т.е. $\forall w' (w_i R_{E_{G}} w' \to M, w' \models \varphi)$ 
+\item $M, w_i \models D_G \varphi $ е.т.е. $\forall w' (w_i R_{D_{G}} w' \to M, w' \models \varphi)$ 
+\item $M, w_i \models C_G \varphi $ е.т.е. $\forall w' (w_i R_{C_{G}} w' \to M, w' \models \varphi)$ 	
+\end{itemize}
+\end{block}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{\frametitle{*Некоторые свойства}
+\begin{block}{Аксиомы для общего знания:}\pause
+\begin{itemize}[<+->]
+  \item $C_{G} (\varphi \to \psi) \to (C_{G}  \varphi \to C_{G} \psi)$
+  \item $C_{G} \varphi \to (\varphi \wedge E_{G}C_{G}\varphi)$
+  \item $C_{G}(\varphi \to E_{G} \varphi) \to (\varphi \to C_{G} \varphi ) $
+\end{itemize}	
+\end{block}
+}
+
+\frame{\frametitle{Формулы и модели}
+\begin{block}{Упражнение:}
+Построить модель для следующих формул:
+\begin{enumerate}
+\item $E_{abc} \varphi \wedge \neg K_aK_b \varphi$
+\item $E_{ab} \varphi \wedge \neg E_{ab} E_{ab} \varphi $ 
+\item $D_{ab} \varphi \wedge \neg K_a \varphi  \wedge \neg K_b \varphi $ 
+\item $C_{ab} \varphi \wedge \neg K_c \varphi$ 
+\item $E^{2}_{ab}\varphi \wedge \neg C_{ab} \varphi$
+\end{enumerate}
+\end{block}
+}
+
+\frame{\frametitle{Что откуда следует?}
+У нас есть следующие операторы:
+\begin{center}
+$D_G$, $K_i$, $C_G$, $E_G$, $E^n_G$	
+\end{center}
+Как они связаны между собой?  \\  \pause 
+\begin{block}{Иерархия форм группового знания ($i \in G$):}
+\begin{center}
+$C_G \varphi \to E^n_G \varphi \to E^{n-1}_G \varphi \to \dots \to E_G \varphi \to K_i \varphi \to D_G \varphi \to \varphi $		
+\end{center}
+\end{block}
+}
+
+\section{Дополнительно}
+\frame{\frametitle{Дополнительно}
+\begin{itemize}
+  \item \href{https://postnauka.ru/video/103700}{Общее знание (в социальных науках) Михаил Соколов / ПостНаука}
+  \item \href{https://www.youtube.com/watch?time_continue=274&v=eay1-m7RpoU}{Steven Pinker: The Elephant, the Emperor, and the Matzo Ball (про общее знание в психологии)}
+  \item \href{https://plato.stanford.edu/entries/logic-epistemic/}{SEP: Epistemic Logic}
+  \item \href{https://plato.stanford.edu/entries/common-knowledge/}{SEP: Common Knowledge}
+  \item \href{https://www.youtube.com/watch?v=gLqBmpKCncw}{Mutual Knowledge}
+  \item \href{https://philpapers.org/browse/epistemic-logic/}{Philpapers: Epistemic Logic}
+  \item \href{https://plato.stanford.edu/entries/formal-epistemology/}{SEP: Formal Epistemology}
+  \item \href{https://philpapers.org/browse/formal-epistemology/}{Philpapers: Formal Epistemology}
+  \item \href{https://plato.stanford.edu/entries/epistemic-paradoxes/}{SEP: Epistemic Paradoxes}
+  \item \href{https://plato.stanford.edu/entries/fitch-paradox/}{SEP: Fitch’s Paradox of Knowability}
+  \item \href{https://www.youtube.com/watch?v=OM5awmxJh-s}{Vincent Hendricks: The trouble with bubbles}
+  \end{itemize}
+}
+
+%\frame{\frametitle{Оглавление} \tableofcontents}
+
+\end{document}

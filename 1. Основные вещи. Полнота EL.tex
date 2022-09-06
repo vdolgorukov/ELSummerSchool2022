@@ -1,0 +1,266 @@
+\input{header.tex} \title{Исчисления $K_m$, $S4_m$, $S5_m$: корректность и полнота}
+
+\usepackage{expl3, xparse}
+\usepackage{ebproof}
+
+\begin{document}  
+\frame{\titlepage}
+
+%\frame{\frametitle{Введение}
+%\begin{itemize}
+%\item Эпистемическая логика описывает знание в мультиагентных системах 
+%\item Приложения эпистемической логики: формальная эпистемология, эпистемическая теория игр, когнитивные науки, робототехника и др.  
+%\item В этом курсе планируется больше чистой логики, чем формальной эпистемологии
+%\item Приветствуется знакомство с базовыми вещами в модальной логике
+%\item Темы: статическая эпистемическая логика, групповые расширения, динамическая эпистемическая логика
+%\item Порядок: модели, исчисления, полнота и корректность, сравнение языков по выразительности 
+%\end{itemize}
+%}
+
+\frame{\frametitle{Исчисления}
+\begin{block}{Исчисление $K_m$}
+Аксиомные схемы:
+\begin{itemize}
+\item Тавтологии КЛВ
+\item $K_i(\varphi \to \psi) \to  (K_i \varphi \to K_i \psi)$	
+\end{itemize}
+Правила вывода:
+
+\begin{multicols}{2}
+\begin{prooftree}
+\hypo{\varphi}
+\hypo{\varphi \to \psi}
+\infer2[MP]{\psi}
+\end{prooftree}
+	
+\begin{prooftree}
+\hypo{\varphi}
+\infer1[G]{K_i \varphi}
+\end{prooftree}
+	
+\end{multicols}
+\end{block}
+}
+
+
+\frame{\frametitle{Расширения $K_m$}
+\begin{block}{$S4_{m}$}
+$K_m$, к которому добавили следующие аксиомные схемы:
+\begin{itemize}
+\item $K_i \varphi \to \varphi$
+\item $K_i \varphi \to K_i K_i \varphi$	
+\end{itemize}
+\end{block}
+
+\begin{block}{$S5_{m}$}
+$S4_{m}$, к которому добавили:
+\begin{itemize}
+\item $\varphi \to K_i \hat{K}_i \varphi$	
+\end{itemize}
+или 
+$S5_{m}$ – $K_{m}$, к которому добавили:
+\begin{itemize}
+\item $K_i \varphi \to \varphi$
+\item $\neg K_i \varphi \to K_i \neg K_i  $
+\end{itemize}	
+\end{block}
+}
+
+\frame{\frametitle{Вывод}
+\begin{block}{Определение} \textbf{Выводом }($\vdash_{L} \varphi$) в исчислении $L$ будем называть последовательность формул $\varphi_1, \dots, \varphi_n=\varphi$, в которой каждая формула $\varphi_i$ ($1 \leq i \leq n $) является подстановочным случаем аксиомной схемы или получена из предыдущих формул по одному из правил вывода. 
+\end{block}
+}
+
+\frame{\frametitle{Пример}
+\begin{block}{$\vdash  K_i (p \wedge q) \to K_i p$}
+1. $(p \wedge q) \to  p$ – тавтология \\
+2. $K_i((p \wedge q) \to  p)$ – из 1 по $G$ \\
+3. $K_i((p \wedge q) \to  p) \to (K_i (p \wedge q) \to  K_ip)$ – акс. $K$ \\
+4. $K_i (p \wedge q) \to  K_ip$ – MP 3,4
+\end{block}
+
+\pause
+
+\begin{exampleblock}{Упражнение} Докажите, что
+\begin{center}
+\begin{prooftree}
+\hypo{(\varphi_1 \wedge \dots \wedge \varphi_n) \to \psi}
+\infer1{(K_i \varphi_1 \wedge \dots \wedge K_i \varphi_{n}) \to K_i \psi}
+\end{prooftree}
+\end{center}
+\end{exampleblock}
+
+}
+
+\frame{\frametitle{Вывод из гипотез (локальный)}
+\begin{block}{Определение} Будем говорить, что \textbf{$\varphi$ (локально) выводится из множества гипотез $\Gamma$} в исчислении $L$ ($\Gamma \vdash_{L} \varphi$), если найдутся  $\varphi_1, \dots, \varphi_n \in \Gamma$ т.ч. $\vdash_{L} (\varphi_1 \wedge \dots \wedge \varphi_n) \to \varphi$
+\end{block}
+
+Примеры:
+\begin{itemize}
+\item $p \not \vdash \Box p$
+\item $\Box p, \Box q \vdash \Box (p \wedge q)$
+
+\end{itemize}
+
+
+}
+
+\frame{\frametitle{Полнота и корректность}
+\begin{itemize}
+\item $L \in \{ K_m, S5_m, S4_m, \dots \}$ 
+\item $C \in \{ Ref, Eq, Pre, \dots  \}$
+\item (сильная) корректность \\
+$\Gamma \vdash_{L} \varphi \Rightarrow \Gamma \models_{C} \varphi $
+\item (сильная) полнота \\
+$\Gamma \models_{C} \varphi  \Rightarrow \Gamma \vdash_{L} \varphi $
+\end{itemize}
+
+}
+
+\frame{\frametitle{Сборка доказательства}
+Корректность: упражнение. 
+
+\begin{center}
+$X \not \vdash_{L} \varphi \Rightarrow  
+X, \neg \varphi \not   \vdash_{L} \bot \Rightarrow
+(X \cup \{\neg \varphi\}) \subseteq X' \Rightarrow
+  M^c, X' \models X \text{ и } M^c, X' \models \neg \varphi \Rightarrow$ \\
+$(M^c \in C \Rightarrow \; X \not \models_{C} \varphi )$ 
+\end{center}
+}
+
+\frame{\frametitle{Макимальность и непротиворечивость}
+\begin{block}{}\textbf{Определение.} Пусть $L \in \{K, S4, S5, \dots \}$. Множество формул $X$ будем называть \textbf{$L$-непротиворечивым}, если: $X \not \vdash_{L} \bot$. 
+\end{block}
+
+\begin{block}{}\textbf{Определение.} Пусть $L \in \{K, S4, S5, \dots \}$.  Множество формул $X$ будем называть \textbf{максимальным $L$-непротиворечивым множеством}, если $X$ – непротиворечиво и для любой формулы $\varphi$: $\varphi \in X$ или  $\neg \varphi \in X$.
+\end{block}
+}
+
+\frame{\frametitle{Свойства м.L-н.м.}
+\begin{block}{}. \textbf{Утверждение.} Пусть $X$ – м.L-н.м., тогда
+\begin{enumerate}
+	\item $\neg \varphi \in X \Leftrightarrow \varphi \not \in X$
+	\item $\varphi \wedge \psi \in X \Leftrightarrow  (\varphi \in X \text{ и } \psi \in X)$ 
+	\item $\varphi \vee \psi \in X \Leftrightarrow  (\varphi \in X \text{ или } \psi \in X)$ 
+	\item $\varphi \to \psi \in X \Leftrightarrow  (\varphi \in X \Rightarrow \psi \in X)$ 
+	\item $\varphi \in X \Leftrightarrow X \vdash_{L} \varphi$
+	\item $\bot \not \in X$
+\end{enumerate}
+	
+\end{block}
+
+}
+
+
+\frame{\frametitle{Каноническая модель}
+\begin{block}{}\textbf{Определение}. \textbf{Канонической моделью} будем называть следующую структуру $M^c = (W^c, (R_i^c)_{i \in Ag}, V^c )$, где
+\begin{itemize}
+\item $W^c:= \{ X \subset \EL \mid X - \text{максимальное L-непротиворечивое множество} \}$ 
+\item $XR_i^cY \Leftrightarrow \forall \varphi \in \EL (K_i \varphi \in X \Rightarrow \varphi \in Y)$	
+\item $V^c(p):= \{ X \in W^c \mid p \in X \} $, т.е. $M^c, X \models p \Leftrightarrow p \in X$
+\end{itemize}
+\end{block}
+}
+
+
+\frame{\frametitle{Лемма Линденбаума}
+\begin{block}{}\textbf{Лемма}. Пусть $X$ – непротиворечивое множество формул, тогда найдется $X'$ т.ч. $X \in \subseteq X'$ и $X'$ - м.L-н.м. формул.
+\end{block}
+Занумеруем множество всех формул языка $\EL = \{ \varphi_1, \varphi_2, \dots \}$ Рассмотрим следующее множество: 
+\begin{itemize}
+\item $X_1 = X$
+\item $X_{n+1} = 
+\begin{cases}
+	X_n \cup \{ \varphi_{n+1}\} , \text{ если } X_n \cup \{ \varphi_{n+1}\} \text{ непротиворечиво} \\
+	X_n \cup \{ \neg \varphi_{n+1}\}, \text{ иначе } 
+\end{cases}
+$	
+\item $X' = \bigcup \limits_{i=0}^{\infty} X_i $
+\end{itemize}
+Допустим, что и $X_n \cup \{ \varphi_{n+1}\}$, и  $X_n \cup \{ \neg \varphi_{n+1}\}$ – противоречивы. Тогда, $X_n \vdash \neg \varphi_{n+1}$ и $X_n \vdash \varphi_{n+1}$. То есть, $X_n$ – противоречиво. 
+}
+
+\frame{\frametitle{Лемма об истинности}
+\begin{block}{Лемма} Пусть $X \in W^c$, $\varphi' \in \EL$, тогда  
+$\varphi' \in X \Leftrightarrow M^c, X \models \varphi'$
+
+\end{block}
+Докажем индукцией по построению $\varphi'$.
+\begin{description}
+\item[База индукции] $\varphi'= p $ \\
+$p \in X \Leftrightarrow M^c, X \models p$ (по опр. )
+
+\item[Шаг индукции] Рассмотрим случаи $\varphi' = \neg \varphi$, $\varphi' = \varphi \wedge \psi$,  $\varphi'= K_i \varphi$ \\ 
+$\neg \varphi$, $\varphi \wedge \psi$ –  упражнение
+\end{description}
+}
+
+
+\frame{ \frametitle{Случай $K_i \varphi$ $\Rightarrow$}
+\begin{fitch}
+K_i \varphi \in X & $\rhd \; M^c, X \models K_i \varphi \Leftrightarrow  \rhd \; \forall Y (XR_i^cY \Rightarrow M^c, Y \models  \varphi) $ \\
+\fh \fw{Y} \; XR_i^cY & $\rhd \; M^c, Y \models  \varphi$ \\
+\fa \varphi \in Y  & 1,2 \\
+\fa   M^c, Y \models  \varphi & 3 по ПИ \\
+\forall Y (XR_i^cY \Rightarrow M^c, Y \models  \varphi) & 2-4 \\
+ M^c, X \models K_i \varphi   & 4 по опр.
+\end{fitch}
+}
+
+
+\frame{
+\frametitle{Случай $K_i \varphi$ $\Leftarrow$}
+\begin{fitch}
+K_i \varphi \not \in X & $\rhd \; M^c, X \not \models  K_i \varphi \Leftrightarrow \rhd \; \exists Y (XR^c_iY \wedge M^c, Y \not \models  \varphi)$ \\
+\fh y_0 = \{\psi \mid K_i \psi \in X \} \cup \{ \neg \varphi \} \vdash \bot   & $\rhd \; \metabot$ \\
+\fa \psi_1, \dots, \psi_n, \neg \varphi \vdash \bot & из 2\\
+\fa \psi_1, \dots, \psi_n  \vdash \varphi & из 3\\
+\fa \vdash (\psi_1 \wedge \dots \wedge \psi_n) \to \varphi  & из 4\\
+\fa \vdash (K_i \psi_1 \wedge \dots \wedge K_i \psi_n) \to K_i \varphi & из 5 по упр. \\
+\fa X \vdash (K_i \psi_1 \wedge \dots \wedge K_i \psi_n) \to K_i \varphi & из 6 \\
+\fa X \vdash (K_i \psi_1 \wedge \dots \wedge K_i \psi_n) & по построению $\psi$ \\
+\fa X \vdash K_i \varphi & из 7, 8 \\
+\fa \neg K_i \varphi \in X & из 1
+\end{fitch}
+}
+
+\frame{ \frametitle{Случай $K_i \varphi$ $\Leftarrow$}
+%
+%\ftag{11}{
+%\fa \fa \vdash \underline{X} \to K_i \varphi 
+%} \setcounter{fitchcounter}{11} \\
+
+\begin{fitch}
+\ftag{11}{
+\fa X \vdash \neg K_i } \setcounter{fitchcounter}{11}  из 10 \\
+\fa \metabot & 9, 11\\
+y_0 \not \vdash \bot & из 2-12\\
+y_0 \subseteq Y \in W^c & по л. Линденбаума из 13\\
+XR^c_iY & из 2 \\
+\neg \varphi \in Y & из 2 \\
+\varphi \not \in Y & из 16 \\
+M^c, Y \not \models \varphi & из 17 по ПИ \\
+\exists Y (XR^c_iY \wedge M^c, Y \not \models  \varphi) & из 15, 18\\
+M^c, X \not \models  K_i \varphi & из 19
+\end{fitch}
+}
+
+
+\frame{\frametitle{Классы моделей}
+\begin{block}{}\textbf{Утверждения.} 
+\begin{enumerate}
+\item Если $L=KT$, то $R^c$ – рефлексивно
+\item Если $L=K4$, то $R^c$ – транзитивно
+\item Если $L=KB$, то $R^c$ – симметрично	
+\end{enumerate}
+
+	
+\end{block}
+
+}
+
+
+
+\end{document}
