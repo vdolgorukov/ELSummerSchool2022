@@ -1,18 +1,20 @@
 \input{header.tex}
 \usepackage{expl3, xparse}
 \usepackage{ebproof}
-\title[short title]{$S5C$: полнота и корректность}
+\usepackage{cancel}
+\usepackage{ulem}
+\title[short title]{$S5{_m}C$: полнота и корректность}
 \newcounter{lnumber}
 \setcounter{lnumber}{1}
 
 \begin{document}  \frame{\titlepage}
 
 \frame{\frametitle{Эпистемическая логика + общее знание}
-\begin{block}{Исисление S5C}
+\begin{block}{Исчисление $S5_{m}C$}
 Аксиомные схемы:
 \begin{itemize}
 \item Тавтологии КЛВ
-\item Аксиомные S5 для каждого оператора $K_i$
+\item Аксиомные схемы $S5$ для каждого оператора $K_i$
 \item ($K_C$) $C_G (\varphi \to \psi) \to (C_G \varphi \to C_G \psi)$
 \item ($fix$) $C_G \varphi \to E_G(\varphi \wedge C_G \varphi)$ 
 \item($ind$) $C_G (\varphi \to E_G \varphi) \to (\varphi \to C_G \varphi)$
@@ -23,12 +25,12 @@
 
 
 \frame{\frametitle{Эпистемическая логика + общее знание}
-\begin{block}{Исисление S5C'}
+\begin{block}{Исчисление $S5_{m}C'$}
 Аксиомные схемы:
 \begin{itemize}
 \item Тавтологии КЛВ
-\item Аксиомные S5 для каждого оператора $K_i$
-\item ($K_C$) $C_G (\varphi \to \psi) \to (C_G \varphi \to C_G \psi)$
+\item Аксиомные схемы $S5$ для каждого оператора $K_i$
+\item ($K_C$) $\xcancel{C_G (\varphi \to \psi) \to (C_G \varphi \to C_G \psi)}$
 \item ($fix$) $C_G \varphi \to E_G(\varphi \wedge C_G \varphi)$ 
 \end{itemize}
 Правила вывода: MP, $G_K$ 
@@ -43,20 +45,32 @@
 }
 
 
-\frame{\frametitle{Исчисления $S5C$ и $S5C'$}
-\begin{block}{Теорема о дедуктивной эквивалентности $S5C$ и $S5C'$ (Упражнение)}
-\centering
-$\vdash_{S5C} \varphi  \iff \vdash_{S5C'} \varphi $ \\
-\end{block}
+\frame{\frametitle{Исчисления $S5_{m}C$ и $S5_{m}C'$}
 
-
-\begin{block}{Теорема о корректности исчисления $S5C$ (Упражнение)}
+\begin{block}{Теорема о корректности исчисления $S5_{m}C$ (Упражнение)}
 \centering
-$ \vdash_{S5C} \varphi
+$ \vdash_{S5_{m}C} \varphi
 \Rightarrow \;
-\models_{S5C} \varphi
+\models_{S5_{m}C} \varphi
 $	
 \end{block}
+
+\begin{block}{Теорема о корректности исчисления $S5_{m}C'$ (Упражнение)}
+\centering
+$ \vdash_{S5_{m}C} \varphi
+\Rightarrow \;
+\models_{S5_{m}C} \varphi
+$	
+\end{block}
+
+
+\begin{block}{Теорема о дедуктивной эквивалентности $S5_{m}C$ и $S5_{m}C'$ (Упражнение)}
+\centering
+$\vdash_{S5_{m}C} \varphi  \iff \vdash_{S5_{m}C'} \varphi $ \\
+\end{block}
+
+
+
 }
 
 \frame{\frametitle{Компактность логики}
@@ -77,27 +91,27 @@ $\Gamma \models_{L} \bot \Rightarrow \exists \Gamma' \subseteq \Gamma$ т.ч. $\
 \end{block}
 }
 
-\frame{\frametitle{Некомпактность $S5C$}
+\frame{\frametitle{Некомпактность $S5_{m}C$}
 \begin{block}{Теорема.}
-Логика $S5C$ не является компактной.  
+Логика $S5_{m}C$ не является компактной.  
 \end{block}  
 \begin{proof}
 $X = \{ \neg C_{ab} p \} \cup \{ E^{n}_{ab} p  \mid n \in \mathbb{N} \}$	 
 \begin{enumerate}
-\item $X \models_{S5C} \bot $, т.е. $X$ – невыполнимо 
-\item $X' \not \models_{S5C} \bot $, где $X' \subseteq X$ и $X' $ – конечно
+\item $X \models_{S5_{m}C} \bot $, т.е. $X$ – невыполнимо 
+\item $X' \not \models_{S5_{m}C} \bot $, где $X' \subseteq X$ и $X' $ – конечно
 \end{enumerate}
 \end{proof}  
 \begin{block}{Следствие}
-	Логика $S5C$ не является сильно полной.
+	Логика $S5_{m}C$ не является сильно полной.
 \end{block}
 }
 
-\frame{\frametitle{Полнота (по Крипке) $S5C$}
+\frame{\frametitle{Полнота (по Крипке) $S5_{m}C$}
 
 \begin{block}{Теорема}
-Логика $S5C$ является полной (по Крипке), т.е.
-$\models_{S5C} \varphi \iff \vdash_{S5C} \varphi $
+Логика $S5_{m}C$ является полной (по Крипке), т.е.
+$\models_{S5_{m}C} \varphi \iff \vdash_{S5_{m}C} \varphi $
 \end{block}
 }
 
@@ -119,7 +133,7 @@ $\models_{S5C} \varphi \iff \vdash_{S5C} \varphi $
 \frame{
 
 \begin{block}{Утверждение}
-Для любого $\varphi \in L_{KC}$: $cl(\varphi)$ – конечно
+Для любого $\varphi \in \ELC$: $cl(\varphi)$ – конечно
 \end{block}
 \begin{proof}Упражнение.
 \end{proof}
@@ -127,20 +141,20 @@ $\models_{S5C} \varphi \iff \vdash_{S5C} \varphi $
 
 
 \frame{\frametitle{Максимальность и непротиворечивость}
-\begin{mydef} Множество формул $X \in L_{KC}$ называется \alert{$S5C$–~непротиворечивым} е.т.е. 
+\begin{mydef} Множество формул $X \in \ELC$ называется \alert{$S5_{m}C$–~непротиворечивым} е.т.е. 
 \begin{itemize}
-\item[(a)] $X \not \vdash_{S5C} \bot$ 
-\item[(b)] не существует $\varphi_1, \dots \varphi_n \in X$ т. ч. $\vdash_{S5C} \neg (\varphi_1 \wedge \dots \wedge \varphi_n)$
+\item[(a)] $X \not \vdash_{S5_{m}C} \bot$ 
+\item[(b)] не существует $\varphi_1, \dots \varphi_n \in X$ т. ч. $\vdash_{S5_{m}C} \neg (\varphi_1 \wedge \dots \wedge \varphi_n)$
 \end{itemize}
 Упражнение: докажите, что условия (a) и (b)  эквивалентны
 \end{mydef}
 
-Обозначение: $\boxed{\Phi = cl(\varphi)$ для $\varphi \in L_{KC}}$ 
+Обозначение: $\boxed{\Phi = cl(\varphi)$ для $\varphi \in \ELC }$ 
 
-\begin{block}{Определение.} Будем говорить, что множество $X \subset \Phi$ является \alert{$\Phi$-максимальным $S5C$-непротиворечивым} е.т.е.
+\begin{block}{Определение.} Будем говорить, что множество $X \subset \Phi$ является \alert{$\Phi$-максимальным $S5_{m}C$-непротиворечивым} е.т.е.
 \begin{itemize}
-\item  $X$ — $S5C$–непротиворечиво и	
-\item $\forall Y \in \Phi (X \subset Y \Rightarrow Y \vdash_{S5C} \bot )$.
+\item  $X$ — $S5_{m}C$–непротиворечиво и	
+\item $\forall Y \in \Phi (X \subset Y \Rightarrow Y \vdash_{S5_{m}C} \bot )$.
 \end{itemize}
 \end{block}
 
@@ -150,9 +164,9 @@ $\models_{S5C} \varphi \iff \vdash_{S5C} \varphi $
 \section{ККМ}
 \frame{\frametitle{Конечная каноническая модель (к.к.м.)}
 
-\begin{block}{}Определение.  Обозначим $\Phi= cl(\varphi)$ для формулы $\varphi \in L_{KC}$. $M^{\Phi} = (W^{\Phi}, (\sim_i^{\Phi})_{i \in Ag}, V^{\Phi})$ – \alert{конечная каноническая модель}, где 
+\begin{block}{}Определение.  Обозначим $\Phi= cl(\varphi)$ для формулы $\varphi \in \ELC $. \\ $M^{\Phi} = (W^{\Phi}, (\sim_i^{\Phi})_{i \in Ag}, V^{\Phi})$ – \alert{конечная каноническая модель}, где 
 \begin{itemize}
-	\item $W^{\Phi} = \{X \subset \Phi \mid X - \Phi\text{-м.} S5C\text{-н.м. формул} \} $
+	\item $W^{\Phi} = \{X \subset \Phi \mid X - \Phi\text{-м.} S5_{m}C\text{-н.м. формул} \} $
 	\item $X \sim^{\Phi}_{i} Y:=  K_i \psi \in X \Leftrightarrow K_i \psi \in Y$ для $K_i \psi \in \Phi$
 	 \item $X \models p \iff p \in X$ 
 \end{itemize}
@@ -199,9 +213,9 @@ $K_i X := \{K_i \varphi \mid K_i \varphi \in X \}$
 }
 
 \frame{\frametitle{К.м., к.к.м., теория }
-\begin{mydef} Пусть $X \subseteq L_{CK}, L \in \{K^C_m, S4^C_m, S5^C_m, \dots \}$, определим \alert{множество следствий}
+\begin{mydef} Пусть $X \subseteq \ELC , L \in \{K^C_m, S4^C_m, S5^C_m, \dots \}$, определим \alert{множество следствий}
 \begin{center}
-$\alert{[X]_L}:= \{ \varphi \in L_{CK} \mid X \vdash_L \varphi \} $	
+$\alert{[X]_L}:= \{ \varphi \in \ELC  \mid X \vdash_L \varphi \} $	
 \end{center}
  
 \begin{block}{Утверждение.$[X]_L$ в к.м. ($M^c$)} Если $X \in W^c$, то
@@ -216,15 +230,15 @@ $[X]_L \subseteq X$, но верно, что $[X]_L \cap \Phi \subseteq X$. Бо
 }
 
 \frame{\frametitle{Схема доказательства}
-\begin{block}{Теорема о корректности и полноте исчисления $S5C$}
+\begin{block}{Теорема о корректности и полноте исчисления $S5_{m}C$}
 \begin{center}
-$\forall \varphi \in \ELC \;  \models_{S5} \varphi \iff \vdash_{S5C} \varphi$
+$\forall \varphi \in \ELC \;  \models_{S5} \varphi \iff \vdash_{S5_{m}C} \varphi$
 \end{center}
 \begin{proof}
-($\Leftarrow$) Корректность. Проверка общезначимости аксиом и правил вывода исчисления $S5C$ (Упражнение) \\
+($\Leftarrow$) Корректность. Проверка общезначимости аксиом и правил вывода исчисления $S5_{m}C$ (Упражнение) \\
 ($\Rightarrow)$ Полнота. 
 \begin{center}
-$\not \vdash_{S5C} \varphi \Rightarrow  \neg \varphi \not   \vdash_{S5C} \bot \Rightarrow \{\neg \varphi\}\subset X \in W^\Phi \Rightarrow M^\Phi, X \models \neg \varphi \Rightarrow (M^\Phi \in S5 \Rightarrow \; \not \models_{S5} \varphi )$ 
+$\not \vdash_{S5_{m}C} \varphi \Rightarrow  \neg \varphi \not   \vdash_{S5_{m}C} \bot \Rightarrow \{\neg \varphi\}\subset X \in W^\Phi \Rightarrow M^\Phi, X \models \neg \varphi \Rightarrow (M^\Phi \in S5 \Rightarrow \; \not \models_{S5} \varphi )$ 
 \end{center}
 Нужно доказать: 
 \begin{itemize}

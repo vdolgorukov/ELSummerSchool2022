@@ -7,22 +7,39 @@
 
 \frame{\frametitle{Язык}
 
-\begin{exampleblock}{Язык $\PAL$}
+\begin{block}{Язык $\PAL$}
 \centering
 $\varphi, \psi::= p \mid \neg \varphi  \mid (\varphi \wedge \psi) \mid K_i \varphi \mid [!\varphi]\psi$	
-\end{exampleblock}
+\end{block}
 }
 
 \frame{\frametitle{Семантика языка $\PAL$}
+
+\begin{block}{Определение}
+$M, w \models [! \varphi]\psi$  е.т.е.  $M, w \models \varphi  \Rightarrow M^{!\varphi}, w \models \psi$	
+\end{block}
+
+\begin{block}{Определение}
+Если $M =(W, \{ \sim_i \}_{i\in Ag}, V)$ – модель эпистемической логики, то  $M^{!\varphi} =(W^{!\varphi},\{ \sim^{!\varphi}_i \}_{i\in Ag}, V^{!\varphi})$ – обновленная модель относительно $!\varphi$, где  	
+\begin{itemize}
+\item $W^{!\varphi} = \{w \in W \mid M, w \models \varphi \}$
+\item $\sim^{!\varphi}_i = \; \sim_i \cap \; (W^{!\varphi} \times W^{!\varphi}) $
+\item $V^{!\varphi}(p) = V(p) \cap \; W^{!\varphi} $
+\end{itemize}
+
+\end{block}
+
 }
 
-\frame{\frametitle{Некоторые законы $\PAL$}
-}
+
+%\frame{\frametitle{Некоторые законы $\PAL$}
+%}
 
 \frame{\frametitle{Исчисление $PAL$ ($S5_m[]$)}
+\begin{block}{}
 Аксиомные схемы:
 \begin{itemize}
-\item $S5$
+\item Аксиомные схемы $S5_m$
 \item $[!\varphi]p \leftrightarrow (\varphi \to p)$	
 \item $[!\varphi]\neg \psi  \leftrightarrow (\varphi \to \neg [!\varphi]\psi)$
 \item $[!\varphi](\psi \wedge \chi) \leftrightarrow ([!\varphi]\psi \wedge [!\varphi]\chi) $
@@ -30,15 +47,35 @@ $\varphi, \psi::= p \mid \neg \varphi  \mid (\varphi \wedge \psi) \mid K_i \varp
 \end{itemize}
 Правила вывода:
 $MP$, $NEC$, $RE!$
+\end{block}
+
 }
 
 
+\frame{\frametitle{Исчисление $PAL'$ ($S5_m[]'$)}
+\begin{block}{}
+Аксиомные схемы:
+\begin{itemize}
+\item Аксиомные схемы $S5_m$
+\item $[!\varphi]p \leftrightarrow (\varphi \to p)$	
+\item $[!\varphi]\neg \psi  \leftrightarrow (\varphi \to \neg [!\varphi]\psi)$
+\item $[!\varphi](\psi \wedge \chi) \leftrightarrow ([!\varphi]\psi \wedge [!\varphi]\chi) $
+\item $[!\varphi]K_i \psi \leftrightarrow (\varphi \to K_i [!\varphi] \psi)$
+\item $[!\varphi][!\psi]\chi \leftrightarrow [!(\varphi \wedge [!\varphi]\psi )]\chi$
+\end{itemize}
+Правила вывода:
+$MP$, $NEC$
+\end{block}
+
+}
+
 \frame{\frametitle{Корректность $PAL$}
-$\models [!\varphi]p \leftrightarrow (\varphi \to p)$
-\begin{enumerate}
-\item $M, x \models [!\varphi]p $
-\item $M, x \models \varphi \Rightarrow M^{!\varphi}, x \models p$	
-\end{enumerate}
+Упражнение
+%$\models [!\varphi]p \leftrightarrow (\varphi \to p)$
+%\begin{enumerate}
+%\item $M, x \models [!\varphi]p $
+%\item $M, x \models \varphi \Rightarrow M^{!\varphi}, x \models p$	
+%\end{enumerate}
 
 
 }
@@ -49,7 +86,7 @@ $\models [!\varphi]p \leftrightarrow (\varphi \to p)$
 \item[$\PAL$] $\varphi, \psi::= p \mid \neg \varphi  \mid (\varphi \wedge \psi) \mid K_i \varphi \mid [!\varphi]\psi$
 \end{description}
 \centering
-\begin{block}{Утверждение} $\EL \equiv \PAL $
+\begin{block}{Утверждение} $\EL$ и $\PAL$ совпадают по выразительность ($\EL \equiv \PAL $).
 \end{block}
 
 }
@@ -197,26 +234,26 @@ $
 \end{block}
 }
 
-\frame{\frametitle{Лаконичность}
-\begin{block}{}
-$K_i \top$
-\end{block}
-}
-
-\frame{\frametitle{Другие варианты аксиоматизации $PAL$}
-$PAL_1$, $PAL_2$,$PAL_3$, 
-Подробнее Wang
-}
+%\frame{\frametitle{Лаконичность}
+%\begin{block}{}
+%$K_i \top$
+%\end{block}
+%}
+%
+%\frame{\frametitle{Другие варианты аксиоматизации $PAL$}
+%$PAL_1$, $PAL_2$,$PAL_3$, 
+%Подробнее Wang
+%}
 
 \frame{\frametitle{Дедуктивная эквивалентность}
 
-\myprop{$\vdash_{PAL_1} \varphi  \Leftrightarrow \; \vdash_{PAL_2} \varphi$}
+\myprop{$\vdash_{PAL} \varphi  \Leftrightarrow \; \vdash_{PAL'} \varphi$}
 В силу теоремы о полноте.
 
 
 
 
-\begin{block}{Вопрос: Как доказать дедуктивную эквивалентность $PAL_1$ и $PAL_2$ непосредственно?}
+\begin{block}{Вопрос: Как доказать дедуктивную эквивалентность $PAL$ и $PAL'$ непосредственно?}
 Задача сводится к том, чтобы вывести $COM!$ в $PAL_1$ и $RE!$ в $PAL_2$. Как это сделать? Гипотеза: индукцией по $c(\varphi)$.
 \end{block}
 
